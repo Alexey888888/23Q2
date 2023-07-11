@@ -1,0 +1,133 @@
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+button {
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+}
+
+img {
+  vertical-align: top;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.header__wrapper {
+  background: #0c0c0e;
+  color: #ffffff;
+  padding: 20px 20px 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  line-height: 50px;
+}
+
+.header__title {
+  width: 45%;
+}
+
+.header__subwrapper {
+  width: 100%;
+  display: flex;
+}
+
+.header__title {
+  font-family: "Forum", sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+.menu {
+  width: 100%;
+}
+
+.menu__list {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30px;
+  margin-right: 42px;
+}
+
+.header__img {
+  margin-top: 11px;
+}
+
+.welcome__wrapper {
+  background: url("../../img/jpeg/85c1859f825ed82614b2036bc8be037f.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+.welcome__inner {
+  position: relative;
+  display: inline-block;
+  max-width: 600px;
+  height: 220px;
+  margin: 220px 0 159px 0;
+  color: #ffffff;
+  text-transform: uppercase;
+  background: #0c0c0e;
+  z-index: 2;
+}
+
+.welcome__title {
+  margin: 35px 40px;
+  max-width: 520px;
+  height: 150px;
+  text-align: center;
+  text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  font-family: "Forum", sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.welcome__title span {
+  display: block;
+  margin-left: -9px;
+  margin-top: -1px;
+}
+
+.welcome__overlay {
+  position: absolute;
+  z-index: 1;
+  content: "";
+  width: 1440px;
+  height: 300px;
+  border: 1px solid #000;
+  background: linear-gradient(180deg, #0c0c0e 0%, #0c0c0e 0.01%, rgba(18, 18, 21, 0.1) 100%);
+}
