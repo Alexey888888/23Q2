@@ -3,13 +3,10 @@
   background-position: center;
   //background-repeat: no-repeat;
   background-size: cover;
-}
-
-.welcome__wrapper {
+  position: relative;
 }
 
 .welcome__inner {
-  position: relative;
   display: inline-block;
 
   max-width: 600px;
@@ -18,7 +15,7 @@
   color: #ffffff;
   text-transform: uppercase;
   background: #0c0c0e;
-  z-index: 2;
+  //z-index: 2;
 }
 
 .welcome__title {
@@ -44,11 +41,11 @@
 
 .welcome__overlay {
   position: absolute;
-  z-index: 1;
+
   content: '';
-  width: 1440px;
+  width: 100%;
   height: 300px;
-  border: 1px solid #000;
+
   background: linear-gradient(
     180deg,
     #0c0c0e 0%,

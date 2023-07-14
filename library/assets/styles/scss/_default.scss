@@ -40,3 +40,28 @@ img {
   max-width: 1440px;
   margin: 0 auto;
 }
+
+.section__title {
+  color: #0c0c0e;
+  font-family: 'Forum', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.section__title {
+  position: relative;
+}
+
+.section__title:after {
+  position: absolute;
+  right: 27%;
+  top: 50%;
+  content: '\1\1\1\1';
+  border-bottom: solid #0c0c0e 1px;
+}
