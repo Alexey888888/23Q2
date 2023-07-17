@@ -1,0 +1,83 @@
+.coffee__wrapper {
+  padding: 0 20px;
+}
+
+.coffee__wrapper .section__title::after {
+  right: 38%;
+}
+
+.coffee__text {
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.coffee__drink,
+.coffee__deserts {
+  width: 438px;
+}
+
+.coffee__price {
+  margin-top: 42px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.price__title {
+  color: #bb945f;
+  font-family: 'Forum', sans-serif;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.price__item {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin-top: 40px;
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+}
+
+.price__line {
+  display: inline-block;
+  content: '';
+  width: 100px;
+  height: 1px;
+  background: #bb945f;
+  position: absolute;
+  top: 50%;
+  left: 258px;
+}
+
+.price__price {
+  font-family: 'Forum', sans-serif;
+}
+
+.coffee__deserts {
+  width: 482px;
+  text-align: right;
+}
+
+.right-column {
+  width: 233px;
+}
+
+.coffee__deserts .price__line {
+  left: 291px;
+}

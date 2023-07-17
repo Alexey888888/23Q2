@@ -1,5 +1,9 @@
-.favorites__wrapper .section__title:after {
+.favorites__wrapper .section__title::after {
   right: 35%;
+}
+
+.favorites__wrapper {
+  margin-bottom: 40px;
 }
 
 .favorites-title__wrapper {
@@ -146,7 +150,8 @@
 .favorites__btn {
   font-family: 'Inter', sans-serif;
   padding: 9px 26px 7px;
-  border: solid 1px black;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
   background: white;
   color: #0c0c0e;
   text-align: center;
@@ -155,7 +160,24 @@
   font-weight: 700;
   line-height: normal;
   letter-spacing: 1px;
-  //margin: 15px 0;
   position: absolute;
   top: 510px;
+  transition: all 0.5s;
+}
+
+.favorites__btn:hover {
+  border: 1px solid #bb945f;
+  background: #bb945f;
+  transition: all 0.5s;
+}
+
+.own {
+  border: 1px solid #bb945f;
+  color: #bb945f;
+  width: 75px;
+  cursor: auto;
+}
+
+.own:hover {
+  background: white;
 }
