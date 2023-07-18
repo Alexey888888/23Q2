@@ -1,5 +1,5 @@
 .libraryCard__wrapper {
-  margin: 0 20px 40px;
+  margin: 0 20px 41.5px;
 }
 
 .libraryCard__wrapper .section__title::after {
@@ -89,6 +89,7 @@ input {
   width: 242px;
   position: relative;
   right: 3px;
+  transition: all 0.5s;
 }
 .libraryCard__inner {
   display: flex;
@@ -137,4 +138,12 @@ input {
   border-radius: 2px;
   border: 1px solid #0c0c0e;
   background: #fff;
+  transition: all 0.5s;
+}
+
+.library__btn:hover,
+.form__btn:hover {
+  background: #bb945f;
+  border: 1px solid #bb945f;
+  transition: all 0.5s;
 }
