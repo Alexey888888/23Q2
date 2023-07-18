@@ -1,0 +1,3 @@
+.libraryCard__wrapper .section__title::after {
+  right: calc(50% - 25px);
+}

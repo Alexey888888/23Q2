@@ -1,0 +1,140 @@
+.libraryCard__wrapper {
+  margin: 0 20px 40px;
+}
+
+.libraryCard__wrapper .section__title::after {
+  right: calc(50% - 25px);
+}
+
+.libraryCard__title-left {
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  margin-left: 138px;
+  margin-top: 2px;
+}
+
+.form__wrapper {
+  border: solid 3px #bb945f;
+  width: 600px;
+  margin-top: 30px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.libraryCard__form {
+  display: flex;
+  flex-direction: column;
+
+  margin: 18px;
+  margin-bottom: 0;
+  background: #bb945f;
+  padding: 20px 20px 25px;
+}
+
+.input__row {
+  height: 66px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.input__row-bottom {
+  border-radius: 10px;
+  margin-top: 25px;
+  height: 66px;
+}
+
+.form__title {
+  color: #000;
+  font-family: 'Forum', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
+input {
+  font-family: 'Forum', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+  padding-left: 20px;
+}
+
+.input__row-bottom::placeholder,
+.input__row::placeholder {
+  color: #8e8e8e;
+}
+
+.form__btn {
+  margin: 20px 179px 25px;
+  padding: 10px 40px;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  background: #fff;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  width: 242px;
+  position: relative;
+  right: 3px;
+}
+.libraryCard__inner {
+  display: flex;
+  justify-content: space-between;
+}
+
+.libraryCard__inner_right {
+  width: 456px;
+  text-align: right;
+}
+
+.libraryCard__title-right {
+  color: #000;
+  font-family: 'Forum', sans-serif;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.6px;
+  margin-bottom: 35px;
+}
+
+.libraryCard__text {
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 0.4px;
+  margin-bottom: 30px;
+}
+
+.library__btn {
+  margin-left: 15px;
+  padding: 10px 0 8px;
+  width: 75px;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  background: #fff;
+}

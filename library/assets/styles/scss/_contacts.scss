@@ -1,0 +1,30 @@
+.contacts__wrapper .section__title::after {
+  right: calc(50% - 25px);
+}
+
+.contacts__inner {
+  padding: 0 20px 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts__text,
+.contacts__text-strong {
+  color: #000;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 40px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.contacts__text-strong {
+  font-weight: 700;
+}
+
+.contacts__phones {
+  margin: 40px 0;
+}
