@@ -23,12 +23,14 @@ a {
   color: inherit;
 }
 
+html,
 body {
   font-family: "Inter", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 40px;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -37,7 +39,7 @@ img {
 }
 
 .container {
-  width: 1440px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -64,6 +66,10 @@ img {
   top: 50%;
   content: "\1\1\1\1";
   border-bottom: solid #0c0c0e 1px;
+}
+
+.header {
+  background: #0c0c0e;
 }
 
 .header__wrapper {
@@ -112,7 +118,11 @@ img {
   border-bottom: solid 2px #ffffff;
 }
 
-.welcome__wrapper {
+.header__icon {
+  cursor: pointer;
+}
+
+.welcome {
   background: url("../../img/jpeg/85c1859f825ed82614b2036bc8be037f.jpg");
   background-position: center;
   background-size: cover;
@@ -651,6 +661,10 @@ input {
   background: #bb945f;
   border: 1px solid #bb945f;
   transition: all 0.5s;
+}
+
+.footer {
+  background: #0c0c0e;
 }
 
 .footer__wrapper {

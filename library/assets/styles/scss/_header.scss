@@ -1,3 +1,7 @@
+.header {
+  background: #0c0c0e;
+}
+
 .header__wrapper {
   background: #0c0c0e;
   color: #ffffff;
@@ -42,4 +46,8 @@
 
 .menu__link:hover {
   border-bottom: solid 2px #ffffff;
+}
+
+.header__icon {
+  cursor: pointer;
 }

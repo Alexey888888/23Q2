@@ -23,12 +23,14 @@ a {
   color: inherit;
 }
 
+html,
 body {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 400;
   line-height: 40px;
+  scroll-behavior: smooth;
 }
 
 img {
@@ -37,8 +39,8 @@ img {
 }
 
 .container {
-  //max-width: 1440px;
-  width: 1440px;
+  max-width: 1440px;
+  //width: 1440px;
   margin: 0 auto;
 }
 
