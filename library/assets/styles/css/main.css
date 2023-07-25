@@ -760,7 +760,7 @@ input {
   filter: invert(50%) sepia(100%);
 }
 
-.footer__icons a {
+.icon__item a {
   transition: all 0.5s;
 }
 
