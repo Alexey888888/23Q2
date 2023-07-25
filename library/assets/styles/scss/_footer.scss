@@ -72,10 +72,10 @@
   filter: invert(50%) sepia(100%);
 }
 
-.footer__icons > a {
+.footer__icons a {
   transition: all 0.5s;
 }
 
-.footer__icons > a:hover {
+.icon__item a:hover {
   filter: invert(50%) sepia(100%);
 }
