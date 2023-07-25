@@ -44,10 +44,33 @@
   margin-top: 11px;
 }
 
-.menu__link:hover {
-  border-bottom: solid 2px #ffffff;
+.menu__link {
+  position: relative;
+}
+
+.menu__link::after {
+  position: absolute;
+  content: '';
+  left: 0;
+  top: 110%;
+  display: block;
+  height: 1.5px;
+  background: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: 0.3s;
+  width: 0;
+}
+
+.menu__link:hover:after {
+  width: 100%;
 }
 
 .header__icon {
   cursor: pointer;
+  transition: all 0.5s;
+}
+
+.header__icon:hover {
+  filter: invert(50%) sepia(100%);
 }

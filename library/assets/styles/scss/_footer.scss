@@ -55,3 +55,27 @@
   line-height: 40px;
   letter-spacing: 2px;
 }
+
+.footer__text {
+  transition: all 0.5s;
+}
+
+.footer__text:hover {
+  filter: invert(50%) sepia(100%);
+}
+
+.footer__bottom > a {
+  transition: all 0.5s;
+}
+
+.footer__bottom > a:hover {
+  filter: invert(50%) sepia(100%);
+}
+
+.footer__icons > a {
+  transition: all 0.5s;
+}
+
+.footer__icons > a:hover {
+  filter: invert(50%) sepia(100%);
+}
