@@ -69,7 +69,7 @@ img {
 }
 
 .header {
-  background: #0c0c0e;
+  background: #ffffff;
 }
 
 .header__wrapper {
@@ -145,7 +145,7 @@ img {
   filter: invert(50%) sepia(100%);
 }
 
-.welcome {
+.welcome__wrapper {
   background: url("../../img/jpeg/85c1859f825ed82614b2036bc8be037f.jpg");
   background-position: center;
   background-size: cover;
@@ -687,7 +687,7 @@ input {
 }
 
 .footer {
-  background: #0c0c0e;
+  background: #ffffff;
 }
 
 .footer__wrapper {
@@ -721,8 +721,8 @@ input {
 }
 
 .footer__icons {
-  margin-top: 18px;
-  margin-bottom: 37px;
+  margin-top: 16px;
+  margin-bottom: 23px;
   width: 102px;
   display: flex;
   justify-content: space-between;
@@ -766,4 +766,9 @@ input {
 
 .icon__item a:hover {
   filter: invert(50%) sepia(100%);
+}
+
+.footer__bottom > p + a {
+  position: relative;
+  left: 52px;
 }
