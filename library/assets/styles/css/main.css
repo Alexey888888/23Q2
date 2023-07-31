@@ -68,6 +68,10 @@ img {
   border-bottom: solid #0c0c0e 1px;
 }
 
+.none {
+  display: none;
+}
+
 .header {
   background: #ffffff;
 }
