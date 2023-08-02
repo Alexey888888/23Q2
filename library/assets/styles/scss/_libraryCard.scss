@@ -96,21 +96,21 @@ input {
   justify-content: space-between;
 }
 
-// @media (max-width: 1140px) {
-//   .libraryCard__inner_right {
-//     margin-left: 20px;
-//   }
-// }
+@media (max-width: 1140px) {
+  .libraryCard__inner_right {
+    margin-left: 20px;
+  }
+}
 
-// @media (max-width: 1024px) {
-//   .libraryCard__inner {
-//     flex-direction: column;
-//   }
+@media (max-width: 1024px) {
+  .libraryCard__inner {
+    flex-direction: column;
+  }
 
-//   .libraryCard__inner_right {
-//     margin-left: 0;
-//   }
-// }
+  .libraryCard__inner_right {
+    margin-left: 0;
+  }
+}
 
 .libraryCard__inner_right {
   width: 456px;
