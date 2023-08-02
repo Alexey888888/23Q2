@@ -27,6 +27,7 @@
   cursor: pointer;
 }
 
+
 .slider__button::before {
   position: absolute;
   content: '';
@@ -36,6 +37,12 @@
   background: #0c0c0e;
   top: 5px;
   right: 5px;
+  transition: all 0.4s;
+}
+
+.slider__button:hover:before {
+  background: #bb945f;
+  transition: all 0.4s;
 }
 
 .slider-btn-active::before {
