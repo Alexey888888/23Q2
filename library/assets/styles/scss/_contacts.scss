@@ -28,3 +28,18 @@
 .contacts__phones {
   margin: 40px 0;
 }
+
+.tel,
+.mail {
+  transition: all 0.4s;
+}
+
+.tel:hover {
+  color: #8E8E8E;
+  transition: all 0.4s;
+}
+
+.mail:hover {
+  color: #8E8E8E;
+  transition: all 0.4s;
+}

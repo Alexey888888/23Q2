@@ -32,7 +32,15 @@
 .season-label {
   padding: 5px 5px 5px 15px;
   cursor: pointer;
+  transition: all 0.4s;
 }
+
+.season-label:hover {
+  color: #8E8E8E;
+  transition: all 0.4s;
+}
+
+
 
 .input-circle {
   cursor: pointer;
@@ -59,6 +67,12 @@
   border: solid 2px #000000;
   left: -38px;
   top: 6px;
+  transition: all 0.4s;
+}
+
+.season-label:hover > .input__text::before {
+  border-color: #8E8E8E;
+  transition: all 0.4s;
 }
 
 .input__text::after {
@@ -72,6 +86,12 @@
   left: -33px;
   top: 11px;
   opacity: 0;
+  transition: all 0.4s;
+}
+
+.season-label:hover > .input__text::after {
+  background: #8E8E8E;
+  transition: all 0.4s;
 }
 
 .input-circle:checked + .input__text::after {
