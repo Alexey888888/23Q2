@@ -1035,3 +1035,8 @@ input {
     bottom: 1px;
   }
 }
+@media (max-width: 760px) {
+  .footer__bottom > p + a {
+    position: static;
+  }
+}
