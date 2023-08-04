@@ -84,3 +84,12 @@
   position: relative;
   left: 52px;
 }
+
+@media (max-width:780px) {
+
+  .footer__bottom > p + a {
+   left: 25px;
+   bottom: 1px;
+  }
+
+}
