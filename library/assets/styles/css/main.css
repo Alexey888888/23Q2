@@ -185,7 +185,7 @@ img {
     margin-top: -20px;
     width: 332px;
     height: 570px;
-    background: #000000;
+    background: #0c0c0e;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -384,7 +384,7 @@ img {
   }
   .slider__swap-left:hover svg path,
   .slider__swap-right:hover svg path {
-    stroke: #8E8E8E;
+    stroke: #8e8e8e;
     transition: all 0.5s;
   }
 }
