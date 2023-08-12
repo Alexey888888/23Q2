@@ -13,9 +13,9 @@
 
 @media (max-width: 1024px) {
   .about__text {
-  padding: 0 20px;
-   text-align: center;
-   max-width: 728px;
+    padding: 0 20px;
+    text-align: center;
+    max-width: 728px;
   }
 }
 
@@ -34,7 +34,6 @@
 
   cursor: pointer;
 }
-
 
 .slider__button::before {
   position: absolute;
@@ -63,17 +62,51 @@
 }
 
 @media (max-width: 800px) {
-  .slider__card:nth-child(2),
-  .slider__card:nth-child(3) {
+  .slider__card:nth-child(3),
+  .slider__card:nth-child(4) {
     display: none;
   }
 
- .slider__button:nth-child(4),
- .slider__button:nth-child(5) {
-  display: block;
+  .slider__button:nth-child(4),
+  .slider__button:nth-child(5) {
+    display: block;
+  }
+
+  .slider-btn__wrapper {
+    margin-top: 20px;
+    //margin-top: 35px;
+  }
 }
 
-.slider-btn__wrapper {
-  margin-top: 20px;
+.slider__swap-left,
+.slider__swap-right {
+  width: 24px;
+  height: 24px;
+  display: none;
 }
+
+@media (max-width: 800px) {
+  .slider__wrapper {
+    gap: 58px;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .slider__swap-left,
+  .slider__swap-right {
+    display: block;
+    cursor: pointer;
+    margin-top: 40px;
+  }
+
+  .slider__swap-left svg path,
+  .slider__swap-right svg path {
+    transition: all 0.5s;
+  }
+
+  .slider__swap-left:hover svg path,
+  .slider__swap-right:hover svg path {
+    stroke: #8e8e8e;
+    transition: all 0.5s;
+  }
 }
