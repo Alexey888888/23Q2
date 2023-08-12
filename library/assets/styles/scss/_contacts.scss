@@ -8,6 +8,17 @@
   justify-content: space-between;
 }
 
+@media (max-width:1240px) {
+  .contacts__inner {
+    flex-direction: column;
+    row-gap: 80px;
+   }
+
+.contacts__right {
+  align-self: center;
+}   
+}
+
 .contacts__text,
 .contacts__text-strong {
   color: #000;

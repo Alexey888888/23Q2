@@ -6,7 +6,7 @@ const burgerOverflow = document.querySelector('.burger-overflow');
 
 
 
-const clickHandler = (event) => {
+const clickHandler = () => {
     menu.classList.toggle('menu-active');
     document.querySelector('.burger').classList.toggle('burger-active');
     document.querySelector('body').classList.toggle('scroll-lock');
@@ -14,7 +14,11 @@ const clickHandler = (event) => {
 
 burger.addEventListener('click', clickHandler);
 
-menuLink.forEach((item) => item.addEventListener('click', clickHandler));
+menuLink.forEach((item) => item.addEventListener('click', () => {
+    if (burger.classList.contains('burger-active')) {
+        clickHandler();
+    }
+}));
 
 
 

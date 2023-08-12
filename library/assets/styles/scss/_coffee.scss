@@ -17,6 +17,20 @@
   text-align: center;
 }
 
+@media (max-width:769px) {
+  .coffee__text {
+    width: 729px;
+    padding: 0;
+  }
+}
+
+@media (max-width:766px) {
+  .coffee__text {
+    max-width: 100%;
+   
+  }
+}
+
 .coffee__drink,
 .coffee__deserts {
   width: 438px;
@@ -87,6 +101,7 @@
 .coffee__price {
   flex-direction: column;
   align-items: end;
+  row-gap: 40px;
 
   }
 
