@@ -419,6 +419,11 @@ img {
   margin-left: -5px;
 }
 
+@media (max-width: 760px) {
+  .input__wrapper {
+    gap: 35px;
+  }
+}
 .season-label {
   padding: 5px 5px 5px 15px;
   cursor: pointer;
@@ -426,7 +431,7 @@ img {
 }
 
 .season-label:hover {
-  color: #8E8E8E;
+  color: #8e8e8e;
   transition: all 0.4s;
 }
 
@@ -459,7 +464,7 @@ img {
 }
 
 .season-label:hover > .input__text::before {
-  border-color: #8E8E8E;
+  border-color: #8e8e8e;
   transition: all 0.4s;
 }
 
@@ -477,7 +482,7 @@ img {
 }
 
 .season-label:hover > .input__text::after {
-  background: #8E8E8E;
+  background: #8e8e8e;
   transition: all 0.4s;
 }
 
