@@ -928,3 +928,41 @@ document.querySelector('.slider__swap-left').addEventListener('click', () => {
 
   //
 });
+
+function resize() {
+  pos = 0;
+  buttons.forEach((btn) => {
+    btn.classList.remove('slider-btn-active', 'pointer-default');
+  });
+  document
+    .querySelector('.slider__swap-right')
+    .classList.remove('pointer-default', 'arrow-opacity');
+  document
+    .querySelector('.slider__swap-left')
+    .classList.remove('pointer-active', 'arrow-opacity-active');
+  buttons[0].classList.add('slider-btn-active', 'pointer-default');
+  sausage.classList.remove(
+    'stepLeft_1',
+    'stepLeft_2',
+    'stepLeft_3',
+    'stepLeft_4',
+    'stepLeft_5',
+    'stepLeft_6',
+    'stepLeft_7',
+    'stepLeft_8',
+    'stepLeft_9',
+    'stepLeft_10',
+    'stepRight_1',
+    'stepRight_2',
+    'stepRight_3',
+    'stepRight_4',
+    'stepRight_5',
+    'stepRight_6',
+    'stepRight_7',
+    'stepRight_8',
+    'stepRight_9',
+    'stepRight_10'
+  );
+}
+
+window.addEventListener('resize', resize);
