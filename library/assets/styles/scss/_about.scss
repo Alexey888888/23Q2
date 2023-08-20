@@ -1,14 +1,28 @@
 .about__wrapper {
-  //margin-top: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .slider__wrapper {
+  display: flex;
+}
+
+.visiblePart {
   padding: 20px 20px 0;
+  max-width: 1440px;
+  overflow: hidden;
+}
+
+.sausage {
   display: flex;
   gap: 25px;
+
+  position: relative;
+}
+
+.slider__card {
+  min-width: 450px;
 }
 
 @media (max-width: 1024px) {
@@ -61,11 +75,21 @@
   display: none;
 }
 
-@media (max-width: 800px) {
-  .slider__card:nth-child(3),
-  .slider__card:nth-child(4) {
-    display: none;
+@media (max-width: 1438px) {
+  // .slider__card:nth-child(2),
+  // .slider__card:nth-child(3),
+  // .slider__card:nth-child(4),
+  // .slider__card:nth-child(5) {
+  //   display: none;
+  // }
+
+  //--
+  .visiblePart {
+    position: relative;
+    left: -10px;
+    max-width: 470px;
   }
+  //--
 
   .slider__button:nth-child(4),
   .slider__button:nth-child(5) {
@@ -85,18 +109,23 @@
   display: none;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1438px) {
   .slider__wrapper {
-    gap: 58px;
+    gap: 48px;
     align-items: center;
     justify-content: space-around;
   }
 
-  .slider__swap-left,
+  .slider__swap-left {
+    display: block;
+    margin-top: 55px;
+    opacity: 0.3;
+  }
+
   .slider__swap-right {
     display: block;
     cursor: pointer;
-    margin-top: 40px;
+    margin-top: 55px;
   }
 
   .slider__swap-left svg path,
@@ -104,9 +133,428 @@
     transition: all 0.5s;
   }
 
-  .slider__swap-left:hover svg path,
-  .slider__swap-right:hover svg path {
-    stroke: #8e8e8e;
+  .slider__swap-left:hover,
+  .slider__swap-right:hover {
+    opacity: 0.3;
     transition: all 0.5s;
   }
+}
+
+:root {
+  --duration: 0.3s;
+}
+
+@keyframes move-left-1 {
+  from {
+    left: 0;
+  }
+  to {
+    left: -475px;
+  }
+}
+
+.transition-left-1 {
+  animation-name: move-left-1;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_1 {
+  left: -475px;
+}
+
+//----------
+
+@keyframes move-left-2 {
+  from {
+    left: -475px;
+  }
+  to {
+    left: -950px;
+  }
+}
+
+.transition-left-2 {
+  animation-name: move-left-2;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_2 {
+  left: -950px;
+}
+
+//----------
+
+@keyframes move-left-3 {
+  from {
+    left: -950px;
+  }
+  to {
+    left: -1425px;
+  }
+}
+
+.transition-left-3 {
+  animation-name: move-left-3;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_3 {
+  left: -1425px;
+}
+
+//----------
+
+@keyframes move-left-4 {
+  from {
+    left: -1425px;
+  }
+  to {
+    left: -1900px;
+  }
+}
+
+.transition-left-4 {
+  animation-name: move-left-4;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_4 {
+  left: -1900px;
+}
+
+//----------
+
+@keyframes move-left-5 {
+  from {
+    left: 0;
+  }
+  to {
+    left: -950px;
+  }
+}
+
+.transition-left-5 {
+  animation-name: move-left-5;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_5 {
+  left: -950px;
+}
+
+//----------
+
+@keyframes move-left-6 {
+  from {
+    left: 0;
+  }
+  to {
+    left: -1425px;
+  }
+}
+
+.transition-left-6 {
+  animation-name: move-left-6;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_6 {
+  left: -1425px;
+}
+
+//----------
+
+@keyframes move-left-7 {
+  from {
+    left: 0;
+  }
+  to {
+    left: -1900px;
+  }
+}
+
+.transition-left-7 {
+  animation-name: move-left-7;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_7 {
+  left: -1900px;
+}
+
+//----------
+
+@keyframes move-left-8 {
+  from {
+    left: -475px;
+  }
+  to {
+    left: -1425px;
+  }
+}
+
+.transition-left-8 {
+  animation-name: move-left-8;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_8 {
+  left: -1425px;
+}
+
+//----------
+
+@keyframes move-left-9 {
+  from {
+    left: -475px;
+  }
+  to {
+    left: -1900px;
+  }
+}
+
+.transition-left-9 {
+  animation-name: move-left-9;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_9 {
+  left: -1900px;
+}
+
+//----------
+
+@keyframes move-left-10 {
+  from {
+    left: -950px;
+  }
+  to {
+    left: -1900px;
+  }
+}
+
+.transition-left-10 {
+  animation-name: move-left-10;
+  animation-duration: var(--duration);
+}
+
+.stepLeft_10 {
+  left: -1900px;
+}
+
+//----------
+
+@keyframes move-right-1 {
+  from {
+    left: -1900px;
+  }
+  to {
+    left: -1425px;
+  }
+}
+
+.transition-right-1 {
+  animation-name: move-right-1;
+  animation-duration: var(--duration);
+}
+
+.stepRight_1 {
+  left: -1425px;
+}
+
+//----------
+
+@keyframes move-right-2 {
+  from {
+    left: -1425px;
+  }
+  to {
+    left: -950px;
+  }
+}
+
+.transition-right-2 {
+  animation-name: move-right-2;
+  animation-duration: var(--duration);
+}
+
+.stepRight_2 {
+  left: -950px;
+}
+
+//----------
+
+@keyframes move-right-3 {
+  from {
+    left: -950px;
+  }
+  to {
+    left: -475px;
+  }
+}
+
+.transition-right-3 {
+  animation-name: move-right-3;
+  animation-duration: var(--duration);
+}
+
+.stepRight_3 {
+  left: -475px;
+}
+
+//----------
+
+@keyframes move-right-4 {
+  from {
+    left: -475px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.transition-right-4 {
+  animation-name: move-right-4;
+  animation-duration: var(--duration);
+}
+
+.stepRight_4 {
+  left: 0;
+}
+
+//----------
+
+@keyframes move-right-5 {
+  from {
+    left: -1900px;
+  }
+  to {
+    left: -950px;
+  }
+}
+
+.transition-right-5 {
+  animation-name: move-right-5;
+  animation-duration: var(--duration);
+}
+
+.stepRight_5 {
+  left: -950px;
+}
+
+//----------
+
+@keyframes move-right-6 {
+  from {
+    left: -1900px;
+  }
+  to {
+    left: -475px;
+  }
+}
+
+.transition-right-6 {
+  animation-name: move-right-6;
+  animation-duration: var(--duration);
+}
+
+.stepRight_6 {
+  left: -475px;
+}
+
+//----------
+
+@keyframes move-right-7 {
+  from {
+    left: -1900px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.transition-right-7 {
+  animation-name: move-right-7;
+  animation-duration: var(--duration);
+}
+
+.stepRight_7 {
+  left: 0;
+}
+
+//----------
+
+@keyframes move-right-8 {
+  from {
+    left: -1425px;
+  }
+  to {
+    left: -475px;
+  }
+}
+
+.transition-right-8 {
+  animation-name: move-right-8;
+  animation-duration: var(--duration);
+}
+
+.stepRight_8 {
+  left: -475px;
+}
+
+//----------
+
+@keyframes move-right-9 {
+  from {
+    left: -1425px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.transition-right-9 {
+  animation-name: move-right-9;
+  animation-duration: var(--duration);
+}
+
+.stepRight_9 {
+  left: 0;
+}
+
+//----------
+
+@keyframes move-right-10 {
+  from {
+    left: -950px;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.transition-right-10 {
+  animation-name: move-right-10;
+  animation-duration: var(--duration);
+}
+
+.stepRight_10 {
+  left: 0;
+}
+
+//----------
+.pointer-default {
+  cursor: default;
+}
+
+.arrow-opacity {
+  opacity: 0.3;
+}
+
+.pointer-active {
+  cursor: pointer;
+}
+
+.arrow-opacity-active {
+  opacity: 1;
 }

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@400;700&display=swap"
-      rel="stylesheet">
-    <link rel="stylesheet" href="./assets/styles/css/main.css">
-    <link rel="icon" href="../library/assets/icons/favicon.ico">
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/styles/css/main.css" />
+    <link rel="icon" href="../library/assets/icons/favicon.ico" />
     <title>Brooklyn Public Library</title>
   </head>
   <body>
@@ -40,10 +41,11 @@
                 </ul>
               </nav>
               <div class="header__img">
-                <img  
-                class="header__icon"
-                src="../library/assets/icons/icon_profile.svg"
-                alt="icon-profile">
+                <img
+                  class="header__icon"
+                  src="../library/assets/icons/icon_profile.svg"
+                  alt="icon-profile"
+                />
               </div>
               <div class="burger"><span></span><span></span><span></span></div>
             </div>
@@ -77,48 +79,78 @@
               <!-- SLIDER START -->
               <div class="slider__wrapper">
                 <div class="slider__swap-left">
-                  <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M15 7.5L9 12.5L15 17.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                  <svg
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M15 7.5L9 12.5L15 17.5"
+                      stroke="black"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </div>
-                <div class="slider__card">
-                  <img
-                    src="../library/assets/img/jpeg/image_1.jpg"
-                    alt="library"
-                    class="slider__img">
-                </div>
-                <div class="slider__card">
-                  <img
-                    src="../library/assets/img/jpeg/image_2.jpg"
-                    alt="library"
-                    class="slider__img">
-                </div>
-                <div class="slider__card">
-                  <img
-                    src="../library/assets/img/jpeg/image_3.jpg"
-                    alt="library"
-                    class="slider__img">
-                </div>
-                <!-- NONE -->
-                <div class="slider__card none">
-                  <img
-                    src="../library/assets/img/jpeg/image_4.jpg"
-                    alt="library"
-                    class="slider__img">
-                </div>
-                <div class="slider__card none">
-                  <img
-                    src="../library/assets/img/jpeg/image_5.jpg"
-                    alt="library"
-                    class="slider__img">
+                <div class="visiblePart">
+                  <div class="sausage">
+                    <div class="slider__card">
+                      <img
+                        src="../library/assets/img/jpeg/image_1.jpg"
+                        alt="library"
+                        class="slider__img"
+                      />
+                    </div>
+                    <div class="slider__card">
+                      <img
+                        src="../library/assets/img/jpeg/image_2.jpg"
+                        alt="library"
+                        class="slider__img"
+                      />
+                    </div>
+                    <div class="slider__card">
+                      <img
+                        src="../library/assets/img/jpeg/image_3.jpg"
+                        alt="library"
+                        class="slider__img"
+                      />
+                    </div>
+                    <div class="slider__card">
+                      <img
+                        src="../library/assets/img/jpeg/image_4.jpg"
+                        alt="library"
+                        class="slider__img"
+                      />
+                    </div>
+                    <div class="slider__card">
+                      <img
+                        src="../library/assets/img/jpeg/image_5.jpg"
+                        alt="library"
+                        class="slider__img"
+                      />
+                    </div>
+                  </div>
                 </div>
                 <div class="slider__swap-right">
-                  <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M9 17.5L15 12.5L9 7.5" stroke="black" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
+                  <svg
+                    width="24"
+                    height="25"
+                    viewBox="0 0 24 25"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M9 17.5L15 12.5L9 7.5"
+                      stroke="black"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
                 </div>
               </div>
-              <!-- NONE CLOSE -->
+
               <!-- SLIDER END -->
               <div class="slider-btn__wrapper">
                 <div class="slider__button slider-btn-active"></div>
@@ -150,7 +182,8 @@
                         id="choiceWinter"
                         name="season"
                         value="Winter"
-                        checked>
+                        checked
+                      />
                       <span class="input__text selected">Winter</span>
                     </label>
                     <label class="season-label" for="choiceSpring">
@@ -159,7 +192,8 @@
                         type="radio"
                         id="choiceSpring"
                         name="season"
-                        value="Spring">
+                        value="Spring"
+                      />
                       <span class="input__text">Spring</span>
                     </label>
                     <label class="season-label" for="choiceSummer">
@@ -168,7 +202,8 @@
                         type="radio"
                         id="choiceSummer"
                         name="season"
-                        value="Summer">
+                        value="Summer"
+                      />
                       <span class="input__text">Summer</span>
                     </label>
                     <label class="season-label" for="choiceAutumn">
@@ -177,7 +212,8 @@
                         type="radio"
                         id="choiceAutumn"
                         name="season"
-                        value="Autumn">
+                        value="Autumn"
+                      />
                       <span class="input__text">Autumn</span>
                     </label>
                   </div>
@@ -200,7 +236,8 @@
                     <img
                       src="../library/assets/img/png/The_Book_Eaters_By_Sunyi_Dean.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper">
@@ -218,7 +255,8 @@
                     <img
                       src="../library/assets/img/png/сackle.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper">
@@ -240,7 +278,8 @@
                     <img
                       src="../library/assets/img/png/Erich_Auerbach.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper">
@@ -257,7 +296,8 @@
                     <img
                       src="../library/assets/img/png/The_Last_Queen_By_Clive_Irving.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <!-- NONE -->
@@ -276,9 +316,10 @@
                     <img
                       src="../library/assets/img/png/Brenda.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
-                </div> 
+                </div>
                 <div class="card__wrapper none">
                   <div class="favorites__card">
                     <p class="favorites__picks">staff picks</p>
@@ -294,7 +335,8 @@
                     <img
                       src="../library/assets/img/png/Carry.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -312,7 +354,8 @@
                     <img
                       src="../library/assets/img/png/Chang.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -330,7 +373,8 @@
                     <img
                       src="../library/assets/img/png/Cruz.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -348,7 +392,8 @@
                     <img
                       src="../library/assets/img/png/Great_Fire.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -366,7 +411,8 @@
                     <img
                       src="../library/assets/img/png/Grude.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -384,7 +430,8 @@
                     <img
                       src="../library/assets/img/png/Kiana.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -402,7 +449,8 @@
                     <img
                       src="../library/assets/img/png/Let_my_people.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -420,7 +468,8 @@
                     <img
                       src="../library/assets/img/png/Megan_Milks.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -438,7 +487,8 @@
                     <img
                       src="../library/assets/img/png/Renia_White.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -456,7 +506,8 @@
                     <img
                       src="../library/assets/img/png/Rickey.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <div class="card__wrapper none">
@@ -474,7 +525,8 @@
                     <img
                       src="../library/assets/img/png/The_body.png"
                       alt="The Book Eaters"
-                      class="favorites__img">
+                      class="favorites__img"
+                    />
                   </div>
                 </div>
                 <!-- NONE END -->
@@ -493,8 +545,10 @@
                 In our library, we have of cozy coffee shop, welcoming in
                 customers with frothy cappuccinos and friendly conversation.
               </p>
-              <p class="coffee__text">You can get a favorite book and read in coffee shop. our barista
-                to cook you best coffee, and also you can try desserts from bakery.
+              <p class="coffee__text">
+                You can get a favorite book and read in coffee shop. our barista
+                to cook you best coffee, and also you can try desserts from
+                bakery.
               </p>
               <div class="coffee__price">
                 <div class="coffee__drink">
@@ -611,7 +665,8 @@
                     <img
                       src="../library/assets/img/png/map.png"
                       alt="map"
-                      class="contacts__map">
+                      class="contacts__map"
+                    />
                   </div>
                 </div>
               </div>
@@ -634,11 +689,13 @@
                       <input
                         class="input__row"
                         type="text"
-                        placeholder="Reader's name">
+                        placeholder="Reader's name"
+                      />
                       <input
                         class="input__row-bottom"
                         type="text"
-                        placeholder="Card number">
+                        placeholder="Card number"
+                      />
                     </form>
                     <button class="form__btn">Check&nbsp;the&nbsp;card</button>
                   </div>
@@ -646,8 +703,8 @@
                 <div class="libraryCard__inner_right">
                   <p class="libraryCard__title-right">Get a reader card</p>
                   <p class="libraryCard__text">
-                    You will be able to see a reader card after 
-                    logging into account or you can register a new account
+                    You will be able to see a reader card after logging into
+                    account or you can register a new account
                   </p>
                   <div class="libraryCard__btnWrapper">
                     <button class="library__btn">Sign Up</button>
@@ -733,10 +790,10 @@
               </div>
               <div class="footer__right">
                 <div class="footer__schedule">
-                  <p>Mon - Fri<br>08:00 am - 07:00 pm</p>
+                  <p>Mon - Fri<br />08:00 am - 07:00 pm</p>
                 </div>
                 <div class="footer__schedule">
-                  <p>Sat - Sun<br>10:00 am - 06:00 pm</p>
+                  <p>Sat - Sun<br />10:00 am - 06:00 pm</p>
                 </div>
               </div>
             </div>
@@ -755,5 +812,6 @@
     </div>
     <script src="../library/assets/js/index.js"></script>
     <script src="../library/assets/js/burger.js"></script>
+    <script src="./assets/js/slider.js"></script>
   </body>
 </html>
