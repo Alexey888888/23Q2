@@ -240,3 +240,20 @@
     gap: 15px;
   }
 }
+
+////////////////////////////
+///
+///
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 3s;
+}
