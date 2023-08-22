@@ -1013,7 +1013,19 @@ img {
   }
 }
 .fade-out {
-  animation: fadeOut ease 3s;
+  animation: fadeOut ease 1s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn ease 1s;
 }
 
 .coffee__wrapper {
