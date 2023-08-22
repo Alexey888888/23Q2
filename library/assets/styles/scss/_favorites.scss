@@ -24,7 +24,9 @@
 .input__wrapper {
   font-weight: 400;
   display: flex;
-  gap: 75px;
+  // gap: 75px;
+  justify-content: space-between; ////
+  max-width: 724px; /////
   margin-top: 36px;
   margin-left: -5px;
 }
@@ -37,74 +39,74 @@
 
 /////////---
 
-// .season-label {
-//   padding: 5px 5px 5px 15px;
-//   cursor: pointer;
-//   transition: all 0.4s;
-// }
+.season-label {
+  padding: 5px 5px 5px 15px;
+  cursor: pointer;
+  transition: all 0.4s;
+  width: 136px;
+}
 
-// .season-label:hover {
-//   color: #8e8e8e;
-//   transition: all 0.4s;
-// }
+.season-label:hover {
+  color: #bb945f;
+  transition: all 0.4s;
+}
 
-// .input-circle {
-//   cursor: pointer;
-//   position: absolute;
-//   opacity: 0;
-// }
+.input-circle {
+  cursor: pointer;
+  position: absolute;
+  opacity: 0;
+  appearance: none;
+}
 
-// .selected {
-//   font-weight: 700;
-// }
+.selected {
+  font-weight: 700;
+}
 
-// .input__text {
-//   position: relative;
-//   left: -5px;
-//   margin-left: 33px;
-// }
+.input__text {
+  position: relative;
+  left: -5px;
+  margin-left: 33px;
+}
 
-// .input__text::before {
-//   position: absolute;
-//   content: '';
-//   width: 17px;
-//   height: 17px;
-//   border-radius: 50px;
-//   border: solid 2px #000000;
-//   left: -38px;
-//   top: 6px;
-//   transition: all 0.4s;
-// }
+.input__text::before {
+  position: absolute;
+  content: '';
+  width: 17px;
+  height: 17px;
+  border-radius: 50px;
+  border: solid 2px #000000;
+  left: -38px;
+  top: 6px;
+  transition: all 0.4s;
+}
 
-// .season-label:hover > .input__text::before {
-//   border-color: #8e8e8e;
-//   transition: all 0.4s;
-// }
+.season-label:hover > .input__text::before {
+  border-color: #bb945f;
+  transition: all 0.4s;
+}
 
-// .input__text::after {
-//   position: absolute;
-//   content: '';
+.input__text::after {
+  position: absolute;
+  content: '';
 
-//   width: 7px;
-//   height: 7px;
-//   border-radius: 50px;
-//   background: #000000;
-//   left: -33px;
-//   top: 11px;
-//   opacity: 0;
-//   transition: all 0.4s;
-// }
+  width: 7px;
+  height: 7px;
+  border-radius: 50px;
+  background: #000000;
+  left: -33px;
+  top: 11px;
+  opacity: 0;
+  transition: all 0.4s;
+}
 
-// .season-label:hover > .input__text::after {
-//   background: #8e8e8e;
-//   transition: all 0.4s;
-// }
+.season-label:hover > .input__text::after {
+  background: #bb945f;
+  transition: all 0.4s;
+}
 
-// .input-circle:checked + .input__text::after {
-//   opacity: 1;
-// }
-
-/////////---
+.input-circle:checked + .input__text::after {
+  opacity: 1;
+}
 
 .favorites__list {
   padding: 35px 20px 0;
@@ -215,4 +217,26 @@
 
 .own:hover {
   background: white;
+}
+
+.summer {
+  position: relative;
+  left: -10px;
+}
+
+@media (max-width: 680px) {
+  .input__text::before {
+    left: -28px;
+  }
+
+  .input__text::after {
+    left: -23px;
+  }
+
+  .season-label {
+    max-width: 136px;
+  }
+  .input__wrapper {
+    gap: 15px;
+  }
 }
