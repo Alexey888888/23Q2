@@ -10,6 +10,31 @@ buttons.forEach((btn) => {
     btn.classList.add('slider-btn-active', 'pointer-default');
 
     if (pos === 0 && buttons[1].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.add('pointer-active', 'arrow-opacity-active');
@@ -43,6 +68,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 1 && buttons[2].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-left-2');
       pos = 2;
       sausage.addEventListener('animationend', () => {
@@ -73,6 +123,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 2 && buttons[3].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-left-3');
       pos = 3;
       sausage.addEventListener('animationend', () => {
@@ -103,6 +178,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 3 && buttons[4].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-left-4');
       document
         .querySelector('.slider__swap-right')
@@ -136,6 +236,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 0 && buttons[2].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.add('pointer-active', 'arrow-opacity-active');
@@ -169,6 +294,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 0 && buttons[3].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.add('pointer-active', 'arrow-opacity-active');
@@ -202,6 +352,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 0 && buttons[4].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.add('pointer-active', 'arrow-opacity-active');
@@ -238,6 +413,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 1 && buttons[3].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-left-8');
       pos = 3;
       sausage.addEventListener('animationend', () => {
@@ -268,6 +468,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 1 && buttons[4].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-right')
         .classList.add('pointer-default', 'arrow-opacity');
@@ -301,6 +526,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 2 && buttons[4].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-right')
         .classList.add('pointer-default', 'arrow-opacity');
@@ -334,6 +584,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 4 && buttons[3].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-right')
         .classList.remove('pointer-default', 'arrow-opacity');
@@ -367,6 +642,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 3 && buttons[2].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-right-2');
       pos = 2;
       sausage.addEventListener('animationend', () => {
@@ -397,6 +697,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 2 && buttons[1].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-right-3');
       pos = 1;
       sausage.addEventListener('animationend', () => {
@@ -427,6 +752,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 1 && buttons[0].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.remove('pointer-active', 'arrow-opacity-active');
@@ -460,6 +810,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 4 && buttons[2].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-right')
         .classList.remove('pointer-default', 'arrow-opacity');
@@ -493,6 +868,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 4 && buttons[1].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-right')
         .classList.remove('pointer-default', 'arrow-opacity');
@@ -526,6 +926,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 4 && buttons[0].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.remove('pointer-active', 'arrow-opacity-active');
@@ -562,6 +987,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 3 && buttons[1].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       sausage.classList.add('transition-right-8');
       pos = 1;
       sausage.addEventListener('animationend', () => {
@@ -592,6 +1042,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 3 && buttons[0].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.remove('pointer-active', 'arrow-opacity-active');
@@ -625,6 +1100,31 @@ buttons.forEach((btn) => {
     }
 
     if (pos === 2 && buttons[0].classList.contains('slider-btn-active')) {
+      //
+      sausage.classList.remove(
+        'transition-left-1',
+        'transition-left-2',
+        'transition-left-3',
+        'transition-left-4',
+        'transition-left-5',
+        'transition-left-6',
+        'transition-left-7',
+        'transition-left-8',
+        'transition-left-9',
+        'transition-left-10',
+        'transition-right-1',
+        'transition-right-2',
+        'transition-right-3',
+        'transition-right-4',
+        'transition-right-5',
+        'transition-right-6',
+        'transition-right-7',
+        'transition-right-8',
+        'transition-right-9',
+        'transition-right-10'
+      );
+
+      //
       document
         .querySelector('.slider__swap-left')
         .classList.remove('pointer-active', 'arrow-opacity-active');
@@ -656,8 +1156,12 @@ buttons.forEach((btn) => {
         );
       });
     }
-
-    //
+    //////////////////////////////
+    //////////////////////////
+    //////////////////////
+    ////////////////////
+    /////////////////////
+    /////////////////
   });
 });
 

@@ -409,7 +409,7 @@ img {
   }
 }
 :root {
-  --duration: 0.3s;
+  --duration: 0.5s;
 }
 
 @keyframes move-left-1 {
