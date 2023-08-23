@@ -21,6 +21,20 @@
   margin-left: 20px;
 }
 
+@media (max-width: 768px) {
+  .favorites__season {
+    position: sticky;
+    top: 0px;
+    background: #fff;
+
+    z-index: 100;
+  }
+
+  body {
+    overflow-x: visible;
+  }
+}
+
 .input__wrapper {
   font-weight: 400;
   display: flex;
