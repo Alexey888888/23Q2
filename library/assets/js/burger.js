@@ -71,3 +71,32 @@ document.querySelector('body').addEventListener('click', () => {
 dropMenu.addEventListener('click', () => {
   event.stopPropagation();
 });
+
+//--REGISTER WINDOW
+
+const reg = document.querySelector('.dropMenu__textDown ');
+const blackout = document.querySelector('.blackout');
+const regWindow = document.querySelector('.regWindow');
+
+reg.addEventListener('click', () => {
+  openRegWindow();
+  closeDropMenu();
+});
+blackout.addEventListener('click', closeRegWindow);
+document
+  .querySelector('.reg__closeIcon')
+  .addEventListener('click', closeRegWindow);
+
+function openRegWindow() {
+  regWindow.classList.add('regWindow-active');
+  blackout.classList.add('blackout_active');
+}
+
+function closeRegWindow() {
+  regWindow.classList.remove('regWindow-active');
+  blackout.classList.remove('blackout_active');
+}
+
+document
+  .querySelector('.library__btn:first-child')
+  .addEventListener('click', openRegWindow);

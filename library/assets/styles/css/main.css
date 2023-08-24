@@ -278,6 +278,8 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
 
 .dropMenu__textDown {
@@ -285,6 +287,14 @@ img {
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenu__textUp:hover,
+.dropMenu__textDown:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
 }
 
 @keyframes dropMenu-visible {
@@ -314,6 +324,146 @@ img {
 }
 .dropHidden {
   animation: dropMenu-hidden ease 0.3s;
+}
+
+.regWindow {
+  width: 250px;
+  height: 382px;
+  background: #fff;
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+}
+
+.regWindow-active {
+  display: block;
+}
+
+.reg__input {
+  border: 1px solid #bb945f;
+  width: 200px;
+  height: 20px;
+  margin-top: 10px;
+}
+
+.reg__text {
+  margin-left: 25px;
+  color: #000;
+  font-family: "Inter";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.reg__text:first-child {
+  margin-top: 20px;
+}
+
+.reg__text {
+  margin-top: 6px;
+}
+
+.reg__title {
+  color: #000;
+  margin-left: 85px;
+  font-family: "Forum", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  margin-top: 20px;
+}
+
+.reg__btn {
+  background: #fff;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  cursor: pointer;
+  width: 75px;
+  height: 30px;
+  padding: 0;
+  margin-left: 25px;
+  margin-top: 17px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  transition: all 0.3s;
+}
+
+.reg__btn:hover {
+  background: #bb945f;
+  transition: 0.3s;
+  border-color: #bb945f;
+}
+
+.reg__footer {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: "Inter";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.reg__footer span {
+  color: #0c0c0e;
+  text-align: center;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+
+.reg__footer span:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
+}
+
+.reg__closeIcon {
+  position: relative;
+  cursor: pointer;
+  left: 46px;
+  bottom: 7px;
+  transition: all 0.3s;
+}
+
+.reg__closeIcon:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.blackout {
+  background: rgba(5, 5, 5, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: all 0.6s;
+  z-index: 250;
+  opacity: 0;
+}
+
+.blackout_active {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
 }
 
 .welcome__wrapper {
