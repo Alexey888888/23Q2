@@ -241,6 +241,81 @@ img {
   filter: invert(50%) sepia(100%);
 }
 
+.header__iconWrapper {
+  position: relative;
+}
+
+.header__dropMenu {
+  position: absolute;
+  width: 80px;
+  height: 115px;
+  background: #fff;
+  z-index: 100;
+  right: 0;
+  top: 40px;
+  display: none;
+  color: #000;
+  font-family: "Inter";
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.dropMenu__title {
+  padding: 5px 16px 0;
+}
+
+.dropMenu__line {
+  margin: 5px 20px 0;
+  width: 40px;
+  height: 1px;
+  background: #bb945f;
+}
+
+.dropMenu__textUp {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.dropMenu__textDown {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+@keyframes dropMenu-visible {
+  0% {
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    height: 115px;
+    opacity: 1;
+  }
+}
+.dropVisible {
+  animation: dropMenu-visible ease 0.3s;
+  display: block;
+}
+
+@keyframes dropMenu-hidden {
+  0% {
+    height: 115px;
+    opacity: 1;
+  }
+  100% {
+    height: 0;
+    opacity: 0;
+  }
+}
+.dropHidden {
+  animation: dropMenu-hidden ease 0.3s;
+}
+
 .welcome__wrapper {
   background: url("../../img/jpeg/85c1859f825ed82614b2036bc8be037f.jpg");
   background-position: center;
