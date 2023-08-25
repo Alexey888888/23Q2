@@ -104,22 +104,26 @@ document
   .addEventListener('click', openRegWindow);
 
 ///
+if (!localStorage.getItem('isUserAuth888')) {
+  localStorage.setItem('isUserAuth888', false);
+}
 
 class User {
   constructor(fname, lname, email, pass) {
-    this.fname = fname;
-    this.lname = lname;
+    this.firstName = fname;
+    this.lastName = lname;
     this.email = email;
     this.pass = pass;
+    this.cardNumber = Math.random().toString(16).slice(-9);
   }
 }
 
-if (!localStorage.getItem('superUsersList')) {
-  const arr = [];
-  localStorage.setItem('superUsersList', JSON.stringify(arr));
-}
-
 document.querySelector('.reg__form').addEventListener('submit', () => {
+  if (!localStorage.getItem('usersArr888')) {
+    const arr = [];
+    localStorage.setItem('usersArr888', JSON.stringify(arr));
+  }
+
   const formData = new FormData(regForm);
   const currentUser = new User(
     formData.get('fname'),
@@ -128,11 +132,37 @@ document.querySelector('.reg__form').addEventListener('submit', () => {
     formData.get('pass')
   );
 
-  const xxx = JSON.parse(localStorage.getItem('superUsersList'));
-  console.log(xxx);
-  xxx.push(currentUser);
-  localStorage.setItem('superUsersList', JSON.stringify(xxx));
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+  tempArr.push(currentUser);
+  localStorage.setItem('usersArr888', JSON.stringify(tempArr));
 
   closeRegWindow();
   regForm.reset();
+
+  afterAuth();
 });
+
+let initials = '';
+let fullName = '';
+function afterAuth() {
+  localStorage.setItem('isUserAuth888', true);
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+  if (localStorage.getItem('isUserAuth888') === 'true') {
+    initials =
+      tempArr[tempArr.length - 1].firstName.toString()[0] +
+      tempArr[tempArr.length - 1].lastName.toString()[0];
+    fullName =
+      tempArr[tempArr.length - 1].firstName.toString() +
+      ' ' +
+      tempArr[tempArr.length - 1].lastName.toString();
+  }
+  console.log(initials);
+
+  document.querySelector(
+    '.header__img'
+  ).innerHTML = `<div title="${fullName}" class="icon_profile-afterAuth">${initials}<span  ></span></div>`;
+}
+
+if (localStorage.getItem('isUserAuth888') === 'true') {
+  afterAuth();
+}
