@@ -24,23 +24,49 @@
           </span>
         </p>
 
-        <form action="">
-          <p class="reg__text">
-            First name<br />
-            <input class="reg__input" type="text" />
-          </p>
-          <p class="reg__text">
-            Last name<br />
-            <input class="reg__input" type="text" />
-          </p>
-          <p class="reg__text">
-            E-mail<br />
-            <input class="reg__input" type="text" />
-          </p>
-          <p class="reg__text">
-            Password<br />
-            <input class="reg__input" type="text" />
-          </p>
+        <form class="reg__form" action="#">
+          <div class="reg__text">
+            <label for="firstname">First name</label>
+            <input
+              name="fname"
+              id="firstname"
+              required
+              class="reg__input"
+              type="text"
+            />
+          </div>
+          <div class="reg__text">
+            <label for="lastname">Last name</label>
+            <input
+              name="lname"
+              id="lastname"
+              required
+              class="reg__input"
+              type="text"
+            />
+          </div>
+          <div class="reg__text">
+            <label for="e-mail">E-mail</label>
+            <input
+              name="email"
+              id="e-mail"
+              required
+              class="reg__input"
+              type="email"
+            />
+          </div>
+          <div class="reg__text">
+            <label for="password">Password</label>
+            <input
+              name="pass"
+              id="password"
+              required
+              class="reg__input"
+              type="password"
+              minlength="8"
+              autocomplete="off"
+            />
+          </div>
           <p>
             <input class="reg__btn" type="submit" value="Sign Up" />
           </p>

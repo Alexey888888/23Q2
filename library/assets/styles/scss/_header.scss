@@ -286,6 +286,17 @@
   width: 200px;
   height: 20px;
   margin-top: 10px;
+  //margin-left: 25px;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.reg__input:invalid {
+  opacity: 0.5;
+  //x color: tomato;
 }
 
 .reg__text {
@@ -305,7 +316,7 @@
 }
 
 .reg__text {
-  margin-top: 6px;
+  margin-top: 10px;
 }
 
 .reg__title {
@@ -337,7 +348,7 @@
   height: 30px;
   padding: 0;
   margin-left: 25px;
-  margin-top: 17px;
+  margin-top: 21px;
   border-radius: 2px;
   border: 1px solid #0c0c0e;
   transition: all 0.3s;

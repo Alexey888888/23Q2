@@ -77,6 +77,7 @@ dropMenu.addEventListener('click', () => {
 const reg = document.querySelector('.dropMenu__textDown ');
 const blackout = document.querySelector('.blackout');
 const regWindow = document.querySelector('.regWindow');
+const regForm = document.querySelector('.reg__form');
 
 reg.addEventListener('click', () => {
   openRegWindow();
@@ -95,8 +96,43 @@ function openRegWindow() {
 function closeRegWindow() {
   regWindow.classList.remove('regWindow-active');
   blackout.classList.remove('blackout_active');
+  regForm.reset();
 }
 
 document
   .querySelector('.library__btn:first-child')
   .addEventListener('click', openRegWindow);
+
+///
+
+class User {
+  constructor(fname, lname, email, pass) {
+    this.fname = fname;
+    this.lname = lname;
+    this.email = email;
+    this.pass = pass;
+  }
+}
+
+if (!localStorage.getItem('superUsersList')) {
+  const arr = [];
+  localStorage.setItem('superUsersList', JSON.stringify(arr));
+}
+
+document.querySelector('.reg__form').addEventListener('submit', () => {
+  const formData = new FormData(regForm);
+  const currentUser = new User(
+    formData.get('fname'),
+    formData.get('lname'),
+    formData.get('email'),
+    formData.get('pass')
+  );
+
+  const xxx = JSON.parse(localStorage.getItem('superUsersList'));
+  console.log(xxx);
+  xxx.push(currentUser);
+  localStorage.setItem('superUsersList', JSON.stringify(xxx));
+
+  closeRegWindow();
+  regForm.reset();
+});
