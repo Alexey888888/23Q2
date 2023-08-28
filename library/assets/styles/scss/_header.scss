@@ -224,41 +224,6 @@
   transition: all 0.3s;
 }
 
-@keyframes dropMenu-visible {
-  0% {
-    // width: 0;
-    height: 0;
-    opacity: 0;
-  }
-  100% {
-    // width: 80px;
-    height: 115px;
-    opacity: 1;
-  }
-}
-
-.dropVisible {
-  animation: dropMenu-visible ease 0.3s;
-  display: block;
-}
-
-@keyframes dropMenu-hidden {
-  0% {
-    //width: 80px;
-    height: 115px;
-    opacity: 1;
-  }
-  100% {
-    // width: 0;
-    height: 0;
-    opacity: 0;
-  }
-}
-
-.dropHidden {
-  animation: dropMenu-hidden ease 0.3s;
-}
-
 //DROP-MENU END
 
 //REG WINDOW
@@ -433,4 +398,96 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+//DROP-MENU AUTH
+
+.header__dropMenuAuth {
+  position: absolute;
+  width: 80px;
+  height: 115px;
+  background: #fff;
+  z-index: 100;
+  right: 0;
+  top: 40px;
+  display: none;
+  color: #000;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.dropMenuAuth__title {
+  padding: 5px 16px 0;
+}
+
+.dropMenu__line {
+  margin: 5px 20px 0;
+  width: 40px;
+  height: 1px;
+  background: #bb945f;
+}
+
+.dropMenuAuth__textUp {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenuAuth__textDown {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenuAuth__textUp:hover,
+.dropMenuAuth__textDown:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
+}
+
+//DROP-MENU AUTH END
+
+@keyframes dropMenu-visible {
+  0% {
+    // width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    // width: 80px;
+    height: 115px;
+    opacity: 1;
+  }
+}
+
+.dropVisible {
+  animation: dropMenu-visible ease 0.3s;
+  display: block;
+}
+
+@keyframes dropMenu-hidden {
+  0% {
+    //width: 80px;
+    height: 115px;
+    opacity: 1;
+  }
+  100% {
+    // width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.dropHidden {
+  animation: dropMenu-hidden ease 0.3s;
 }

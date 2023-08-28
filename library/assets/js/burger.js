@@ -156,13 +156,86 @@ function afterAuth() {
       ' ' +
       tempArr[tempArr.length - 1].lastName.toString();
   }
-  console.log(initials);
 
   document.querySelector(
     '.header__img'
   ).innerHTML = `<div title="${fullName}" class="icon_profile-afterAuth">${initials}<span  ></span></div>`;
+  const iconAuth = document.querySelector('.icon_profile-afterAuth');
+  iconAuth.addEventListener('click', handlerDropMenuAuth);
+
+  document.querySelector('body').addEventListener('click', () => {
+    if (
+      document
+        .querySelector('.header__dropMenuAuth')
+        .classList.contains('dropVisible')
+    ) {
+      closeDropMenuAuth();
+    }
+  });
+  document
+    .querySelector('.header__dropMenuAuth')
+    .addEventListener('click', () => {
+      event.stopPropagation();
+    });
 }
 
 if (localStorage.getItem('isUserAuth888') === 'true') {
   afterAuth();
+}
+
+function openDropMenuAuth() {
+  document.querySelector('.header__dropMenuAuth').classList.add('dropVisible');
+  closeBurger();
+  event.stopPropagation();
+}
+
+function closeDropMenuAuth() {
+  document.querySelector('.header__dropMenuAuth').classList.add('dropHidden');
+  document
+    .querySelector('.header__dropMenuAuth')
+    .addEventListener('animationend', cleanClassListAuth);
+  function cleanClassListAuth() {
+    document
+      .querySelector('.header__dropMenuAuth')
+      .classList.remove('dropVisible');
+    document
+      .querySelector('.header__dropMenuAuth')
+      .classList.remove('dropHidden');
+    document
+      .querySelector('.header__dropMenuAuth')
+      .removeEventListener('animationend', cleanClassListAuth);
+  }
+}
+
+document
+  .querySelector('.dropMenuAuth__textDown')
+  .addEventListener('click', logout);
+/////////////////////////////
+function logout() {
+  localStorage.setItem('isUserAuth888', false);
+  document.querySelector('.header__img').innerHTML = `<img
+  class="header__icon"
+  src="../library/assets/icons/icon_profile.svg"
+  alt="icon-profile"
+/>`;
+  closeDropMenuAuth();
+  const userIcon = document.querySelector('.header__icon');
+
+  userIcon.addEventListener('click', handlerDropMenu);
+}
+
+function handlerDropMenuAuth() {
+  if (
+    !document
+      .querySelector('.header__dropMenuAuth')
+      .classList.contains('dropVisible')
+  ) {
+    openDropMenuAuth();
+  } else if (
+    document
+      .querySelector('.header__dropMenuAuth')
+      .classList.contains('dropVisible')
+  ) {
+    closeDropMenuAuth();
+  }
 }
