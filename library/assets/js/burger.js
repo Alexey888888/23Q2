@@ -72,7 +72,8 @@ dropMenu.addEventListener('click', () => {
   event.stopPropagation();
 });
 
-//--REGISTER WINDOW
+//-----USER-ICON END-----//
+//--REGISTER WINDOW-----//
 
 const reg = document.querySelector('.dropMenu__textDown ');
 const blackout = document.querySelector('.blackout');
@@ -83,7 +84,10 @@ reg.addEventListener('click', () => {
   openRegWindow();
   closeDropMenu();
 });
-blackout.addEventListener('click', closeRegWindow);
+blackout.addEventListener('click', () => {
+  closeRegWindow();
+  closeProfileWindow();
+});
 document
   .querySelector('.reg__closeIcon')
   .addEventListener('click', closeRegWindow);
@@ -142,6 +146,9 @@ document.querySelector('.reg__form').addEventListener('submit', () => {
   afterAuth();
 });
 
+//--REGISTER WINDOW END-----//
+//-----USER-ICON AFTER AUTH-----//
+
 let initials = '';
 let fullName = '';
 function afterAuth() {
@@ -187,6 +194,10 @@ function openDropMenuAuth() {
   document.querySelector('.header__dropMenuAuth').classList.add('dropVisible');
   closeBurger();
   event.stopPropagation();
+  document.querySelector('.dropMenuAuth__title').innerHTML = '';
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+  document.querySelector('.dropMenuAuth__title').innerHTML =
+    tempArr[tempArr.length - 1].cardNumber;
 }
 
 function closeDropMenuAuth() {
@@ -239,3 +250,43 @@ function handlerDropMenuAuth() {
     closeDropMenuAuth();
   }
 }
+
+document
+  .querySelector('.dropMenuAuth__textUp')
+  .addEventListener('click', openProfileWindow);
+
+//-----USER-ICON AFTER AUTH END-----//
+
+//-----PROFILE-----//
+function openProfileWindow() {
+  closeDropMenuAuth();
+  document
+    .querySelector('.profile-window')
+    .classList.add('profile-window-active');
+  blackout.classList.add('blackout_active');
+  document
+    .querySelector('.profile-window__closeIcon__img')
+    .addEventListener('click', closeProfileWindow);
+}
+
+function closeProfileWindow() {
+  document
+    .querySelector('.profile-window')
+    .classList.remove('profile-window-active');
+  blackout.classList.remove('blackout_active');
+}
+
+document.getElementById('copy-icon').addEventListener('click', copyNumber);
+
+function copyNumber() {
+  let copyTemp = document.createElement('input');
+  copyTemp.className = 'copyTemp';
+  document.body.append(copyTemp);
+  copyTemp.value = document.querySelector(
+    '.profile-window__card-number__number'
+  ).textContent;
+  copyTemp.select();
+  document.execCommand('copy');
+  document.body.removeChild(copyTemp);
+}
+//-----PROFILE END-----//
