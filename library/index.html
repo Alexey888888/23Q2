@@ -24,7 +24,7 @@
           </span>
         </p>
 
-        <form class="reg__form" action="#">
+        <form class="reg__form" action="">
           <div class="reg__text">
             <label for="firstname">First name</label>
             <input
@@ -73,8 +73,48 @@
         </form>
         <p class="reg__footer">Already have an account?<span>Login</span></p>
       </div>
-      <div class="blackout"></div>
       <!-- REG WINDOW END -->
+      <div class="blackout"></div>
+
+      <!-- LOG IN WINDOW -->
+      <div class="LogInWindow">
+        <p class="login__title">
+          LOGIN
+          <span class="login__closeIcon">
+            <img src="./assets/icons/close_btn.svg" alt="close" />
+          </span>
+        </p>
+
+        <form class="login__form" action="">
+          <div class="login__text">
+            <label for="e-mail-or-card">E-mail or readers card</label>
+            <input
+              name="email-or-card"
+              id="e-mail-or-card"
+              required
+              class="login__input"
+              type="text"
+            />
+          </div>
+          <div class="login__text">
+            <label for="password-login">Password</label>
+            <input
+              name="logPass"
+              id="password-login"
+              required
+              class="login__input"
+              type="password"
+              minlength="8"
+              autocomplete="off"
+            />
+          </div>
+          <p>
+            <input class="login__btn" type="submit" value="Log In" />
+          </p>
+        </form>
+        <p class="login__footer">Don’t have an account?<span>Register</span></p>
+      </div>
+      <!-- LOG IN WINDOW END -->
 
       <!-- MY PROFILE WINDOW -->
       <div class="profile-window">
@@ -163,6 +203,9 @@
               <li class="rented-books__item">Dominicana, Angie Cruz</li>
               <li class="rented-books__item">Dominicana, Angie Cruz</li>
               <li class="rented-books__item">Dominicana, Angie Cruz</li>
+              <li class="rented-books__item">
+                DANTE: POET OF THE SECULAR WORLD, Erich Auerbach
+              </li>
             </ul>
           </div>
           <div class="profile-window__card-number">

@@ -75,7 +75,7 @@ dropMenu.addEventListener('click', () => {
 //-----USER-ICON END-----//
 //--REGISTER WINDOW-----//
 
-const reg = document.querySelector('.dropMenu__textDown ');
+const reg = document.querySelector('.dropMenu__textDown');
 const blackout = document.querySelector('.blackout');
 const regWindow = document.querySelector('.regWindow');
 const regForm = document.querySelector('.reg__form');
@@ -84,9 +84,15 @@ reg.addEventListener('click', () => {
   openRegWindow();
   closeDropMenu();
 });
+
+document
+  .querySelector('.dropMenu__textUp')
+  .addEventListener('click', openLoginWindow);
+
 blackout.addEventListener('click', () => {
   closeRegWindow();
   closeProfileWindow();
+  closeLoginWindow();
 });
 document
   .querySelector('.reg__closeIcon')
@@ -119,6 +125,7 @@ class User {
     this.email = email;
     this.pass = pass;
     this.cardNumber = Math.random().toString(16).slice(-9);
+    this.visits = 1;
   }
 }
 
@@ -264,6 +271,10 @@ function openProfileWindow() {
     .querySelector('.profile-window')
     .classList.add('profile-window-active');
   blackout.classList.add('blackout_active');
+  //
+  fillFields();
+  //
+
   document
     .querySelector('.profile-window__closeIcon__img')
     .addEventListener('click', closeProfileWindow);
@@ -289,4 +300,75 @@ function copyNumber() {
   document.execCommand('copy');
   document.body.removeChild(copyTemp);
 }
+
+//
+
+function fillFields() {
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+  initials =
+    tempArr[tempArr.length - 1].firstName.toString()[0] +
+    tempArr[tempArr.length - 1].lastName.toString()[0];
+  fullName =
+    tempArr[tempArr.length - 1].firstName.toString() +
+    ' ' +
+    tempArr[tempArr.length - 1].lastName.toString();
+  cardNumber = tempArr[tempArr.length - 1].cardNumber;
+  document.querySelector('.rectangle-initials__text').innerHTML = '';
+  document.querySelector('.rectangle-initials__text').innerHTML = initials;
+  document.querySelector('.rectangle-name__text').innerHTML = '';
+  document.querySelector('.rectangle-name__text').innerHTML = fullName;
+  document.querySelector('.profile-window__card-number__number').innerHTML = '';
+  document.querySelector('.profile-window__card-number__number').innerHTML =
+    cardNumber;
+  document.querySelector('.icon-box__visits__count').innerHTML = '';
+  document.querySelector('.icon-box__visits__count').innerHTML =
+    tempArr[tempArr.length - 1].visits;
+}
+
 //-----PROFILE END-----//
+
+//-----LOG IN WINDOW-----//
+const loginWindow = document.querySelector('.LogInWindow');
+const logWindowForm = document.querySelector('.login__form');
+
+document
+  .querySelector('.login__closeIcon')
+  .addEventListener('click', closeLoginWindow);
+
+function openLoginWindow() {
+  loginWindow.classList.add('logIn-active');
+  blackout.classList.add('blackout_active');
+  closeDropMenu();
+}
+
+function closeLoginWindow() {
+  loginWindow.classList.remove('logIn-active');
+  blackout.classList.remove('blackout_active');
+  document.querySelector('.login__form').reset(); ///777777777777777777
+}
+
+logWindowForm.addEventListener('submit', () => {
+  afterReg();
+});
+
+function afterReg() {
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+
+  tempArr[tempArr.length - 1].visits++;
+  localStorage.setItem('usersArr888', JSON.stringify(tempArr));
+
+  const formDataReg = new FormData(logWindowForm);
+  const userMailCard = formDataReg.get('email-or-card');
+  const userPassword = formDataReg.get('logPass');
+  localStorage.setItem('userMailCard888', userMailCard);
+  localStorage.setItem('userPassword888', userPassword);
+
+  if (
+    tempArr[tempArr.length - 1].pass === userPassword &&
+    (tempArr[tempArr.length - 1].email === userMailCard ||
+      tempArr[tempArr.length - 1].cardNumber === userMailCard)
+  )
+    afterAuth();
+}
+
+//-----LOG IN WINDOW END-----//
