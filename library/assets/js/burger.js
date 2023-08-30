@@ -113,6 +113,9 @@ document
   .querySelector('.library__btn:first-child')
   .addEventListener('click', openRegWindow);
 
+document
+  .querySelector('.library__btn:nth-child(2)')
+  .addEventListener('click', openLoginWindow);
 ///
 if (!localStorage.getItem('isUserAuth888')) {
   localStorage.setItem('isUserAuth888', false);
@@ -129,7 +132,8 @@ class User {
   }
 }
 
-document.querySelector('.reg__form').addEventListener('submit', () => {
+document.querySelector('.reg__form').addEventListener('submit', (event) => {
+  event.preventDefault();
   if (!localStorage.getItem('usersArr888')) {
     const arr = [];
     localStorage.setItem('usersArr888', JSON.stringify(arr));
@@ -347,7 +351,8 @@ function closeLoginWindow() {
   document.querySelector('.login__form').reset(); ///777777777777777777
 }
 
-logWindowForm.addEventListener('submit', () => {
+logWindowForm.addEventListener('submit', (event) => {
+  event.preventDefault();
   afterReg();
 });
 
@@ -399,3 +404,16 @@ function incrementVisits() {
   localStorage.setItem('usersArr888', JSON.stringify(tempArr));
 }
 //-----LOG IN WINDOW END-----//
+
+//-----FIND LIBRARY CARD-----//
+const libraryCardForm = document.querySelector('.libraryCard__form');
+const formLibraryCardData = new FormData(libraryCardForm);
+
+libraryCardForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+  const firstName = formLibraryCardData.get('form__library-card-name');
+  const cardNumber = formLibraryCardData.get('form__library-card-number');
+  console.log('jjj');
+});
+
+//-----FIND LIBRARY CARD-----//
