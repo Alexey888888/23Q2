@@ -119,13 +119,13 @@ if (!localStorage.getItem('isUserAuth888')) {
 }
 
 class User {
-  constructor(fname, lname, email, pass) {
+  constructor(fname, lname, email, pass, visits = 1) {
     this.firstName = fname;
     this.lastName = lname;
     this.email = email;
     this.pass = pass;
     this.cardNumber = Math.random().toString(16).slice(-9);
-    this.visits = 1;
+    this.visits = visits;
   }
 }
 
@@ -354,21 +354,48 @@ logWindowForm.addEventListener('submit', () => {
 function afterReg() {
   const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
 
-  tempArr[tempArr.length - 1].visits++;
-  localStorage.setItem('usersArr888', JSON.stringify(tempArr));
-
   const formDataReg = new FormData(logWindowForm);
   const userMailCard = formDataReg.get('email-or-card');
   const userPassword = formDataReg.get('logPass');
-  localStorage.setItem('userMailCard888', userMailCard);
-  localStorage.setItem('userPassword888', userPassword);
 
   if (
     tempArr[tempArr.length - 1].pass === userPassword &&
     (tempArr[tempArr.length - 1].email === userMailCard ||
       tempArr[tempArr.length - 1].cardNumber === userMailCard)
-  )
+  ) {
+    incrementVisits();
     afterAuth();
+  } else {
+    // const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+    for (let i = 0; i < tempArr.length - 1; i++) {
+      if (
+        tempArr[i].pass === userPassword &&
+        (tempArr[i].email === userMailCard ||
+          tempArr[i].cardNumber === userMailCard)
+      ) {
+        const currentUser = new User(
+          tempArr[i].firstName,
+          tempArr[i].lastName,
+          tempArr[i].email,
+          tempArr[i].pass,
+          tempArr[i].visits
+        );
+
+        tempArr.push(currentUser);
+        tempArr.splice(i, 1);
+        localStorage.setItem('usersArr888', JSON.stringify(tempArr));
+        incrementVisits();
+        afterAuth();
+        // break;
+      }
+    }
+  }
 }
 
+function incrementVisits() {
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+
+  tempArr[tempArr.length - 1].visits++;
+  localStorage.setItem('usersArr888', JSON.stringify(tempArr));
+}
 //-----LOG IN WINDOW END-----//
