@@ -2036,6 +2036,24 @@ input {
   transition: all 0.5s;
 }
 
+.library__btnProfile {
+  margin-left: 15px;
+  padding: 10px 0 8px;
+  width: 75px;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  background: #fff;
+  transition: all 0.5s;
+}
+
 @media (max-width: 1024px) {
   .libraryCard__inner {
     flex-direction: column;
@@ -2064,7 +2082,8 @@ input {
   }
 }
 .library__btn:hover,
-.form__btn:hover {
+.form__btn:hover,
+.library__btnProfile:hover {
   background: #bb945f;
   border: 1px solid #bb945f;
   transition: all 0.5s;

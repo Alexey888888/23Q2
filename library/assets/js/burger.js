@@ -127,7 +127,7 @@ class User {
     this.lastName = lname;
     this.email = email;
     this.pass = pass;
-    this.cardNumber = Math.random().toString(16).slice(-9);
+    this.cardNumber = Math.random().toString(16).slice(-9).toUpperCase();
     this.visits = visits;
   }
 }
@@ -195,6 +195,32 @@ function afterAuth() {
     .addEventListener('click', () => {
       event.stopPropagation();
     });
+
+  // changeLibraryCardBlockInner
+
+  showInfoPanel();
+  document.querySelector('.infoPanel__visits__count').innerHTML =
+    tempArr[tempArr.length - 1].visits;
+  document.querySelector('.infoPanel__bonuses__count').innerHTML = 1240;
+  document.querySelector('.infoPanel__books__count').innerHTML = 0;
+  document.querySelector('.input__row').value =
+    tempArr[tempArr.length - 1].firstName +
+    ' ' +
+    tempArr[tempArr.length - 1].lastName;
+  document.querySelector('.input__row-bottom').value =
+    tempArr[tempArr.length - 1].cardNumber;
+
+  document.querySelector('.libraryCard__text').innerHTML =
+    'With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.';
+  document.querySelector('.library__btn:first-child').classList.add('none');
+  document.querySelector('.library__btn:nth-child(2)').classList.add('none');
+  const profileBtn = document.createElement('button');
+  profileBtn.className = 'library__btnProfile';
+  profileBtn.innerHTML = 'Profile';
+  document.querySelector('.libraryCard__btnWrapper').append(profileBtn);
+  document
+    .querySelector('.library__btnProfile')
+    .addEventListener('click', openProfileWindow);
 }
 
 if (localStorage.getItem('isUserAuth888') === 'true') {
@@ -212,20 +238,26 @@ function openDropMenuAuth() {
 }
 
 function closeDropMenuAuth() {
-  document.querySelector('.header__dropMenuAuth').classList.add('dropHidden');
-  document
-    .querySelector('.header__dropMenuAuth')
-    .addEventListener('animationend', cleanClassListAuth);
-  function cleanClassListAuth() {
+  if (
     document
       .querySelector('.header__dropMenuAuth')
-      .classList.remove('dropVisible');
+      .classList.contains('dropVisible')
+  ) {
+    document.querySelector('.header__dropMenuAuth').classList.add('dropHidden');
     document
       .querySelector('.header__dropMenuAuth')
-      .classList.remove('dropHidden');
-    document
-      .querySelector('.header__dropMenuAuth')
-      .removeEventListener('animationend', cleanClassListAuth);
+      .addEventListener('animationend', cleanClassListAuth);
+    function cleanClassListAuth() {
+      document
+        .querySelector('.header__dropMenuAuth')
+        .classList.remove('dropVisible');
+      document
+        .querySelector('.header__dropMenuAuth')
+        .classList.remove('dropHidden');
+      document
+        .querySelector('.header__dropMenuAuth')
+        .removeEventListener('animationend', cleanClassListAuth);
+    }
   }
 }
 
@@ -244,6 +276,13 @@ function logout() {
   const userIcon = document.querySelector('.header__icon');
 
   userIcon.addEventListener('click', handlerDropMenu);
+  delInfoPanel();
+  document.querySelector('.libraryCard__text').innerHTML =
+    'You will be able to see a reader card after logging into account or you can register a new account';
+
+  document.querySelector('.library__btn:first-child').classList.remove('none');
+  document.querySelector('.library__btn:nth-child(2)').classList.remove('none');
+  document.querySelector('.library__btnProfile').remove();
 }
 
 function handlerDropMenuAuth() {
@@ -412,35 +451,37 @@ const libraryCardForm = document.querySelector('.libraryCard__form');
 libraryCardForm.addEventListener('submit', (event) => {
   event.preventDefault();
   const formLibraryCardData = new FormData(libraryCardForm);
-  const firstName = formLibraryCardData.get('form__library-card-name');
+  //const firstName = formLibraryCardData.get('form__library-card-name');
+  const fullName = formLibraryCardData.get('form__library-card-name');
   const cardNumber = formLibraryCardData.get('form__library-card-number');
   const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
 
   for (let i = 0; i < tempArr.length; i++) {
     if (
       localStorage.getItem('isUserAuth888') === 'false' &&
-      tempArr[i].firstName === firstName &&
-      tempArr[i].cardNumber === cardNumber
+      tempArr[i].cardNumber === cardNumber &&
+      tempArr[i].firstName.toString() + ' ' + tempArr[i].lastName.toString() ===
+        fullName
     ) {
       document.querySelector('.infoPanel__visits__count').innerHTML =
         tempArr[i].visits;
-      document.querySelector('.infoPanel__bonuses__count').innerHTML = 0;
+      document.querySelector('.infoPanel__bonuses__count').innerHTML = 1240;
       document.querySelector('.infoPanel__books__count').innerHTML = 0;
 
       showInfoPanel();
       setTimeout(delInfoPanel, 10000);
     }
   }
-  function showInfoPanel() {
-    document.querySelector('.infoPanel').classList.remove('none');
-    document.querySelector('.form__btn').classList.add('none');
-  }
-
-  function delInfoPanel() {
-    document.querySelector('.form__btn').classList.remove('none');
-    document.querySelector('.infoPanel').classList.add('none');
-    libraryCardForm.reset();
-  }
 });
 
+function showInfoPanel() {
+  document.querySelector('.infoPanel').classList.remove('none');
+  document.querySelector('.form__btn').classList.add('none');
+}
+
+function delInfoPanel() {
+  document.querySelector('.form__btn').classList.remove('none');
+  document.querySelector('.infoPanel').classList.add('none');
+  libraryCardForm.reset();
+}
 //-----FIND LIBRARY CARD-----//
