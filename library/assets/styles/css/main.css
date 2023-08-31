@@ -461,6 +461,7 @@ img {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  margin-bottom: 22px;
 }
 
 .header__dropMenuAuth {
@@ -1899,7 +1900,7 @@ img {
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.libraryCard__form {
+.libraryCard__form__up {
   display: flex;
   flex-direction: column;
   margin: 18px;
@@ -1938,6 +1939,17 @@ input {
   line-height: 50px;
   letter-spacing: 0.6px;
   padding-left: 20px;
+}
+
+.input__row,
+.input__row-bottom {
+  color: #bb945f;
+  font-family: "Forum";
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
 }
 
 .input__row-bottom::-moz-placeholder, .input__row::-moz-placeholder {
@@ -2056,6 +2068,69 @@ input {
   background: #bb945f;
   border: 1px solid #bb945f;
   transition: all 0.5s;
+}
+
+.infoPanel {
+  color: #0c0c0e;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.5s;
+  margin-left: 213px;
+  margin-top: 12px;
+}
+
+.icon-box-panel__wrapper {
+  display: flex;
+}
+
+.infoPanel__text {
+  color: #000;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  position: relative;
+  top: 4px;
+}
+
+.infoPanel__text {
+  color: #000;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.infoPanel__iconBox {
+  margin-left: 35px;
+}
+
+.infoPanel__visits__count,
+.infoPanel__bonuses__count,
+.infoPanel__books__count {
+  color: #000;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  margin-top: -2px;
+  margin-bottom: 12px;
 }
 
 .footer {

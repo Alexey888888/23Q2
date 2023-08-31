@@ -354,6 +354,7 @@ function closeLoginWindow() {
 logWindowForm.addEventListener('submit', (event) => {
   event.preventDefault();
   afterReg();
+  closeLoginWindow();
 });
 
 function afterReg() {
@@ -407,13 +408,39 @@ function incrementVisits() {
 
 //-----FIND LIBRARY CARD-----//
 const libraryCardForm = document.querySelector('.libraryCard__form');
-const formLibraryCardData = new FormData(libraryCardForm);
 
 libraryCardForm.addEventListener('submit', (event) => {
   event.preventDefault();
+  const formLibraryCardData = new FormData(libraryCardForm);
   const firstName = formLibraryCardData.get('form__library-card-name');
   const cardNumber = formLibraryCardData.get('form__library-card-number');
-  console.log('jjj');
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+
+  for (let i = 0; i < tempArr.length; i++) {
+    if (
+      localStorage.getItem('isUserAuth888') === 'false' &&
+      tempArr[i].firstName === firstName &&
+      tempArr[i].cardNumber === cardNumber
+    ) {
+      document.querySelector('.infoPanel__visits__count').innerHTML =
+        tempArr[i].visits;
+      document.querySelector('.infoPanel__bonuses__count').innerHTML = 0;
+      document.querySelector('.infoPanel__books__count').innerHTML = 0;
+
+      showInfoPanel();
+      setTimeout(delInfoPanel, 10000);
+    }
+  }
+  function showInfoPanel() {
+    document.querySelector('.infoPanel').classList.remove('none');
+    document.querySelector('.form__btn').classList.add('none');
+  }
+
+  function delInfoPanel() {
+    document.querySelector('.form__btn').classList.remove('none');
+    document.querySelector('.infoPanel').classList.add('none');
+    libraryCardForm.reset();
+  }
 });
 
 //-----FIND LIBRARY CARD-----//
