@@ -108,6 +108,7 @@ function closeRegWindow() {
   regWindow.classList.remove('regWindow-active');
   blackout.classList.remove('blackout_active');
   regForm.reset();
+  location.reload(); //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
 document
@@ -382,8 +383,20 @@ function fillFields() {
   document.querySelector('.icon-box__visits__count').innerHTML = '';
   document.querySelector('.icon-box__visits__count').innerHTML =
     tempArr[tempArr.length - 1].visits;
+  //document.querySelector('.icon-box__books__count').innerHTML = '';
   document.querySelector('.icon-box__books__count').innerHTML =
     tempArr[tempArr.length - 1].ownArr.length;
+  //
+  document.querySelector('.rented-books__list').innerHTML = '';
+  if (tempArr[tempArr.length - 1].ownArr.length > 0) {
+    for (let i = 0; i < tempArr[tempArr.length - 1].ownArr.length; i++) {
+      document.querySelector(
+        '.rented-books__list'
+      ).innerHTML += `<li class="rented-books__item">${
+        tempArr[tempArr.length - 1].ownArr[i]
+      }, ${tempArr[tempArr.length - 1].authorArr[i]}</li>`;
+    }
+  }
 }
 
 //-----PROFILE END-----//
