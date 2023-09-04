@@ -123,13 +123,14 @@ if (!localStorage.getItem('isUserAuth888')) {
 }
 
 class User {
-  constructor(fname, lname, email, pass, visits = 1) {
+  constructor(fname, lname, email, pass, visits = 1, subscription = 'false') {
     this.firstName = fname;
     this.lastName = lname;
     this.email = email;
     this.pass = pass;
     this.cardNumber = Math.random().toString(16).slice(-9).toUpperCase();
     this.visits = visits;
+    this.subscription = subscription;
   }
 }
 
@@ -424,7 +425,8 @@ function afterReg() {
           tempArr[i].lastName,
           tempArr[i].email,
           tempArr[i].pass,
-          tempArr[i].visits
+          tempArr[i].visits,
+          tempArr[i].subscription
         );
 
         tempArr.push(currentUser);
@@ -511,7 +513,11 @@ function buyButtonsHandler() {
   if (localStorage.getItem('isUserAuth888') === 'false') {
     openLoginWindow();
   }
-  if (localStorage.getItem('isUserAuth888') === 'true') {
+  const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+  if (
+    localStorage.getItem('isUserAuth888') === 'true' &&
+    tempArr[tempArr.length - 1].subscription === 'false'
+  ) {
     openModalBuyCard();
   }
 }
@@ -542,7 +548,9 @@ document
   .querySelector('.buy-card__form')
   .addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log(buyForm);
+    const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+    tempArr[tempArr.length - 1].subscription = 'true';
+    localStorage.setItem('usersArr888', JSON.stringify(tempArr));
     closeModalBuyCard();
     document.querySelector('.buy-card__form').reset();
   });
