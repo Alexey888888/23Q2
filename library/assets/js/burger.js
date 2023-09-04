@@ -130,7 +130,8 @@ class User {
     pass,
     visits = 1,
     subscription = 'false',
-    ownArr = []
+    ownArr = [],
+    authorArr = []
   ) {
     this.firstName = fname;
     this.lastName = lname;
@@ -140,6 +141,7 @@ class User {
     this.visits = visits;
     this.subscription = subscription;
     this.ownArr = ownArr;
+    this.authorArr = authorArr;
   }
 }
 
@@ -213,7 +215,8 @@ function afterAuth() {
   document.querySelector('.infoPanel__visits__count').innerHTML =
     tempArr[tempArr.length - 1].visits;
   document.querySelector('.infoPanel__bonuses__count').innerHTML = 1240;
-  document.querySelector('.infoPanel__books__count').innerHTML = 0;
+  document.querySelector('.infoPanel__books__count').innerHTML =
+    tempArr[tempArr.length - 1].ownArr.length;
   document.querySelector('.input__row').value =
     tempArr[tempArr.length - 1].firstName +
     ' ' +
@@ -379,6 +382,8 @@ function fillFields() {
   document.querySelector('.icon-box__visits__count').innerHTML = '';
   document.querySelector('.icon-box__visits__count').innerHTML =
     tempArr[tempArr.length - 1].visits;
+  document.querySelector('.icon-box__books__count').innerHTML =
+    tempArr[tempArr.length - 1].ownArr.length;
 }
 
 //-----PROFILE END-----//
@@ -438,7 +443,8 @@ function afterReg() {
           tempArr[i].pass,
           tempArr[i].visits,
           tempArr[i].subscription,
-          tempArr[i].ownArr
+          tempArr[i].ownArr,
+          tempArr[i].author
         );
 
         tempArr.push(currentUser);
@@ -481,7 +487,8 @@ libraryCardForm.addEventListener('submit', (event) => {
       document.querySelector('.infoPanel__visits__count').innerHTML =
         tempArr[i].visits;
       document.querySelector('.infoPanel__bonuses__count').innerHTML = 1240;
-      document.querySelector('.infoPanel__books__count').innerHTML = 0;
+      document.querySelector('.infoPanel__books__count').innerHTML =
+        tempArr[i].ownArr.length;
 
       showInfoPanel();
       setTimeout(delInfoPanel, 10000);
@@ -598,8 +605,11 @@ function afterBuyBook() {
         );
       if (!tempArr[tempArr.length - 1].ownArr.includes(titleBook)) {
         tempArr[tempArr.length - 1].ownArr.push(titleBook);
+        tempArr[tempArr.length - 1].authorArr.push(author);
       }
       localStorage.setItem('usersArr888', JSON.stringify(tempArr));
+      document.querySelector('.infoPanel__books__count').innerHTML =
+        tempArr[tempArr.length - 1].ownArr.length;
     }
   });
 }
