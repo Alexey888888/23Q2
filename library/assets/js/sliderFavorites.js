@@ -21,7 +21,16 @@ for (let i = 0; i < 4; i++) {
   document
     .querySelector('.favorites__list')
     .insertAdjacentHTML('beforeend', book.template);
+  //---------------------------------------
+  remadeBtn();
+  //==
 }
+
+//--------------------------------------------
+//-------------------------------------------
+//---------------------------------------------
+//--------------------------------------------
+//---------------------------------------------
 
 function changeCards() {
   cards = document.querySelectorAll('.card__wrapper');
@@ -44,6 +53,7 @@ function changeCards() {
         document
           .querySelector('.favorites__list')
           .insertAdjacentHTML('beforeend', book.template);
+        remadeBtn();
       }
     }
     //
@@ -58,6 +68,7 @@ function changeCards() {
         document
           .querySelector('.favorites__list')
           .insertAdjacentHTML('beforeend', book.template);
+        remadeBtn();
       }
     }
     //
@@ -73,6 +84,7 @@ function changeCards() {
         document
           .querySelector('.favorites__list')
           .insertAdjacentHTML('beforeend', book.template);
+        remadeBtn();
       }
     }
     //
@@ -87,6 +99,7 @@ function changeCards() {
         document
           .querySelector('.favorites__list')
           .insertAdjacentHTML('beforeend', book.template);
+        remadeBtn();
       }
     }
 
@@ -97,4 +110,33 @@ function changeCards() {
     });
   }
   //
+}
+
+//-----
+function remadeBtn() {
+  const tempArrBtn = JSON.parse(localStorage.getItem('usersArr888'));
+  const buttons = document.querySelectorAll('.favorites__btn');
+  if (
+    localStorage.getItem('isUserAuth888') === 'true' &&
+    tempArrBtn &&
+    tempArrBtn[tempArrBtn.length - 1].ownArr.length > 0
+  ) {
+    tempArrBtn[tempArrBtn.length - 1].ownArr.forEach((item) => {
+      buttons.forEach((btn) => {
+        if (
+          btn.previousSibling.previousSibling.previousSibling.previousSibling
+            .previousSibling.previousSibling.innerHTML === item
+        ) {
+          btn.classList.add('own');
+          btn.innerHTML = 'Own';
+        }
+      });
+    });
+  }
+  if (localStorage.getItem('isUserAuth888') === 'false') {
+    buttons.forEach((btn) => {
+      btn.classList.remove('own');
+      btn.innerHTML = 'Buy';
+    });
+  }
 }

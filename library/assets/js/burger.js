@@ -123,7 +123,15 @@ if (!localStorage.getItem('isUserAuth888')) {
 }
 
 class User {
-  constructor(fname, lname, email, pass, visits = 1, subscription = 'false') {
+  constructor(
+    fname,
+    lname,
+    email,
+    pass,
+    visits = 1,
+    subscription = 'false',
+    ownArr = []
+  ) {
     this.firstName = fname;
     this.lastName = lname;
     this.email = email;
@@ -131,6 +139,7 @@ class User {
     this.cardNumber = Math.random().toString(16).slice(-9).toUpperCase();
     this.visits = visits;
     this.subscription = subscription;
+    this.ownArr = ownArr;
   }
 }
 
@@ -223,6 +232,7 @@ function afterAuth() {
   document
     .querySelector('.library__btnProfile')
     .addEventListener('click', openProfileWindow);
+  remadeBtn_2();
 }
 
 if (localStorage.getItem('isUserAuth888') === 'true') {
@@ -285,6 +295,7 @@ function logout() {
   document.querySelector('.library__btn:first-child').classList.remove('none');
   document.querySelector('.library__btn:nth-child(2)').classList.remove('none');
   document.querySelector('.library__btnProfile').remove();
+  remadeBtn_2();
 }
 
 function handlerDropMenuAuth() {
@@ -426,7 +437,8 @@ function afterReg() {
           tempArr[i].email,
           tempArr[i].pass,
           tempArr[i].visits,
-          tempArr[i].subscription
+          tempArr[i].subscription,
+          tempArr[i].ownArr
         );
 
         tempArr.push(currentUser);
@@ -520,6 +532,12 @@ function buyButtonsHandler() {
   ) {
     openModalBuyCard();
   }
+  if (
+    localStorage.getItem('isUserAuth888') === 'true' &&
+    tempArr[tempArr.length - 1].subscription === 'true'
+  ) {
+    afterBuyBook();
+  }
 }
 
 function doBtnActive() {}
@@ -555,7 +573,67 @@ document
     document.querySelector('.buy-card__form').reset();
   });
 
+//---------------------
+
+//
+//--------------------------------
+//==============================
+//================================
+
+//localStorage.setItem('ownArr888', JSON.stringify([]));
+
+function afterBuyBook() {
+  // const buttons = document.querySelectorAll('.favorites__btn');
+  document.body.addEventListener('click', (event) => {
+    if (event.target.classList[0] === 'favorites__btn') {
+      event.target.classList.add('own');
+      event.target.innerHTML = 'Own';
+      const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+      const titleBook =
+        event.target.previousSibling.previousSibling.previousSibling
+          .previousSibling.previousSibling.previousSibling.innerHTML;
+      const author =
+        event.target.previousSibling.previousSibling.previousSibling.previousSibling.innerHTML.substring(
+          3
+        );
+      if (!tempArr[tempArr.length - 1].ownArr.includes(titleBook)) {
+        tempArr[tempArr.length - 1].ownArr.push(titleBook);
+      }
+      localStorage.setItem('usersArr888', JSON.stringify(tempArr));
+    }
+  });
+}
+
+//-----------------------------
+
 //-----BY CARD END-----//
 // document.body.addEventListener('click', (event) => {
 //   console.log(event);
 // });
+function remadeBtn_2() {
+  const tempArrBtn = JSON.parse(localStorage.getItem('usersArr888'));
+  const buttons = document.querySelectorAll('.favorites__btn');
+  if (
+    localStorage.getItem('isUserAuth888') === 'true' &&
+    tempArrBtn &&
+    tempArrBtn[tempArrBtn.length - 1].ownArr.length > 0
+  ) {
+    tempArrBtn[tempArrBtn.length - 1].ownArr.forEach((item) => {
+      buttons.forEach((btn) => {
+        if (
+          btn.previousSibling.previousSibling.previousSibling.previousSibling
+            .previousSibling.previousSibling.innerHTML === item
+        ) {
+          btn.classList.add('own');
+          btn.innerHTML = 'Own';
+        }
+      });
+    });
+  }
+  if (localStorage.getItem('isUserAuth888') === 'false') {
+    buttons.forEach((btn) => {
+      btn.classList.remove('own');
+      btn.innerHTML = 'Buy';
+    });
+  }
+}
