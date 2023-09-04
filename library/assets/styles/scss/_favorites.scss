@@ -269,7 +269,7 @@
 }
 
 .fade-out {
-  animation: fadeOut ease 1s;
+  animation: fadeOut ease 0.4s;
 }
 
 @keyframes fadeIn {
@@ -282,5 +282,5 @@
 }
 
 .fade-in {
-  animation: fadeIn ease 1s;
+  animation: fadeIn ease 0.4s;
 }

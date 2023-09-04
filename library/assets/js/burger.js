@@ -93,6 +93,7 @@ blackout.addEventListener('click', () => {
   closeRegWindow();
   closeProfileWindow();
   closeLoginWindow();
+  closeModalBuyCard();
 });
 document
   .querySelector('.reg__closeIcon')
@@ -381,7 +382,7 @@ document
 function openLoginWindow() {
   loginWindow.classList.add('logIn-active');
   blackout.classList.add('blackout_active');
-  closeDropMenu();
+  if (dropMenu.classList.contains('dropVisible')) closeDropMenu();
 }
 
 function closeLoginWindow() {
@@ -485,3 +486,68 @@ function delInfoPanel() {
   libraryCardForm.reset();
 }
 //-----FIND LIBRARY CARD-----//
+
+//-----BY CARD-----//
+
+document.querySelectorAll('.season-label').forEach((el) => {
+  el.addEventListener('click', () => {
+    createBuyButtons();
+  });
+});
+
+function createBuyButtons() {
+  setTimeout(() => {
+    const buyButtons = document.querySelectorAll('.favorites__btn');
+
+    buyButtons.forEach((btn) => {
+      btn.addEventListener('click', buyButtonsHandler);
+    });
+  }, 801);
+}
+
+createBuyButtons();
+
+function buyButtonsHandler() {
+  if (localStorage.getItem('isUserAuth888') === 'false') {
+    openLoginWindow();
+  }
+  if (localStorage.getItem('isUserAuth888') === 'true') {
+    openModalBuyCard();
+  }
+}
+
+function doBtnActive() {}
+
+const modalBuyCard = document.querySelector('.buy-card');
+
+function openModalBuyCard() {
+  modalBuyCard.classList.add('buy-card-active');
+  blackout.classList.add('blackout_active');
+  //closeDropMenu();
+}
+
+function closeModalBuyCard() {
+  modalBuyCard.classList.remove('buy-card-active');
+  blackout.classList.remove('blackout_active');
+}
+
+document
+  .querySelector('.buy-card__closeIcon__img')
+  .addEventListener('click', () => {
+    closeModalBuyCard();
+  });
+
+const buyForm = new FormData(document.querySelector('.buy-card__form'));
+document
+  .querySelector('.buy-card__form')
+  .addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log(buyForm);
+    closeModalBuyCard();
+    document.querySelector('.buy-card__form').reset();
+  });
+
+//-----BY CARD END-----//
+// document.body.addEventListener('click', (event) => {
+//   console.log(event);
+// });

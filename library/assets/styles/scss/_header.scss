@@ -871,3 +871,180 @@
   margin-top: 10px;
 }
 //-----LOG IN WINDOW END-----//
+
+//------BUY FORM------//
+.buy-card {
+  width: 640px;
+  height: 540px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 300;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba($color: #000000, $alpha: 0);
+  display: none;
+}
+
+.buy-card-active {
+  display: block;
+}
+
+.buy-card__top {
+  background: #0c0c0e;
+  color: #fff;
+  font-family: 'Forum';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  width: 640px;
+  height: 60px;
+}
+
+.buy-card__title {
+  text-transform: uppercase;
+  margin-left: 143px;
+  padding-top: 20px;
+}
+
+.buy-card__closeIcon__img {
+  position: relative;
+  left: 608px;
+  bottom: 22px;
+  transition: all 0.3s;
+}
+
+.buy-card__closeIcon__img:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.buy-card__inner {
+  background: #fff;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+.buy-card__left {
+  margin-top: -10px;
+}
+
+.buy-card__form {
+  color: #000;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.buy-form__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-form__input {
+  border: 1px solid #bb945f;
+  height: 20px;
+  width: 200px;
+  margin-top: 10px;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.buy-form__input:invalid {
+  opacity: 0.5;
+}
+
+.buy-form__text label {
+  margin-top: 10px;
+}
+
+.expiration__wrapper {
+  display: flex;
+}
+
+#bank-card__expiration-2 {
+  margin-left: 6px;
+}
+
+#bank-card__expiration,
+#bank-card__expiration-2,
+#bank-card__cvc {
+  width: 45px;
+  padding-left: 10px;
+}
+
+#cvc {
+  margin-top: -5px;
+}
+
+#holder-name {
+  margin-top: 11px;
+}
+
+.buy-form__footer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.buy-form__btn {
+  width: 75px;
+  height: 30px;
+  border: 1px solid #0c0c0e;
+  border-radius: 2px;
+  color: #0c0c0e;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  background: #fff;
+  padding-left: 0;
+  transition: all 0.3s;
+}
+
+.buy-form__btn:hover {
+  background: #bb945f;
+  cursor: pointer;
+  border-color: #bb945f;
+}
+
+.buy-form__cost {
+  color: #0c0c0e;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.buy-card__right {
+  margin-left: 40px;
+}
+
+.buy-card__right__text {
+  color: #8e8e8e;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 2px;
+  width: 330px;
+}
+// ------BUY FORM END-----//
