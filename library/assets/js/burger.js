@@ -156,8 +156,8 @@ document.querySelector('.reg__form').addEventListener('submit', (event) => {
 
   const formData = new FormData(regForm);
   const currentUser = new User(
-    formData.get('fname'),
-    formData.get('lname'),
+    formData.get('fname')[0].toUpperCase() + formData.get('fname').substring(1),
+    formData.get('lname')[0].toUpperCase() + formData.get('lname').substring(1),
     formData.get('email'),
     formData.get('pass')
   );
@@ -188,8 +188,8 @@ function afterAuth() {
   const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
   if (localStorage.getItem('isUserAuth888') === 'true') {
     initials =
-      tempArr[tempArr.length - 1].firstName.toString()[0] +
-      tempArr[tempArr.length - 1].lastName.toString()[0];
+      tempArr[tempArr.length - 1].firstName.toString()[0].toUpperCase() +
+      tempArr[tempArr.length - 1].lastName.toString()[0].toUpperCase();
     fullName =
       tempArr[tempArr.length - 1].firstName.toString() +
       ' ' +
@@ -373,8 +373,8 @@ function copyNumber() {
 function fillFields() {
   const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
   initials =
-    tempArr[tempArr.length - 1].firstName.toString()[0] +
-    tempArr[tempArr.length - 1].lastName.toString()[0];
+    tempArr[tempArr.length - 1].firstName.toString()[0].toUpperCase() +
+    tempArr[tempArr.length - 1].lastName.toString()[0].toUpperCase();
   fullName =
     tempArr[tempArr.length - 1].firstName.toString() +
     ' ' +
@@ -509,8 +509,16 @@ libraryCardForm.addEventListener('submit', (event) => {
     if (
       localStorage.getItem('isUserAuth888') === 'false' &&
       tempArr[i].cardNumber === cardNumber &&
-      tempArr[i].firstName.toString() + ' ' + tempArr[i].lastName.toString() ===
-        fullName
+      (tempArr[i].firstName.toString() +
+        ' ' +
+        tempArr[i].lastName.toString() ===
+        fullName ||
+        tempArr[i].firstName.toString()[0].toLowerCase() +
+          tempArr[i].firstName.toString().substring(1) +
+          ' ' +
+          tempArr[i].lastName.toString()[0].toLowerCase() +
+          tempArr[i].lastName.toString().substring(1) ===
+          fullName)
     ) {
       document.querySelector('.infoPanel__visits__count').innerHTML =
         tempArr[i].visits;
