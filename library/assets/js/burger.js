@@ -575,7 +575,33 @@ function buyButtonsHandler() {
   }
 }
 
-function doBtnActive() {}
+let timerID = null;
+
+function doBtnActive() {
+  timerID = setInterval(() => {
+    const resArr = [];
+    let res = '';
+    document.querySelectorAll('.buy-form__input').forEach((item) => {
+      if (item.value) {
+        res = true;
+      } else res = false;
+      resArr.push(res);
+    });
+
+    if (!resArr.includes(false)) {
+      document
+        .querySelector('.buy-form__btn')
+        .classList.add('buy-form__btn-active');
+      document.querySelector('.buy-form__btn').disabled = false;
+    }
+    if (resArr.includes(false)) {
+      document
+        .querySelector('.buy-form__btn')
+        .classList.remove('buy-form__btn-active');
+      document.querySelector('.buy-form__btn').disabled = true;
+    }
+  }, 100);
+}
 
 const modalBuyCard = document.querySelector('.buy-card');
 
@@ -583,11 +609,13 @@ function openModalBuyCard() {
   modalBuyCard.classList.add('buy-card-active');
   blackout.classList.add('blackout_active');
   //closeDropMenu();
+  doBtnActive();
 }
 
 function closeModalBuyCard() {
   modalBuyCard.classList.remove('buy-card-active');
   blackout.classList.remove('blackout_active');
+  clearTimeout(timerID);
 }
 
 document

@@ -1055,7 +1055,7 @@ img {
   transition: all 0.3s;
 }
 
-.buy-form__btn:hover {
+.buy-form__btn-active:hover {
   background: #bb945f;
   cursor: pointer;
   border-color: #bb945f;
