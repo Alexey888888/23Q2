@@ -172,6 +172,12 @@ document.querySelector('.reg__form').addEventListener('submit', (event) => {
   afterAuth();
 });
 
+//
+document.querySelector('.reg__footer span').addEventListener('click', () => {
+  closeRegWindow();
+  openLoginWindow();
+});
+
 //--REGISTER WINDOW END-----//
 //-----USER-ICON AFTER AUTH-----//
 
@@ -479,6 +485,13 @@ function incrementVisits() {
   tempArr[tempArr.length - 1].visits++;
   localStorage.setItem('usersArr888', JSON.stringify(tempArr));
 }
+
+//
+document.querySelector('.login__footer span').addEventListener('click', () => {
+  closeLoginWindow();
+  openRegWindow();
+});
+
 //-----LOG IN WINDOW END-----//
 
 //-----FIND LIBRARY CARD-----//
