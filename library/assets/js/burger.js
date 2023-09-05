@@ -108,7 +108,7 @@ function closeRegWindow() {
   regWindow.classList.remove('regWindow-active');
   blackout.classList.remove('blackout_active');
   regForm.reset();
-  location.reload(); //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+  //location.reload(); //+++++++++++++++++++++++++++++++++++++++++++++++++++++++
 }
 
 document
@@ -605,10 +605,13 @@ document
 function afterBuyBook() {
   // const buttons = document.querySelectorAll('.favorites__btn');
   document.body.addEventListener('click', (event) => {
-    if (event.target.classList[0] === 'favorites__btn') {
+    const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
+    if (
+      event.target.classList[0] === 'favorites__btn' &&
+      tempArr[tempArr.length - 1].subscription === 'true'
+    ) {
       event.target.classList.add('own');
       event.target.innerHTML = 'Own';
-      const tempArr = JSON.parse(localStorage.getItem('usersArr888'));
       const titleBook =
         event.target.previousSibling.previousSibling.previousSibling
           .previousSibling.previousSibling.previousSibling.innerHTML;
