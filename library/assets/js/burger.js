@@ -132,13 +132,14 @@ class User {
     visits = 1,
     subscription = 'false',
     ownArr = [],
-    authorArr = []
+    authorArr = [],
+    cardNumber = Math.random().toString(16).slice(-9).toUpperCase()
   ) {
     this.firstName = fname;
     this.lastName = lname;
     this.email = email;
     this.pass = pass;
-    this.cardNumber = Math.random().toString(16).slice(-9).toUpperCase();
+    this.cardNumber = cardNumber;
     this.visits = visits;
     this.subscription = subscription;
     this.ownArr = ownArr;
@@ -457,7 +458,8 @@ function afterReg() {
           tempArr[i].visits,
           tempArr[i].subscription,
           tempArr[i].ownArr,
-          tempArr[i].author
+          tempArr[i].author,
+          tempArr[i].cardNumber
         );
 
         tempArr.push(currentUser);
