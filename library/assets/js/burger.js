@@ -575,6 +575,8 @@ function buyButtonsHandler() {
   }
 }
 
+//------
+
 let timerID = null;
 
 function doBtnActive() {
@@ -603,6 +605,8 @@ function doBtnActive() {
   }, 100);
 }
 
+//---------
+
 const modalBuyCard = document.querySelector('.buy-card');
 
 function openModalBuyCard() {
@@ -615,6 +619,7 @@ function openModalBuyCard() {
 function closeModalBuyCard() {
   modalBuyCard.classList.remove('buy-card-active');
   blackout.classList.remove('blackout_active');
+  document.querySelector('.buy-card__form').reset();
   clearTimeout(timerID);
 }
 
