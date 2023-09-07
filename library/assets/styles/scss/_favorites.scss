@@ -21,10 +21,27 @@
   margin-left: 20px;
 }
 
+//@media (max-width: 768px) {
+@media (max-width: 1250px) {
+  .favorites__season {
+    position: sticky;
+    top: 0px;
+    background: #fff;
+
+    z-index: 100;
+  }
+
+  body {
+    overflow-x: visible;
+  }
+}
+
 .input__wrapper {
   font-weight: 400;
   display: flex;
-  gap: 75px;
+  // gap: 75px;
+  justify-content: space-between; ////
+  max-width: 724px; /////
   margin-top: 36px;
   margin-left: -5px;
 }
@@ -35,14 +52,17 @@
   }
 }
 
+/////////---
+
 .season-label {
   padding: 5px 5px 5px 15px;
   cursor: pointer;
   transition: all 0.4s;
+  width: 136px;
 }
 
 .season-label:hover {
-  color: #8e8e8e;
+  color: #bb945f;
   transition: all 0.4s;
 }
 
@@ -50,6 +70,7 @@
   cursor: pointer;
   position: absolute;
   opacity: 0;
+  appearance: none;
 }
 
 .selected {
@@ -75,7 +96,7 @@
 }
 
 .season-label:hover > .input__text::before {
-  border-color: #8e8e8e;
+  border-color: #bb945f;
   transition: all 0.4s;
 }
 
@@ -94,7 +115,7 @@
 }
 
 .season-label:hover > .input__text::after {
-  background: #8e8e8e;
+  background: #bb945f;
   transition: all 0.4s;
 }
 
@@ -211,4 +232,56 @@
 
 .own:hover {
   background: white;
+}
+
+.summer {
+  position: relative;
+  left: -10px;
+}
+
+@media (max-width: 680px) {
+  .input__text::before {
+    left: -28px;
+  }
+
+  .input__text::after {
+    left: -23px;
+  }
+
+  .season-label {
+    max-width: 136px;
+  }
+  .input__wrapper {
+    gap: 15px;
+  }
+}
+
+////////////////////////////
+///
+///
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 0.4s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 0.4s;
 }

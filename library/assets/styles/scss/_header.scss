@@ -165,3 +165,890 @@
 .header__icon:hover {
   filter: invert(50%) sepia(100%);
 }
+
+//DROP-MENU
+
+.header__iconWrapper {
+  position: relative;
+}
+
+.header__dropMenu {
+  position: absolute;
+  width: 80px;
+  height: 115px;
+  background: #fff;
+  z-index: 100;
+  right: 0;
+  top: 40px;
+  display: none;
+  color: #000;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.dropMenu__title {
+  padding: 5px 16px 0;
+}
+
+.dropMenu__line {
+  margin: 5px 20px 0;
+  width: 40px;
+  height: 1px;
+  background: #bb945f;
+}
+
+.dropMenu__textUp {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenu__textDown {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenu__textUp:hover,
+.dropMenu__textDown:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
+}
+
+//DROP-MENU END
+
+//REG WINDOW
+
+.regWindow {
+  width: 250px;
+  height: 382px;
+  //border: 1px dotted black;
+  background: #fff;
+  //
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+}
+
+.regWindow-active {
+  display: block;
+}
+
+.reg__input {
+  border: 1px solid #bb945f;
+  width: 200px;
+  height: 20px;
+  margin-top: 10px;
+  //margin-left: 25px;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.reg__input:invalid {
+  opacity: 0.5;
+  //x color: tomato;
+}
+
+.reg__text {
+  margin-left: 25px;
+  color: #000;
+
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.reg__text:first-child {
+  margin-top: 20px;
+}
+
+.reg__text {
+  margin-top: 10px;
+}
+
+.reg__title {
+  color: #000;
+  margin-left: 85px;
+  font-family: 'Forum', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+
+  margin-top: 20px;
+}
+
+.reg__btn {
+  background: #fff;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  cursor: pointer;
+  width: 75px;
+  height: 30px;
+  padding: 0;
+  margin-left: 25px;
+  margin-top: 21px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  transition: all 0.3s;
+}
+
+.reg__btn:hover {
+  background: #bb945f;
+  transition: 0.3s;
+  border-color: #bb945f;
+}
+
+.reg__footer {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.reg__footer span {
+  color: #0c0c0e;
+  text-align: center;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+
+.reg__footer span:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
+}
+
+.reg__closeIcon {
+  position: relative;
+  cursor: pointer;
+  left: 46px;
+  bottom: 7px;
+  transition: all 0.3s;
+}
+
+.reg__closeIcon:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.blackout {
+  background: rgba(5, 5, 5, 0.7);
+  position: fixed;
+  top: 0;
+  right: 0;
+  transition: all 0.6s;
+  z-index: 250;
+  opacity: 0;
+  //
+}
+
+.blackout_active {
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+}
+
+.icon_profile-afterAuth {
+  width: 28px;
+  height: 28px;
+  border-radius: 100%;
+  color: #bb945f;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 22px;
+}
+
+//DROP-MENU AUTH
+
+.header__dropMenuAuth {
+  position: absolute;
+  width: 80px;
+  height: 115px;
+  background: #fff;
+  z-index: 100;
+  right: 0;
+  top: 40px;
+  display: none;
+  color: #000;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.dropMenuAuth__title {
+  padding: 5px 0px 0;
+  font-size: 12px;
+  text-align: center;
+}
+
+.dropMenu__line {
+  margin: 5px 20px 0;
+  width: 40px;
+  height: 1px;
+  background: #bb945f;
+}
+
+.dropMenuAuth__textUp {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenuAuth__textDown {
+  font-weight: 400;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dropMenuAuth__textUp:hover,
+.dropMenuAuth__textDown:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
+}
+
+//DROP-MENU AUTH END
+
+@keyframes dropMenu-visible {
+  0% {
+    // width: 0;
+    height: 0;
+    opacity: 0;
+  }
+  100% {
+    // width: 80px;
+    height: 115px;
+    opacity: 1;
+  }
+}
+
+.dropVisible {
+  animation: dropMenu-visible ease 0.3s;
+  display: block;
+}
+
+@keyframes dropMenu-hidden {
+  0% {
+    //width: 80px;
+    height: 115px;
+    opacity: 1;
+  }
+  100% {
+    // width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.dropHidden {
+  animation: dropMenu-hidden ease 0.3s;
+}
+
+//-----MY PROFILE WINDOW----//
+.profile-window {
+  width: 600px;
+  height: 400px;
+  background: #fff;
+  z-index: 100;
+
+  //
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+}
+
+.profile-window-active {
+  display: flex;
+}
+
+.profile-window__left {
+  background: #0c0c0e;
+  min-width: 170px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rectangle-initials {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  margin-top: 139px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.rectangle-initials__text {
+  color: #bb945f;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.rectangle-name {
+  width: 120px;
+  min-height: 30px;
+  background: #fff;
+  margin-top: 15px;
+  display: flex;
+  text-align: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.rectangle-name__text {
+  color: #000;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  text-transform: capitalize;
+}
+
+.profile-window__right {
+  width: 100%;
+  height: 100%;
+}
+
+.profile-window__title {
+  color: #000;
+
+  font-family: 'Forum';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-top: 40px;
+  margin-left: 20px;
+}
+
+.profile-window__closeIcon {
+  margin-left: 150px;
+  position: relative;
+  bottom: 16px;
+}
+
+.profile-window__closeIcon__img {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.profile-window__closeIcon__img:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.profile-window__icon-box {
+  margin-top: 40px;
+  margin-left: 20px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-window__iconBox {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-box__text {
+  color: #000;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+}
+.icon-box__visits__count,
+.icon-box__bonuses__count,
+.icon-box__books__count {
+  color: #000;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  margin-top: -1px;
+}
+
+.icon-box__icon {
+  margin-top: 3px;
+}
+
+.rented-books {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+
+.rented-books__text {
+  color: #0c0c0e;
+
+  font-family: 'Inter';
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.rented-books__list {
+  margin-top: 20px;
+  height: 67px;
+  overflow: auto;
+  // for second scroll
+  white-space: nowrap;
+  width: 410px;
+}
+
+.rented-books__list::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background-color: #d3d3d1;
+}
+
+.rented-books__list::-webkit-scrollbar-thumb {
+  background-color: #8e8e8e;
+}
+
+.rented-books__item {
+  margin-left: 30px;
+  list-style: disc;
+  color: #000;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: capitalize;
+  margin-top: 10px;
+}
+
+.profile-window__card-number {
+  margin-left: 20px;
+  position: absolute;
+  bottom: 39px;
+}
+
+.profile-window__card-number__text {
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.profile-window__card-number__number {
+  margin-left: 10px;
+  color: #bb945f;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.profile-window__card-number__copy-icon {
+  margin-left: 10px;
+}
+
+#copy-icon {
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+#copy-icon:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+#copy-icon:active {
+  opacity: 0.7;
+}
+//-----MY PROFILE WINDOW END----//
+
+//-----LOG IN WINDOW-----//
+
+.LogInWindow {
+  width: 250px;
+  height: 262px;
+  background: #fff;
+  position: fixed;
+  z-index: 300;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+.logIn-active {
+  display: block;
+}
+
+.login__input {
+  border: 1px solid #bb945f;
+  width: 200px;
+  height: 20px;
+  margin-top: 10px;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.login__input:invalid {
+  opacity: 0.5;
+}
+
+.login__text {
+  margin-left: 25px;
+  color: #000;
+
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.login__btn {
+  background: #fff;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  cursor: pointer;
+  width: 75px;
+  height: 30px;
+  padding: 0;
+  margin-left: 24px;
+  margin-top: 20px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  transition: all 0.3s;
+}
+
+.login__btn:hover {
+  background: #bb945f;
+  transition: 0.3s;
+  border-color: #bb945f;
+}
+
+.login__footer {
+  color: #000;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.login__footer span {
+  color: #0c0c0e;
+  text-align: center;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  text-decoration-line: underline;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: all 0.3s;
+}
+
+.login__footer span:hover {
+  color: #8e8e8e;
+  transition: all 0.3s;
+}
+
+.login__closeIcon {
+  position: relative;
+  cursor: pointer;
+  left: 60px;
+  bottom: 7px;
+  transition: all 0.3s;
+}
+
+.login__closeIcon:hover {
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.login__title {
+  color: #000;
+  margin-left: 95px;
+  font-family: 'Forum', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+
+  margin-top: 20px;
+}
+
+.login__text:first-child {
+  margin-top: 20px;
+}
+
+.login__text {
+  margin-top: 10px;
+}
+//-----LOG IN WINDOW END-----//
+
+//------BUY FORM------//
+.buy-card {
+  width: 640px;
+  height: 540px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: 300;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba($color: #000000, $alpha: 0);
+  display: none;
+}
+
+.buy-card-active {
+  display: block;
+}
+
+.buy-card__top {
+  background: #0c0c0e;
+  color: #fff;
+  font-family: 'Forum';
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.8px;
+  width: 640px;
+  height: 60px;
+}
+
+.buy-card__title {
+  text-transform: uppercase;
+  margin-left: 143px;
+  padding-top: 20px;
+}
+
+.buy-card__closeIcon__img {
+  position: relative;
+  left: 608px;
+  bottom: 22px;
+  transition: all 0.3s;
+}
+
+.buy-card__closeIcon__img:hover {
+  cursor: pointer;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.buy-card__inner {
+  background: #fff;
+  width: 100%;
+  height: 480px;
+  display: flex;
+  padding-top: 30px;
+  padding-left: 40px;
+}
+
+.buy-card__left {
+  margin-top: -10px;
+}
+
+.buy-card__form {
+  color: #000;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+}
+
+.buy-form__text {
+  display: flex;
+  flex-direction: column;
+}
+
+.buy-form__input {
+  border: 1px solid #bb945f;
+  height: 20px;
+  width: 200px;
+  margin-top: 10px;
+  font-family: 'Inter';
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.buy-form__input:invalid {
+  opacity: 0.5;
+}
+
+.buy-form__text label {
+  margin-top: 10px;
+}
+
+.expiration__wrapper {
+  display: flex;
+}
+
+#bank-card__expiration-2 {
+  margin-left: 6px;
+}
+
+#bank-card__expiration,
+#bank-card__expiration-2,
+#bank-card__cvc {
+  width: 45px;
+  padding-left: 10px;
+}
+
+#cvc {
+  margin-top: -5px;
+}
+
+#holder-name {
+  margin-top: 11px;
+}
+
+.buy-form__footer {
+  display: flex;
+  margin-top: 20px;
+}
+
+.buy-form__btn {
+  width: 75px;
+  height: 30px;
+  border: 1px solid #0c0c0e;
+  border-radius: 2px;
+  color: #0c0c0e;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  background: #fff;
+  padding-left: 0;
+  transition: all 0.3s;
+}
+
+.buy-form__btn-active:hover {
+  background: #bb945f;
+  cursor: pointer;
+  border-color: #bb945f;
+}
+
+.buy-form__cost {
+  color: #0c0c0e;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.buy-card__right {
+  margin-left: 40px;
+}
+
+.buy-card__right__text {
+  color: #8e8e8e;
+  font-family: 'Inter';
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 133.333% */
+  letter-spacing: 2px;
+  width: 330px;
+}
+// ------BUY FORM END-----//
