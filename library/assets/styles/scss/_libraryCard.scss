@@ -25,7 +25,7 @@
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
-.libraryCard__form {
+.libraryCard__form__up {
   display: flex;
   flex-direction: column;
 
@@ -67,6 +67,17 @@ input {
   padding-left: 20px;
 }
 
+.input__row,
+.input__row-bottom {
+  color: #bb945f;
+  font-family: 'Forum';
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.6px;
+}
+
 .input__row-bottom::placeholder,
 .input__row::placeholder {
   color: #8e8e8e;
@@ -91,6 +102,7 @@ input {
   right: 3px;
   transition: all 0.5s;
 }
+
 .libraryCard__inner {
   display: flex;
   justify-content: space-between;
@@ -106,7 +118,6 @@ input {
   width: 456px;
   text-align: right;
 }
-
 
 .libraryCard__title-right {
   color: #000;
@@ -130,8 +141,6 @@ input {
   margin-bottom: 30px;
 }
 
-
-
 .library__btn {
   margin-left: 15px;
   padding: 10px 0 8px;
@@ -150,6 +159,23 @@ input {
   transition: all 0.5s;
 }
 
+.library__btnProfile {
+  margin-left: 15px;
+  padding: 10px 0 8px;
+  width: 75px;
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  border-radius: 2px;
+  border: 1px solid #0c0c0e;
+  background: #fff;
+  transition: all 0.5s;
+}
 
 @media (max-width: 1024px) {
   .libraryCard__inner {
@@ -163,30 +189,93 @@ input {
   }
 
   .libraryCard__inner_right {
-     text-align: center;
-     width: 600px;
-    }
-    
-    .libraryCard__text {
-      padding-top: 5px;
-    }
+    text-align: center;
+    width: 600px;
+  }
 
-    .libraryCard__btnWrapper {
-      display: flex;
-      column-gap: 20px;
-      justify-content: center;
-    }
+  .libraryCard__text {
+    padding-top: 5px;
+  }
 
-    .library__btn {
- margin-left: 0;
- margin-top: 9px;
-    }
+  .libraryCard__btnWrapper {
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+  }
 
+  .library__btn {
+    margin-left: 0;
+    margin-top: 9px;
+  }
 }
 
 .library__btn:hover,
-.form__btn:hover {
+.form__btn:hover,
+.library__btnProfile:hover {
   background: #bb945f;
   border: 1px solid #bb945f;
   transition: all 0.5s;
+}
+
+.infoPanel {
+  color: #0c0c0e;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1px;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.5s;
+  margin-left: 213px;
+  margin-top: 12px;
+}
+
+.icon-box-panel__wrapper {
+  display: flex;
+}
+
+.infoPanel__text {
+  color: #000;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.4px;
+  position: relative;
+  top: 4px;
+}
+
+.infoPanel__text {
+  color: #000;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+}
+
+.infoPanel__iconBox {
+  margin-left: 35px;
+}
+
+.infoPanel__visits__count,
+.infoPanel__bonuses__count,
+.infoPanel__books__count {
+  color: #000;
+  text-align: center;
+  font-family: 'Inter';
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0.2px;
+  margin-top: -2px;
+  margin-bottom: 12px;
 }
