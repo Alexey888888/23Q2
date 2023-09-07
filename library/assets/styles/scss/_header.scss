@@ -661,12 +661,16 @@
 
 .rented-books__list {
   margin-top: 20px;
-  height: 62px;
+  height: 67px;
   overflow: auto;
+  // for second scroll
+  white-space: nowrap;
+  width: 410px;
 }
 
 .rented-books__list::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
   background-color: #d3d3d1;
 }
 

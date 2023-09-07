@@ -518,6 +518,10 @@ libraryCardForm.addEventListener('submit', (event) => {
           ' ' +
           tempArr[i].lastName.toString()[0].toLowerCase() +
           tempArr[i].lastName.toString().substring(1) ===
+          fullName ||
+        tempArr[i].firstName.toString() === fullName ||
+        tempArr[i].firstName.toString()[0].toLowerCase() +
+          tempArr[i].firstName.toString().substring(1) ===
           fullName)
     ) {
       document.querySelector('.infoPanel__visits__count').innerHTML =
