@@ -24,7 +24,7 @@
           </span>
         </p>
 
-        <form class="reg__form" action="">
+        <form class="reg__form" action="#">
           <div class="reg__text">
             <label for="firstname">First name</label>
             <input
@@ -85,7 +85,7 @@
           </span>
         </p>
 
-        <form class="login__form" action="">
+        <form class="login__form" action="#">
           <div class="login__text">
             <label for="e-mail-or-card">E-mail or readers card</label>
             <input
@@ -253,48 +253,11 @@
       <div class="buy-card">
         <div class="buy-card__top">
           <p class="buy-card__title">Buy a library card</p>
-          <svg
+          <img
+            src="./assets/icons/close_btn_white.svg"
+            alt="icon_close"
             class="buy-card__closeIcon__img"
-            width="19"
-            height="19"
-            viewBox="0 0 19 19"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <rect width="19" height="19" fill="#8E8E8E" />
-            <g id="modal buy a card">
-              <rect
-                width="650"
-                height="540"
-                transform="translate(-608 -23)"
-                fill="#0c0c0e"
-              />
-              <g id="top-title">
-                <rect
-                  id="Rectangle 38"
-                  x="-608"
-                  y="-23"
-                  width="650"
-                  height="60"
-                  fill="#0C0C0E"
-                />
-              </g>
-              <g id="close_btn">
-                <path
-                  id="Line 5"
-                  d="M2 16.8507L17 2"
-                  stroke="white"
-                  stroke-width="3"
-                />
-                <path
-                  id="Line 6"
-                  d="M2 2.14929L17 17"
-                  stroke="white"
-                  stroke-width="3"
-                />
-              </g>
-            </g>
-          </svg>
+          />
         </div>
         <div class="buy-card__inner">
           <div class="buy-card__left">
@@ -312,7 +275,7 @@
               </div>
               <div class="buy-form__text">
                 <label for="bank-card__expiration">Expiration code</label>
-                <div expiration__wrapper>
+                <div class="expiration__wrapper">
                   <input
                     id="bank-card__expiration"
                     type="text"
@@ -354,6 +317,7 @@
                   class="buy-form__input"
                   required
                 />
+                <!-- pattern="^[a-zA-Z\s]+$" -->
               </div>
               <div class="buy-form__text">
                 <label for="bank-card__number">Postal code</label>
@@ -439,7 +403,7 @@
                   <p class="dropMenu__textDown">Register</p>
                 </div>
                 <!-- DROP-MENU END-->
-                <!-- ------------------------- -->
+
                 <!-- DROP-MENU AUTH START-->
                 <div class="header__dropMenuAuth">
                   <p class="dropMenuAuth__title">Profile</p>
@@ -778,7 +742,7 @@
                 <div class="libraryCard__inner_left">
                   <p class="libraryCard__title-left">Find your Library card</p>
                   <div class="form__wrapper">
-                    <form action="" class="libraryCard__form">
+                    <form action="#" class="libraryCard__form">
                       <div class="libraryCard__form__up">
                         <p class="form__title">Brooklyn Public Library</p>
                         <input
