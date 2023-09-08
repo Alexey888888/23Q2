@@ -596,7 +596,7 @@ function doBtnActive() {
     const resArr = [];
     let res = '';
     document.querySelectorAll('.buy-form__input').forEach((item) => {
-      if (item.value) {
+      if (item.value.trim()) {
         res = true;
       } else res = false;
       resArr.push(res);
