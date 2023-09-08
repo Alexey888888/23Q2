@@ -955,7 +955,7 @@ img {
 .buy-card__closeIcon__img {
   position: relative;
   left: 608px;
-  bottom: 22px;
+  bottom: 17px;
   transition: all 0.3s;
 }
 
@@ -1018,7 +1018,7 @@ img {
 }
 
 #bank-card__expiration-2 {
-  margin-left: 6px;
+  margin-left: 11px;
 }
 
 #bank-card__expiration,
@@ -1026,10 +1026,6 @@ img {
 #bank-card__cvc {
   width: 45px;
   padding-left: 10px;
-}
-
-#cvc {
-  margin-top: -5px;
 }
 
 #holder-name {
