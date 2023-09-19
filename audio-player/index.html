@@ -6,7 +6,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
@@ -31,7 +35,42 @@
               alt="Kavinsky_Nightcall"
             />
           </div>
-          <div class="player__control-panel"></div>
+          <div class="player__control-panel">
+            <div class="control-panel__top">
+              <div class="control-panel__top-left">
+                <div class="control-button">
+                  <img
+                    src="./assets/img/control-buttons/play.png"
+                    alt="play"
+                    class="play"
+                  />
+                </div>
+                <div class="player__title">
+                  <div class="artist-title">Kavinsky</div>
+                  <div class="song-title">Nightcall</div>
+                </div>
+              </div>
+              <div class="control-panel__top-right">
+                <div class="forward-backward">
+                  <div class="control-button">
+                    <img
+                      src="./assets/img/control-buttons/backward.png"
+                      alt="backward"
+                      class="backward"
+                    />
+                  </div>
+                  <div class="control-button">
+                    <img
+                      src="./assets/img/control-buttons/forward.png"
+                      alt="forward"
+                      class="forward"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="progress-bar"></div>
+          </div>
         </div>
       </main>
       <footer class="footer">

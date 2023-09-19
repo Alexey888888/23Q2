@@ -101,3 +101,58 @@ img {
 .rsschool:hover {
   opacity: 0.2;
 }
+
+.control-panel__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.control-panel__top-left {
+  display: flex;
+}
+
+.control-button img {
+  filter: invert(100%);
+  opacity: 0.7;
+  transition: all 0.3s;
+}
+
+.control-button img:hover {
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.play {
+  width: 45px;
+}
+
+.backward,
+.forward {
+  width: 30px;
+}
+
+.none {
+  display: none;
+}
+
+.player__title {
+  margin-left: 10px;
+  font-family: 'Montserrat', sans-serif;
+  opacity: 0.9;
+}
+
+.artist-title {
+  font-weight: 700;
+  font-size: 20px;
+  color: #91e051;
+}
+
+.song-title {
+  font-size: 17px;
+  color: #fff;
+}
