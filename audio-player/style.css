@@ -117,13 +117,13 @@ img {
 }
 
 .control-button img {
-  filter: invert(100%);
+  /* filter: invert(100%); */
   opacity: 0.7;
   transition: all 0.3s;
 }
 
 .pause {
-  filter: invert(100%);
+  /* filter: invert(100%); */
   opacity: 0.7;
   transition: all 0.3s;
 }
@@ -141,6 +141,13 @@ img {
 .play,
 .pause {
   width: 45px;
+}
+
+.play:active,
+.pause:active,
+.backward:active,
+.forward:active {
+  transform: scale(1.1);
 }
 
 .backward,
