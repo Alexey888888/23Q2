@@ -5,6 +5,7 @@
 
 html {
   background: #000;
+  font-family: 'Montserrat', sans-serif;
 }
 
 img {
@@ -68,8 +69,7 @@ img {
 
 .year {
   color: #fff;
-  font-size: 30px;
-  font-family: 'Oswald', sans-serif;
+  font-size: 36px;
 }
 
 .git__wrapper {
@@ -100,6 +100,12 @@ img {
 .git__wrapper:hover,
 .rsschool:hover {
   opacity: 0.2;
+}
+
+.player__control-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .control-panel__top {
@@ -175,3 +181,46 @@ img {
   font-size: 17px;
   color: #fff;
 }
+
+/* PROGRESS-BAR START */
+
+.progress-bar {
+  margin-bottom: 5px;
+}
+
+.time-line {
+  width: 85%;
+  height: 5px;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.progress-line {
+  width: 50%;
+  height: 5px;
+  background: #000;
+  border-radius: 10px 0 0 10px;
+  opacity: 0.5;
+}
+
+.track-time {
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.progress-point {
+  position: relative;
+  top: -10px;
+
+  width: 8px;
+  height: 15px;
+  background: #91e051;
+  border-radius: 10px;
+  margin-left: 50%;
+}
+
+/* PROGRESS-BAR END */
