@@ -185,24 +185,52 @@ img {
 /* PROGRESS-BAR START */
 
 .progress-bar {
-  margin-bottom: 5px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+/* .progress-bar__wrapper {
+    margin-bottom: 5px;
+  } */
+
+/* .time-line {
+    width: 85%;
+    height: 5px;
+    background: #fff;
+    margin: 0 auto;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .progress-line {
+    width: 0%;
+    height: 5px;
+    background: #000;
+    border-radius: 10px 0 0 10px;
+    opacity: 0.5;
+  } */
+
+.time-line__wrapper {
+  width: 100%;
 }
 
 .time-line {
-  width: 85%;
+  appearance: none;
+  width: 100%;
   height: 5px;
   background: #fff;
-  margin: 0 auto;
-  border-radius: 10px;
+  outline: none;
+  opacity: 0.7;
   cursor: pointer;
 }
 
-.progress-line {
-  width: 0%;
-  height: 5px;
-  background: #000;
-  border-radius: 10px 0 0 10px;
-  opacity: 0.5;
+.time-line::-webkit-slider-thumb {
+  appearance: none;
+  background: #91e051;
+  width: 8px;
+  height: 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .track-time {
