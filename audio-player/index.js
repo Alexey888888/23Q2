@@ -61,33 +61,37 @@ function playAudio(resetTime) {
 document.querySelector('.forward').addEventListener('click', playNext);
 
 function playNext() {
+  afterRewind = false;
   audio.currentTime = 0;
   moveProgressLine();
   trackNum++;
   if (trackNum > playList.length - 1) trackNum = 0;
   audio.src = playList[trackNum].src;
   if (isPlay) playAudio(resetTime);
-  if (!isPlay) pauseAudio();
+  if (!isPlay) pauseAudio(resetTime);
 }
 
-document.querySelector('.backward').addEventListener('click', backWard);
+document.querySelector('.backward').addEventListener('click', playPrev);
 
-function backWard() {
+function playPrev() {
+  afterRewind = false;
   audio.currentTime = 0;
   moveProgressLine();
   trackNum--;
   if (trackNum < 0) trackNum = playList.length - 1;
   audio.src = playList[trackNum].src;
   if (isPlay) playAudio(resetTime);
-  if (!isPlay) pauseAudio();
+  if (!isPlay) pauseAudio(resetTime);
 }
 //--
 
 function pauseAudio() {
-  audio.pause();
-  if (currentTimeTemp && afterRewind === true)
+  if (currentTimeTemp && afterRewind === true) {
     audio.currentTime = currentTimeTemp;
-  afterRewind = false;
+    afterRewind = false;
+  }
+
+  audio.pause();
   currentTimeTemp = audio.currentTime;
   isPlay = false;
 }
