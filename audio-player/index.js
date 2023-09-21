@@ -91,7 +91,7 @@ function playPrev() {
 //--
 
 function pauseAudio() {
-  if (currentTimeTemp && afterRewind === true) {
+  if (currentTimeTemp && afterRewind === true && !isPlay) {
     audio.currentTime = currentTimeTemp;
     afterRewind = false;
   }
