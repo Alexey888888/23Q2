@@ -69,6 +69,7 @@ function playNext() {
   audio.src = playList[trackNum].src;
   if (isPlay) playAudio(resetTime);
   if (!isPlay) pauseAudio(resetTime);
+  changeTitle();
 }
 
 document.querySelector('.backward').addEventListener('click', playPrev);
@@ -82,6 +83,7 @@ function playPrev() {
   audio.src = playList[trackNum].src;
   if (isPlay) playAudio(resetTime);
   if (!isPlay) pauseAudio(resetTime);
+  changeTitle();
 }
 //--
 
@@ -158,3 +160,10 @@ document.querySelector('.time-line').oninput = function () {
 };
 
 // PROGRESS-BAR END
+
+function changeTitle() {
+  document.querySelector('.artist-title').textContent =
+    playList[trackNum].artistTitle;
+  document.querySelector('.song-title').textContent =
+    playList[trackNum].songTitle;
+}

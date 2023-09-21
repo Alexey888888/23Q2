@@ -120,6 +120,7 @@ img {
 
 .control-panel__top-left {
   display: flex;
+  align-items: center;
 }
 
 .control-button img {
