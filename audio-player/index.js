@@ -1,3 +1,24 @@
+const playList = [
+  {
+    artistTitle: 'Kavinsky',
+    songTitle: 'Nightcall',
+    src: './assets/audio/Kavinsky_Nightcall.mp3',
+    img: './assets/img/Kavinsky_Nightcall_2010.png',
+  },
+  {
+    artistTitle: 'The Chemical Brothers',
+    songTitle: 'Galvanize',
+    src: './assets/audio/the-chemical-brothers-galvanize.mp3',
+    img: './assets/img/The_Chemical_Brothers-Galvanize.png',
+  },
+  {
+    artistTitle: 'Fatboy Slim',
+    songTitle: 'Ya Mama',
+    src: './assets/audio/the-chemical-brothers-galvanize.mp3',
+    img: './assets/img/fbs.png',
+  },
+];
+
 const btnPlay = document.querySelector('.play');
 const btnPause = document.querySelector('.pause');
 const currentTime = document.querySelector('.current-time');
@@ -71,7 +92,7 @@ function moveProgressLine(pos) {
     //   (audio.currentTime / audio.duration) * 100 + '%';
 
     document.querySelector('.time-line').value =
-      (audio.currentTime / audio.duration) * 1000;
+      (audio.currentTime / audio.duration) * 10000;
   }, 100);
 }
 
@@ -85,28 +106,16 @@ function getTime(time) {
   return `${minutes}:${String(seconds).padStart(2, 0)}`;
 }
 
-// function timeLineClickHandler() {
-//   document.querySelector('.time-line').addEventListener('click', () => {
-//     pauseAudio();
-//     clearInterval(intervalId);
-//     document.querySelector('.time-line').oninput = function () {
-//       pos = this.value;
-//       currentTimeTemp = (pos * audio.duration) / 1000;
-//       console.log(currentTimeTemp);
-//       playAudio();
-//     };
-//     playAudio();
-//   });
-// }
-
 document.querySelector('.time-line').oninput = function () {
   pos = this.value;
-  currentTimeTemp = (pos * audio.duration) / 1000;
+  currentTimeTemp = (pos * audio.duration) / 10000;
   console.log(currentTimeTemp);
   if (isPlay) playAudio();
   afterRewind = true;
-  if (!isPlay) pauseAudio();
+  if (!isPlay) {
+    pauseAudio();
+    setCurrentTime();
+  }
 };
 
-// timeLineClickHandler();
 // PROGRESS-BAR END
