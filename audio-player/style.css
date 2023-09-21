@@ -35,10 +35,15 @@ img {
   background: #222;
 }
 
-.player__img {
+.player__background {
   position: absolute;
   width: 100%;
   height: 70%;
+  overflow: hidden;
+}
+
+.player__img {
+  height: 100%;
   transition: all 1s;
 }
 
