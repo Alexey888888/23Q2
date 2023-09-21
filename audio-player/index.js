@@ -55,6 +55,7 @@ function playAudio(resetTime) {
   isPlay = true;
   //---
   audio.addEventListener('ended', playNext);
+  addBackgroundScale();
 }
 
 //--
@@ -98,6 +99,7 @@ function pauseAudio() {
   audio.pause();
   currentTimeTemp = audio.currentTime;
   isPlay = false;
+  removeBackgroundScale();
 }
 
 function togglePlayBtn() {
@@ -173,4 +175,12 @@ function changeTitle() {
 function changeBackground() {
   document.querySelector('.background').src = playList[trackNum].img;
   document.querySelector('.player__img').src = playList[trackNum].img;
+}
+
+function addBackgroundScale() {
+  document.querySelector('.player__img').classList.add('scale');
+}
+
+function removeBackgroundScale() {
+  document.querySelector('.player__img').classList.remove('scale');
 }
