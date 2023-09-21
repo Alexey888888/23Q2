@@ -70,6 +70,7 @@ function playNext() {
   if (isPlay) playAudio(resetTime);
   if (!isPlay) pauseAudio(resetTime);
   changeTitle();
+  changeBackground();
 }
 
 document.querySelector('.backward').addEventListener('click', playPrev);
@@ -84,6 +85,7 @@ function playPrev() {
   if (isPlay) playAudio(resetTime);
   if (!isPlay) pauseAudio(resetTime);
   changeTitle();
+  changeBackground();
 }
 //--
 
@@ -166,4 +168,9 @@ function changeTitle() {
     playList[trackNum].artistTitle;
   document.querySelector('.song-title').textContent =
     playList[trackNum].songTitle;
+}
+
+function changeBackground() {
+  document.querySelector('.background').src = playList[trackNum].img;
+  document.querySelector('.player__img').src = playList[trackNum].img;
 }
