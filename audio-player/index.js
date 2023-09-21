@@ -14,7 +14,7 @@ const playList = [
   {
     artistTitle: 'Fatboy Slim',
     songTitle: 'Ya Mama',
-    src: './assets/audio/the-chemical-brothers-galvanize.mp3',
+    src: './assets/audio/fat_boy_slim_Ya-Mama.mp3',
     img: './assets/img/fbs.png',
   },
 ];
@@ -29,6 +29,8 @@ let pos = null;
 let intervalId = null;
 let isPlay = false;
 let afterRewind = false;
+let trackNum = 0;
+let resetTime = true;
 
 const audio = new Audio();
 
@@ -37,15 +39,45 @@ function preloadAudio() {
 }
 preloadAudio();
 
-function playAudio() {
-  if (currentTimeTemp) {
+function playAudio(resetTime) {
+  if (resetTime) {
+    audio.currentTime = 0;
+    audio.play();
+    setCurrentTime();
+    moveProgressLine();
+    isPlay = true;
+  } else if (currentTimeTemp) {
     audio.currentTime = currentTimeTemp;
   } else audio.currentTime = 0;
   audio.play();
   setCurrentTime();
   moveProgressLine();
   isPlay = true;
+  //---
+  audio.addEventListener('ended', playNext);
 }
+
+//--
+document.querySelector('.forward').addEventListener('click', playNext);
+
+function playNext() {
+  trackNum++;
+  if (trackNum > playList.length - 1) trackNum = 0;
+  audio.src = playList[trackNum].src;
+  audio.currentTime = 0;
+  if (isPlay) playAudio(resetTime);
+}
+
+document.querySelector('.backward').addEventListener('click', backWard);
+
+function backWard() {
+  trackNum--;
+  if (trackNum < 0) trackNum = playList.length - 1;
+  audio.src = playList[trackNum].src;
+  audio.currentTime = 0;
+  if (isPlay) playAudio(resetTime);
+}
+//--
 
 function pauseAudio() {
   audio.pause();
@@ -109,7 +141,6 @@ function getTime(time) {
 document.querySelector('.time-line').oninput = function () {
   pos = this.value;
   currentTimeTemp = (pos * audio.duration) / 10000;
-  console.log(currentTimeTemp);
   if (isPlay) playAudio();
   afterRewind = true;
   if (!isPlay) {
