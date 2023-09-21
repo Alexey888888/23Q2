@@ -35,7 +35,7 @@ let resetTime = true;
 const audio = new Audio();
 
 function preloadAudio() {
-  audio.src = './assets/audio/Kavinsky_Nightcall.mp3';
+  audio.src = playList[0].src;
 }
 preloadAudio();
 
@@ -61,21 +61,25 @@ function playAudio(resetTime) {
 document.querySelector('.forward').addEventListener('click', playNext);
 
 function playNext() {
+  audio.currentTime = 0;
+  moveProgressLine();
   trackNum++;
   if (trackNum > playList.length - 1) trackNum = 0;
   audio.src = playList[trackNum].src;
-  audio.currentTime = 0;
   if (isPlay) playAudio(resetTime);
+  if (!isPlay) pauseAudio();
 }
 
 document.querySelector('.backward').addEventListener('click', backWard);
 
 function backWard() {
+  audio.currentTime = 0;
+  moveProgressLine();
   trackNum--;
   if (trackNum < 0) trackNum = playList.length - 1;
   audio.src = playList[trackNum].src;
-  audio.currentTime = 0;
   if (isPlay) playAudio(resetTime);
+  if (!isPlay) pauseAudio();
 }
 //--
 
