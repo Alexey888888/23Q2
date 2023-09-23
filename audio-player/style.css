@@ -50,10 +50,7 @@ img {
   width: 100%;
   height: 100%;
   background: #000;
-  /* border: solid 5px #1a1919; */
   border-radius: 10px 10px 0 0;
-  /* border-bottom: none; */
-
   opacity: 0.9;
   transition: transform 2s;
   transform: translateY(100%);
@@ -74,7 +71,6 @@ img {
 }
 
 .openList__img-rotate {
-  /* transform: rotate(-180deg); */
   transform: scaleY(-1);
   left: calc(50% - 10px);
 }
@@ -96,13 +92,12 @@ img {
   transition: all 0.3s;
 }
 
-/* .playlistItem:hover {
+.playlistItem:hover {
   cursor: pointer;
-  color: #b3fb79;
-} */
+  color: #bcf88b;
+}
 
 .activeTrack {
-  /* color: #f8fc04; */
   color: #74fc04;
   transform: scale(1.03);
 }
@@ -197,13 +192,11 @@ img {
 }
 
 .control-button img {
-  /* filter: invert(100%); */
   opacity: 0.7;
   transition: all 0.3s;
 }
 
 .pause {
-  /* filter: invert(100%); */
   opacity: 0.7;
   transition: all 0.3s;
 }
@@ -263,27 +256,6 @@ img {
   margin: 0 auto;
 }
 
-/* .progress-bar__wrapper {
-    margin-bottom: 5px;
-  } */
-
-/* .time-line {
-    width: 85%;
-    height: 5px;
-    background: #fff;
-    margin: 0 auto;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .progress-line {
-    width: 0%;
-    height: 5px;
-    background: #000;
-    border-radius: 10px 0 0 10px;
-    opacity: 0.5;
-  } */
-
 .time-line__wrapper {
   width: 100%;
 }
@@ -328,17 +300,6 @@ img {
 .duration-time {
   width: 32px;
 }
-
-/* .progress-point {
-  position: relative;
-  top: -10px;
-
-  width: 8px;
-  height: 15px;
-  background: #91e051;
-  border-radius: 10px;
-
-} */
 
 /* PROGRESS-BAR END */
 

@@ -44,6 +44,7 @@ preloadAudio();
 
 function playAudio(resetTime) {
   trackList[trackNum].classList.add('activeTrack');
+  audio.src = playList[trackNum].src;
   if (resetTime) {
     audio.currentTime = 0;
     audio.play();
@@ -57,7 +58,6 @@ function playAudio(resetTime) {
   setCurrentTime();
   moveProgressLine();
   isPlay = true;
-  //---
   audio.addEventListener('ended', playNext);
   addBackgroundScale();
 }
@@ -68,7 +68,6 @@ function resetActiveTrack() {
   });
 }
 
-//--
 document.querySelector('.forward').addEventListener('click', playNext);
 
 function playNext() {
@@ -100,7 +99,6 @@ function playPrev() {
   changeTitle();
   changeBackground();
 }
-//--
 
 function pauseAudio() {
   resetActiveTrack();
@@ -147,9 +145,6 @@ function setCurrentTime() {
 
 function moveProgressLine(pos) {
   intervalId = setInterval(() => {
-    // document.querySelector('.progress-line').style.width =
-    //   (audio.currentTime / audio.duration) * 100 + '%';
-
     document.querySelector('.time-line').value =
       (audio.currentTime / audio.duration) * 10000;
   }, 100);
@@ -219,6 +214,24 @@ function addPlaylist() {
     playlistList.append(playlistItem);
     playlistItem.innerHTML = `<div>${title}</div><div>${duration}</div>`;
   });
+
+  //
+  const trackList = document.querySelectorAll('.playlistItem');
+
+  for (let i = 0; i < 3; i++) {
+    trackList[i].addEventListener('click', () => {
+      trackNum = i;
+      resetActiveTrack();
+      isPlay = true;
+      togglePlayBtn();
+      currentTimeTemp = 0;
+      audio.currentTime = 0;
+      moveProgressLine();
+      playAudio();
+      changeTitle();
+      changeBackground();
+    });
+  }
 }
 
 addPlaylist();
