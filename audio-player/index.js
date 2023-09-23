@@ -4,18 +4,21 @@ const playList = [
     songTitle: 'Nightcall',
     src: './assets/audio/Kavinsky_Nightcall.mp3',
     img: './assets/img/Kavinsky_Nightcall_2010.png',
+    duration: '4:20',
   },
   {
     artistTitle: 'The Chemical Brothers',
     songTitle: 'Galvanize',
     src: './assets/audio/the-chemical-brothers-galvanize.mp3',
     img: './assets/img/The_Chemical_Brothers-Galvanize.png',
+    duration: '6:33',
   },
   {
     artistTitle: 'Fatboy Slim',
     songTitle: 'Ya Mama',
     src: './assets/audio/fat_boy_slim_Ya-Mama.mp3',
     img: './assets/img/fbs.png',
+    duration: '4:29',
   },
 ];
 
@@ -40,6 +43,7 @@ function preloadAudio() {
 preloadAudio();
 
 function playAudio(resetTime) {
+  trackList[trackNum].classList.add('activeTrack');
   if (resetTime) {
     audio.currentTime = 0;
     audio.play();
@@ -58,10 +62,17 @@ function playAudio(resetTime) {
   addBackgroundScale();
 }
 
+function resetActiveTrack() {
+  trackList.forEach((track) => {
+    track.classList.remove('activeTrack');
+  });
+}
+
 //--
 document.querySelector('.forward').addEventListener('click', playNext);
 
 function playNext() {
+  resetActiveTrack();
   afterRewind = false;
   audio.currentTime = 0;
   moveProgressLine();
@@ -77,6 +88,7 @@ function playNext() {
 document.querySelector('.backward').addEventListener('click', playPrev);
 
 function playPrev() {
+  resetActiveTrack();
   afterRewind = false;
   audio.currentTime = 0;
   moveProgressLine();
@@ -91,6 +103,7 @@ function playPrev() {
 //--
 
 function pauseAudio() {
+  resetActiveTrack();
   if (currentTimeTemp && afterRewind === true && !isPlay) {
     audio.currentTime = currentTimeTemp;
     afterRewind = false;
@@ -184,3 +197,29 @@ function addBackgroundScale() {
 function removeBackgroundScale() {
   document.querySelector('.player__img').classList.remove('scale');
 }
+
+//---
+
+document.querySelector('.openList__img').addEventListener('click', () => {
+  document.querySelector('.playlist').classList.toggle('playlist-open');
+  document
+    .querySelector('.openList__img')
+    .classList.toggle('openList__img-rotate');
+});
+
+function addPlaylist() {
+  const playlistList = document.createElement('ul');
+  playlistList.className = 'playlistList';
+  document.querySelector('.playlist').append(playlistList);
+  playList.forEach((track) => {
+    const duration = track.duration;
+    const title = `${track.artistTitle} - ${track.songTitle}`;
+    const playlistItem = document.createElement('li');
+    playlistItem.className = 'playlistItem';
+    playlistList.append(playlistItem);
+    playlistItem.innerHTML = `<div>${title}</div><div>${duration}</div>`;
+  });
+}
+
+addPlaylist();
+const trackList = document.querySelectorAll('.playlistItem');
