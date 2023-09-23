@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -22,7 +23,7 @@ img {
 }
 
 .player {
-  width: 330px;
+  width: 320px;
   height: 400px;
 
   position: absolute;
@@ -41,6 +42,67 @@ img {
   height: 70%;
   overflow: hidden;
 }
+
+/* playlist */
+
+.playlist {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  border-radius: 10px 10px 0 0;
+  opacity: 0.9;
+  transition: transform 2s;
+  transform: translateY(100%);
+}
+
+.playlist-open {
+  transform: translateY(0);
+}
+
+.openList__img {
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translate(-50%);
+  width: 20px;
+  opacity: 0.8;
+  transition: all 2s;
+}
+
+.openList__img-rotate {
+  transform: scaleY(-1);
+  left: calc(50% - 10px);
+}
+
+.openList__img:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.playlistList {
+  padding: 10px;
+  color: #86c354;
+  font-size: 14px;
+}
+
+.playlistItem {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.3s;
+}
+
+.playlistItem:hover {
+  cursor: pointer;
+  color: #bcf88b;
+}
+
+.activeTrack {
+  color: #74fc04;
+  transform: scale(1.03);
+}
+
+/* playlist end*/
 
 .player__img {
   height: 100%;
@@ -130,13 +192,11 @@ img {
 }
 
 .control-button img {
-  /* filter: invert(100%); */
   opacity: 0.7;
   transition: all 0.3s;
 }
 
 .pause {
-  /* filter: invert(100%); */
   opacity: 0.7;
   transition: all 0.3s;
 }
@@ -196,27 +256,6 @@ img {
   margin: 0 auto;
 }
 
-/* .progress-bar__wrapper {
-    margin-bottom: 5px;
-  } */
-
-/* .time-line {
-    width: 85%;
-    height: 5px;
-    background: #fff;
-    margin: 0 auto;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  
-  .progress-line {
-    width: 0%;
-    height: 5px;
-    background: #000;
-    border-radius: 10px 0 0 10px;
-    opacity: 0.5;
-  } */
-
 .time-line__wrapper {
   width: 100%;
 }
@@ -262,19 +301,11 @@ img {
   width: 32px;
 }
 
-/* .progress-point {
-  position: relative;
-  top: -10px;
-
-  width: 8px;
-  height: 15px;
-  background: #91e051;
-  border-radius: 10px;
-
-} */
-
 /* PROGRESS-BAR END */
 
 .scale {
-  transform: scale(1.1);
+  width: 106%;
+  height: 106%;
+  margin-left: -3%;
+  margin-top: -3%;
 }
