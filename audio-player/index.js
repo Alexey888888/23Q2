@@ -44,7 +44,6 @@ preloadAudio();
 
 function playAudio(resetTime) {
   trackList[trackNum].classList.add('activeTrack');
-  audio.src = playList[trackNum].src;
   if (resetTime) {
     audio.currentTime = 0;
     audio.play();
@@ -218,7 +217,7 @@ function addPlaylist() {
   //
   const trackList = document.querySelectorAll('.playlistItem');
 
-  for (let i = 0; i < 3; i++) {
+  for (let i = 0; i < playList.length; i++) {
     trackList[i].addEventListener('click', () => {
       trackNum = i;
       resetActiveTrack();
@@ -226,6 +225,7 @@ function addPlaylist() {
       togglePlayBtn();
       currentTimeTemp = 0;
       audio.currentTime = 0;
+      audio.src = playList[trackNum].src;
       moveProgressLine();
       playAudio();
       changeTitle();
