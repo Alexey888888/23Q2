@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1440px;
+  background: #f80202;
+  margin: 0 auto;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__logo {
+  display: flex;
+}
+
+.search {
+  background: #115552;
+}
+
+.search__form {
+  background: #589631;
+}
+
+.main__wrapper {
+}
