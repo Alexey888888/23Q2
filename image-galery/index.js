@@ -4,8 +4,6 @@ let url =
 async function getData() {
   const res = await fetch(url);
   const data = await res.json();
-  console.log(data);
-
   showData(data);
 }
 
@@ -24,3 +22,11 @@ function showData(data) {
 }
 
 getData();
+
+function resetSearch() {
+  document.querySelector('.cross').addEventListener('click', () => {
+    document.querySelector('.cross').previousElementSibling.value = '';
+  });
+}
+
+resetSearch();

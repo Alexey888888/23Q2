@@ -10,7 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" href="./favicon.svg" />
+    <link rel="icon" href="./assets/icon/favicon.svg" />
     <title>Image Gallery</title>
   </head>
   <body>
@@ -19,7 +19,12 @@
         <div class="container">
           <div class="header__wrapper">
             <div class="header__logo">
-              <img class="header__img" src="./favicon.svg" alt="logo" />
+              <img
+                class="header__img"
+                src="./assets/icon/favicon.svg"
+                alt="logo"
+              />
+
               <h1 class="header__title">Unsplash API</h1>
             </div>
             <div class="search">
@@ -31,7 +36,9 @@
                 type="text"
                 autofocus
                 autocomplete="off"
+                maxlength="38"
               />
+              <span class="cross"></span>
             </div>
           </div>
         </div>
