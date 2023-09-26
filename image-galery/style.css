@@ -126,3 +126,28 @@ body {
   max-width: 400px;
   margin: 0 20px;
 }
+
+.footer__wrapper {
+  border-top: 5px solid #ffa200;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 20px 0;
+  padding: 40px 0;
+}
+
+.github,
+.rss {
+  width: 100px;
+  transition: all 0.3s;
+}
+
+.github:hover,
+.rss:hover {
+  opacity: 0.5;
+}
+
+.year {
+  font-size: 20px;
+  font-weight: 700;
+  align-self: flex-end;
+}

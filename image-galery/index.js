@@ -1,4 +1,4 @@
-let query = 'autumn';
+let query = 'meme';
 let galleryList;
 
 let url = `https://api.unsplash.com/search/photos?query=${query}&client_id=6WHzh-lGs38jTkWYiVZx0FN1OQit1kHmA4siPx-3dxo&per_page=30&extras=url_m&orientation=landscape`;
@@ -57,7 +57,7 @@ function enterHandler() {
     if (
       document.querySelector('.search__input') === document.activeElement &&
       event.code === 'Enter' &&
-      document.querySelector('.search__input').value
+      document.querySelector('.search__input').value.trimStart()
     ) {
       query = document.querySelector('.search__input').value;
       url = `https://api.unsplash.com/search/photos?query=${query}&client_id=6WHzh-lGs38jTkWYiVZx0FN1OQit1kHmA4siPx-3dxo&per_page=30&extras=url_m&orientation=landscape`;
