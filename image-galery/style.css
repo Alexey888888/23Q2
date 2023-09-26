@@ -50,6 +50,8 @@ body {
 }
 
 .search {
+  width: 33%;
+  position: relative;
 }
 
 .search__input {
@@ -61,12 +63,14 @@ body {
   font-size: 16px;
   outline: none;
   transition: all 0.3s;
+  width: 100%;
 }
 
 .loupe {
-  position: relative;
-  left: 38px;
-  top: 4px;
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  left: 20px;
 }
 
 .loupe::after {
@@ -85,8 +89,10 @@ body {
 }
 
 .cross {
-  position: relative;
-  right: 30px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 20px;
 }
 
 .cross::after {
