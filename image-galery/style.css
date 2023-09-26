@@ -6,8 +6,6 @@
 
 html,
 body {
-  height: 100%;
-  width: 100%;
   font-family: 'Kanit', sans-serif;
   font-size: 16px;
   font-weight: 400;
@@ -16,6 +14,13 @@ body {
 
 .img {
   max-width: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .container {
@@ -50,7 +55,7 @@ body {
 }
 
 .search {
-  width: 33%;
+  width: 40%;
   position: relative;
 }
 
@@ -123,7 +128,7 @@ body {
 }
 
 .gallery__item {
-  max-width: 400px;
+  width: 400px;
   margin: 0 20px;
 }
 
@@ -131,8 +136,9 @@ body {
   border-top: 5px solid #ffa200;
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
   margin: 20px 20px 0;
-  padding: 40px 0;
+  padding: 40px 0 10px;
 }
 
 .github,
@@ -149,5 +155,51 @@ body {
 .year {
   font-size: 20px;
   font-weight: 700;
-  align-self: flex-end;
+}
+
+@media (max-width: 1068px) {
+  .search {
+    width: 50%;
+  }
+}
+
+@media (max-width: 1367px) {
+  .gallery__list {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 668px) {
+  .header__wrapper {
+    flex-direction: column;
+  }
+
+  .search {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .search {
+    width: 270px;
+  }
+}
+
+@media (max-width: 490px) {
+  .header__wrapper {
+    margin: 0;
+  }
+
+  .gallery__item {
+    max-width: 100%;
+  }
+
+  .github,
+  .rss {
+    width: 70px;
+  }
+
+  .footer__wrapper {
+    margin: 20px 0 0;
+  }
 }
