@@ -26,6 +26,7 @@ getData();
 function resetSearch() {
   document.querySelector('.cross').addEventListener('click', () => {
     document.querySelector('.cross').previousElementSibling.value = '';
+    document.querySelector('.search__input').focus();
   });
 }
 

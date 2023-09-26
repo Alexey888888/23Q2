@@ -56,31 +56,52 @@ body {
   border-radius: 50px;
   border: 1px solid #cbc9c9;
   height: 36px;
-  padding-left: 15px;
+  padding: 0 35px 0 45px;
   font-family: 'Kanit', sans-serif;
   font-size: 16px;
   outline: none;
   transition: all 0.3s;
 }
 
+.loupe {
+  position: relative;
+  left: 38px;
+  top: 4px;
+}
+
+.loupe::after {
+  font-size: 24px;
+  font-weight: 700;
+  content: '\26B2';
+  display: inline-block;
+  transform: rotate(-45deg);
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+
+.loupe:hover::after {
+  cursor: pointer;
+  opacity: 0.7;
+}
+
 .cross {
   position: relative;
-  right: 34px;
+  right: 30px;
 }
 
 .cross::after {
   content: '\2716';
   font-weight: 700;
   opacity: 0.5;
+  transition: all 0.3s;
 }
 
 .cross:hover::after {
   cursor: pointer;
   opacity: 0.7;
-  transition: all 0.3s;
 }
 
-.search__input span {
+.search__input:focus {
   box-shadow: 0 0 10px #cbc9c9;
 }
 
