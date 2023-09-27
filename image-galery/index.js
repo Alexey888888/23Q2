@@ -78,6 +78,7 @@ function popUp() {
       document.querySelector('.pop-up__img').append(popUpImg);
       document.querySelector('.pop-up').classList.remove('none');
       document.querySelector('.blackout').classList.remove('none');
+      document.querySelector('body').classList.add('scroll-lock');
       document.querySelector('.btn-left').addEventListener('click', () => {
         if (i > 0 && i < imgs.length) popUpImg.src = imgs[--i].src;
       });
@@ -95,5 +96,6 @@ function closePopUp() {
     document.querySelector('.pop-up__img').innerHTML = '';
     document.querySelector('.pop-up').classList.add('none');
     document.querySelector('.blackout').classList.add('none');
+    document.querySelector('body').classList.remove('scroll-lock');
   });
 }
