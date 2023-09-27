@@ -7,6 +7,7 @@ getData();
 resetSearch();
 search();
 enterHandler();
+popUp();
 closePopUp();
 
 async function getData() {
@@ -29,6 +30,12 @@ function showData(data) {
   });
 
   popUp();
+
+  document.addEventListener('click', (event) => {
+    if (event.target.className === 'gallery__item') {
+      popUp();
+    }
+  });
 }
 
 function resetSearch() {
@@ -76,6 +83,7 @@ function popUp() {
       const popUpImg = document.createElement('img');
       popUpImg.className = 'pop-up__image';
       popUpImg.src = imgs[i].src;
+      document.querySelector('.pop-up__img').innerHTML = '';
       document.querySelector('.pop-up__img').append(popUpImg);
       document.querySelector('.pop-up').classList.remove('none');
       document.querySelector('.blackout').classList.remove('none');
