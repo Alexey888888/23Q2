@@ -85,6 +85,7 @@ function popUp() {
       popUpImg.src = imgs[i].src;
       activeBtnRight();
       activeBtnLeft();
+      console.log(i);
       if (i === 0) inactiveBtnLeft();
       if (i === imgs.length - 1) inactiveBtnRight();
       document.querySelector('.pop-up__img').innerHTML = '';
@@ -93,14 +94,18 @@ function popUp() {
       document.querySelector('.blackout').classList.remove('none');
       document.querySelector('body').classList.add('scroll-lock');
       document.querySelector('.btn-left').addEventListener('click', () => {
-        if (i > 0 && i < imgs.length) popUpImg.src = imgs[--i].src;
-        if (i === 0) inactiveBtnLeft();
-        activeBtnRight();
+        if (i > 0 && i < imgs.length) {
+          popUpImg.src = imgs[--i].src;
+          if (i === 0) inactiveBtnLeft();
+          activeBtnRight();
+        }
       });
       document.querySelector('.btn-right').addEventListener('click', () => {
-        if (i >= 0 && i < imgs.length - 1) popUpImg.src = imgs[++i].src;
-        if (i === imgs.length - 1) inactiveBtnRight();
-        activeBtnLeft();
+        if (i >= 0 && i < imgs.length - 1) {
+          popUpImg.src = imgs[++i].src;
+          if (i === imgs.length - 1) inactiveBtnRight();
+          activeBtnLeft();
+        }
       });
     });
   }
