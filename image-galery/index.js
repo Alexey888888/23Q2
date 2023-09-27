@@ -85,7 +85,6 @@ function popUp() {
       popUpImg.src = imgs[i].src;
       activeBtnRight();
       activeBtnLeft();
-      console.log(i);
       if (i === 0) inactiveBtnLeft();
       if (i === imgs.length - 1) inactiveBtnRight();
       document.querySelector('.pop-up__img').innerHTML = '';
