@@ -7,6 +7,7 @@ getData();
 resetSearch();
 search();
 enterHandler();
+closePopUp();
 
 async function getData() {
   const res = await fetch(url);
@@ -89,13 +90,15 @@ function popUp() {
   }
 }
 
-closePopUp();
-
 function closePopUp() {
-  document.querySelector('.blackout').addEventListener('click', () => {
+  document.querySelector('.blackout').addEventListener('click', popUpClose);
+  document
+    .querySelector('.popUp__close-icon')
+    .addEventListener('click', popUpClose);
+  function popUpClose() {
     document.querySelector('.pop-up__img').innerHTML = '';
     document.querySelector('.pop-up').classList.add('none');
     document.querySelector('.blackout').classList.add('none');
     document.querySelector('body').classList.remove('scroll-lock');
-  });
+  }
 }

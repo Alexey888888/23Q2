@@ -174,6 +174,25 @@ body {
   z-index: 30;
 }
 
+.popUp__close-icon {
+  position: absolute;
+  font-size: 36px;
+  right: 10px;
+  top: 5px;
+  user-select: none;
+  opacity: 0.7;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.popUp__close-icon:hover {
+  transform: scale(1.1);
+}
+
+.popUp__close-icon:active {
+  transform: scale(1.2);
+}
+
 .pop-up__wrapper {
   width: 100%;
   height: 100%;
@@ -215,6 +234,7 @@ body {
   margin: 0 10px;
   user-select: none;
   align-self: center;
+  opacity: 0.7;
 }
 
 .btn-left:hover,
