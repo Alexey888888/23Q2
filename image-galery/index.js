@@ -6,6 +6,7 @@ let url = `https://api.unsplash.com/search/photos?query=${query}&client_id=6WHzh
 getData();
 resetSearch();
 search();
+enterHandler();
 
 async function getData() {
   const res = await fetch(url);
@@ -25,6 +26,8 @@ function showData(data) {
     img.alt = 'image';
     galleryList.append(img);
   });
+
+  popUp();
 }
 
 function resetSearch() {
@@ -47,8 +50,6 @@ function clearPage() {
   document.querySelector('.main__wrapper').innerHTML = '';
 }
 
-enterHandler();
-
 function enterHandler() {
   document.querySelector('.search').addEventListener('submit', (event) => {
     event.preventDefault();
@@ -64,5 +65,35 @@ function enterHandler() {
       clearPage();
       getData();
     }
+  });
+}
+
+function popUp() {
+  const imgs = document.querySelectorAll('.gallery__item');
+  for (let i = 0; i < imgs.length; i++) {
+    imgs[i].addEventListener('click', () => {
+      const popUpImg = document.createElement('img');
+      popUpImg.className = 'pop-up__image';
+      popUpImg.src = imgs[i].src;
+      document.querySelector('.pop-up__img').append(popUpImg);
+      document.querySelector('.pop-up').classList.remove('none');
+      document.querySelector('.blackout').classList.remove('none');
+      document.querySelector('.btn-left').addEventListener('click', () => {
+        if (i > 0 && i < imgs.length) popUpImg.src = imgs[--i].src;
+      });
+      document.querySelector('.btn-right').addEventListener('click', () => {
+        if (i >= 0 && i < imgs.length - 1) popUpImg.src = imgs[++i].src;
+      });
+    });
+  }
+}
+
+closePopUp();
+
+function closePopUp() {
+  document.querySelector('.blackout').addEventListener('click', () => {
+    document.querySelector('.pop-up__img').innerHTML = '';
+    document.querySelector('.pop-up').classList.add('none');
+    document.querySelector('.blackout').classList.add('none');
   });
 }
