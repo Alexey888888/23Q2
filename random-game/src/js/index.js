@@ -55,16 +55,81 @@ function fillBoard() {
     }
   }
   addBombs();
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
-        '<span class="bomb">💩</span>'
-      ) {
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML = '0';
+
+  function fillNeighbor() {
+    for (let i = 0; i < matrix.length; i++) {
+      for (let j = 0; j < matrix[i].length; j++) {
+        let count = 0;
+        if (
+          document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
+          '<span class="bomb">💩</span>'
+        ) {
+          if (document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)) {
+            if (
+              document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
+                .innerHTML === '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML = count;
+          if (
+            document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === '0'
+          )
+            document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML = '';
+        }
       }
     }
   }
+  fillNeighbor();
 }
 
 fillBoard();
