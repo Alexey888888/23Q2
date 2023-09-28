@@ -43,13 +43,11 @@ function fillBoard() {
       cell.className = 'cell';
       border.append(cell);
       board.append(border);
-      cell.innerHTML = `[${i}, ${j}]`; //
       cell.dataset.id = `[${i}, ${j}]`;
     }
   }
   function addBombs() {
     const matrixBombs = createMatrixBombs();
-    console.log(matrixBombs);
     for (let i = 0; i < matrixBombs.length; i++) {
       document.querySelector(
         `[data-id="[${matrixBombs[i][0]}, ${matrixBombs[i][1]}]"]`
@@ -57,6 +55,16 @@ function fillBoard() {
     }
   }
   addBombs();
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
+        '<span class="bomb">💩</span>'
+      ) {
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML = '0';
+      }
+    }
+  }
 }
 
 fillBoard();
