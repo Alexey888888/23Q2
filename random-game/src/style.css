@@ -1,0 +1,32 @@
+.board {
+  width: 400px;
+  height: 400px;
+  background: #6c5555;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 11% auto;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  background: #a8a4a4;
+  border: 1px solid #000;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.5;
+}
+
+img {
+  width: 100%;
+}
+
+.border {
+  width: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
