@@ -30,3 +30,15 @@ img {
   box-sizing: border-box;
   border: 1px solid black;
 }
+
+/* .cell:hover {
+    background: #13c637;
+  } */
+
+.bomb {
+  font-size: 30px;
+}
+
+.visible {
+  opacity: 1;
+}
