@@ -3,7 +3,8 @@ let galleryList;
 
 let url = `https://api.unsplash.com/search/photos?query=${query}&client_id=6WHzh-lGs38jTkWYiVZx0FN1OQit1kHmA4siPx-3dxo&per_page=30&extras=url_m&orientation=landscape`;
 
-getData();
+window.onload = getData();
+
 resetSearch();
 search();
 enterHandler();
