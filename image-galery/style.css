@@ -12,6 +12,14 @@ body {
   line-height: 1.2;
 }
 
+.night {
+  background: #222;
+}
+
+.evening {
+  background: #444;
+}
+
 .img {
   max-width: 100%;
 }
@@ -52,6 +60,20 @@ body {
   font-weight: 700;
   font-size: 32px;
   margin-left: 20px;
+}
+
+.day-night {
+  width: 80px;
+  transition: all 0.3s;
+}
+
+.filter {
+  filter: invert(75%);
+}
+
+.day-night:hover {
+  cursor: pointer;
+  transform: scale(1.1);
 }
 
 .search {
@@ -151,6 +173,10 @@ body {
 .rss {
   width: 100px;
   transition: all 0.3s;
+}
+
+.github {
+  border-radius: 10px;
 }
 
 .github:hover,

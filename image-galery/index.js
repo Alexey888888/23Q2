@@ -9,6 +9,7 @@ search();
 enterHandler();
 popUp();
 closePopUp();
+dayNight();
 
 async function getData() {
   const res = await fetch(url);
@@ -47,10 +48,13 @@ function resetSearch() {
 
 function search() {
   document.querySelector('.loupe').addEventListener('click', () => {
-    query = document.querySelector('.search__input').value;
-    url = `https://api.unsplash.com/search/photos?query=${query}&client_id=6WHzh-lGs38jTkWYiVZx0FN1OQit1kHmA4siPx-3dxo&per_page=30&extras=url_m&orientation=landscape`;
-    clearPage();
-    getData();
+    if (document.querySelector('.search__input').value.trimStart()) {
+      query = document.querySelector('.search__input').value;
+      url = `https://api.unsplash.com/search/photos?query=${query}&client_id=6WHzh-lGs38jTkWYiVZx0FN1OQit1kHmA4siPx-3dxo&per_page=30&extras=url_m&orientation=landscape`;
+      clearPage();
+      getData();
+    }
+    document.querySelector('.search__input').focus();
   });
 }
 
@@ -141,4 +145,20 @@ function inactiveBtnRight() {
 function activeBtnRight() {
   document.querySelector('.btn-right').classList.add('active');
   document.querySelector('.btn-right').classList.remove('opacity');
+}
+
+function dayNight() {
+  document.querySelector('.day-night').addEventListener('click', () => {
+    document.querySelector('.wrapper').classList.toggle('night');
+    document.querySelector('.day-night').classList.toggle('filter');
+    document.querySelector('.header__logo').classList.toggle('filter');
+    document.querySelector('.github').classList.toggle('filter');
+    document.querySelector('.rss').classList.toggle('filter');
+    document.querySelector('.year').classList.toggle('filter');
+    document.querySelector('.pop-up__wrapper').classList.toggle('evening');
+    document.querySelector('.popUp__close-icon').classList.toggle('filter');
+    document.querySelector('.btn-left').classList.toggle('filter');
+    document.querySelector('.btn-right').classList.toggle('filter');
+    document.querySelector('.search__input').focus();
+  });
 }
