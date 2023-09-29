@@ -166,7 +166,8 @@ function openNeighbor() {
       if (
         document
           .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible')
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
       ) {
         if (
           document.querySelector(`[data-id="[${i}, ${j + 1}]"]`) &&
@@ -215,7 +216,8 @@ function openNeighborReverse() {
       if (
         document
           .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible')
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
       ) {
         if (
           document.querySelector(`[data-id="[${i}, ${j - 1}]"]`) &&
@@ -261,8 +263,8 @@ function startOpenNeighbor() {
   for (let i = 0; i < 5; i++) {
     openNeighbor();
   }
-  // openNeighborNumber();
-  // openNeighborNumberReverse();
+  openNeighborNumber();
+  openNeighborNumberReverse();
 }
 
 function openNeighborNumber() {
