@@ -244,63 +244,31 @@ function openNeighborNumber() {
             .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
             .classList.add('visible');
         }
-      }
 
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
-      ) {
         if (document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)) {
           document
             .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
             .classList.add('visible');
         }
-      }
 
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
-      ) {
         if (document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
             .classList.add('visible');
         }
-      }
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
-      ) {
+
         if (document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
             .classList.add('visible');
         }
-      }
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
-      ) {
+
         if (document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
             .classList.add('visible');
         }
-      }
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
-      ) {
+
         if (document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
