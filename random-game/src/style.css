@@ -17,7 +17,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 img {
@@ -45,4 +45,16 @@ img {
 
 .red {
   background: rgb(253, 91, 62);
+}
+
+.flag {
+  font-size: 30px;
+}
+
+.none {
+  display: none;
+}
+
+.grey {
+  background: #6c5555;
 }

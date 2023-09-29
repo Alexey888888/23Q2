@@ -340,3 +340,19 @@ function openNeighborNumberReverse() {
     }
   }
 }
+
+function addFlag() {
+  cell.forEach((item) => {
+    item.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      if (!item.classList.contains('visible')) {
+        const flag = document.createElement('span');
+        flag.className = 'flag';
+        flag.innerHTML = '🚩';
+        item.parentElement.prepend(flag);
+      }
+    });
+  });
+}
+
+addFlag();
