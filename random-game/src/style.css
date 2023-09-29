@@ -42,3 +42,7 @@ img {
 .visible {
   opacity: 1;
 }
+
+.red {
+  background: rgb(253, 91, 62);
+}

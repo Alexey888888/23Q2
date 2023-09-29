@@ -1,5 +1,6 @@
 const board = document.createElement('div');
 board.className = 'board';
+// const arrNum = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
 document.querySelector('body').prepend(board);
 
@@ -133,3 +134,187 @@ function fillBoard() {
 }
 
 fillBoard();
+
+const cell = document.querySelectorAll('.cell');
+
+function visible() {
+  cell.forEach((item) => {
+    item.addEventListener('click', () => {
+      item.classList.add('visible');
+      if (item.innerHTML === '<span class="bomb">💩</span>')
+        document.body.classList.add('red');
+      if (item.innerHTML === '') {
+        startOpenNeighbor();
+      }
+    });
+  });
+}
+
+visible();
+
+function openNeighbor() {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible')
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i}, ${j + 1}]"]`) &&
+          document.querySelector(`[data-id="[${i}, ${j + 1}]"]`).innerHTML ===
+            ''
+        )
+          document
+            .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
+            .classList.add('visible');
+      }
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible')
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i + 1}, ${j}]"]`) &&
+          document.querySelector(`[data-id="[${i + 1}, ${j}]"]`).innerHTML ===
+            ''
+        )
+          document
+            .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+            .classList.add('visible');
+      }
+    }
+  }
+  openNeighborReverse();
+}
+
+function openNeighborReverse() {
+  for (let i = 9; i >= 0; i--) {
+    for (let j = 9; j >= 0; j--) {
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible')
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i}, ${j - 1}]"]`) &&
+          document.querySelector(`[data-id="[${i}, ${j - 1}]"]`).innerHTML ===
+            ''
+        )
+          document
+            .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+            .classList.add('visible');
+      }
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible')
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i - 1}, ${j}]"]`) &&
+          document.querySelector(`[data-id="[${i - 1}, ${j}]"]`).innerHTML ===
+            ''
+        )
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+            .classList.add('visible');
+      }
+    }
+  }
+}
+
+function startOpenNeighbor() {
+  for (let i = 0; i < 5; i++) {
+    openNeighbor();
+  }
+  openNeighborNumber();
+  openNeighborNumberReverse();
+}
+
+function openNeighborNumber() {
+  for (let i = 0; i < 10; i++) {
+    for (let j = 0; j < 10; j++) {
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)
+          //  &&
+          // arrNum.includes(
+          //   document.querySelector(`[data-id="[${i}, ${j + 1}]"]`).innerHTML
+          // )
+        ) {
+          document
+            .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
+            .classList.add('visible');
+        }
+      }
+
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+          //  &&
+          // arrNum.includes(
+          //   document.querySelector(`[data-id="[${i + 1}, ${j}]"]`).innerHTML
+          // )
+        ) {
+          document
+            .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+            .classList.add('visible');
+        }
+      }
+    }
+  }
+}
+
+function openNeighborNumberReverse() {
+  for (let i = 9; i >= 0; i--) {
+    for (let j = 9; j >= 0; j--) {
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+          //  &&
+          // arrNum.includes(
+          //   document.querySelector(`[data-id="[${i}, ${j - 1}]"]`).innerHTML
+          // )
+        ) {
+          document
+            .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+            .classList.add('visible');
+        }
+      }
+
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (
+          document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+          //  &&
+          // arrNum.includes(
+          //   document.querySelector(`[data-id="[${i - 1}, ${j}]"]`).innerHTML
+          // )
+        ) {
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+            .classList.add('visible');
+        }
+      }
+    }
+  }
+}
