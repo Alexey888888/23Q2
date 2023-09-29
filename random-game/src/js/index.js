@@ -43,6 +43,7 @@ function fillBoard() {
       cell.className = 'cell';
       border.append(cell);
       board.append(border);
+
       cell.dataset.id = `[${i}, ${j}]`;
     }
   }
@@ -55,7 +56,15 @@ function fillBoard() {
     }
   }
   addBombs();
-
+  for (let i = 0; i < matrix.length; i++) {
+    for (let j = 0; j < matrix[i].length; j++) {
+      if (
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
+        '<span class="bomb">💩</span>'
+      ) {
+      }
+    }
+  }
   function fillNeighbor() {
     for (let i = 0; i < matrix.length; i++) {
       for (let j = 0; j < matrix[i].length; j++) {
@@ -167,12 +176,7 @@ function openNeighbor() {
           document
             .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
             .classList.add('visible');
-      }
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible')
-      ) {
+
         if (
           document.querySelector(`[data-id="[${i + 1}, ${j}]"]`) &&
           document.querySelector(`[data-id="[${i + 1}, ${j}]"]`).innerHTML ===
@@ -180,6 +184,24 @@ function openNeighbor() {
         )
           document
             .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`) &&
+          document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
+            .innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`) &&
+          document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
+            .innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
             .classList.add('visible');
       }
     }
@@ -203,12 +225,7 @@ function openNeighborReverse() {
           document
             .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
             .classList.add('visible');
-      }
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible')
-      ) {
+
         if (
           document.querySelector(`[data-id="[${i - 1}, ${j}]"]`) &&
           document.querySelector(`[data-id="[${i - 1}, ${j}]"]`).innerHTML ===
@@ -216,6 +233,24 @@ function openNeighborReverse() {
         )
           document
             .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`) &&
+          document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
+            .innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`) &&
+          document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
+            .innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
             .classList.add('visible');
       }
     }
@@ -226,8 +261,8 @@ function startOpenNeighbor() {
   for (let i = 0; i < 5; i++) {
     openNeighbor();
   }
-  openNeighborNumber();
-  openNeighborNumberReverse();
+  // openNeighborNumber();
+  // openNeighborNumberReverse();
 }
 
 function openNeighborNumber() {
@@ -281,6 +316,13 @@ function openNeighborNumberReverse() {
             .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
             .classList.add('visible');
         }
+
+        if (document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)) {
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+            .classList.add('visible');
+        }
+
         if (document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
@@ -290,19 +332,6 @@ function openNeighborNumberReverse() {
         if (document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
-            .classList.add('visible');
-        }
-      }
-
-      if (
-        document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
-          .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
-      ) {
-        if (document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)) {
-          document
-            .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
             .classList.add('visible');
         }
       }
