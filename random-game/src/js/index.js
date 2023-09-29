@@ -351,8 +351,18 @@ function addFlag() {
         flag.innerHTML = '🚩';
         item.parentElement.prepend(flag);
       }
+      removeFlag();
     });
   });
 }
 
 addFlag();
+
+function removeFlag() {
+  document.querySelectorAll('.flag').forEach((item) => {
+    item.addEventListener('contextmenu', (event) => {
+      event.preventDefault();
+      item.remove();
+    });
+  });
+}
