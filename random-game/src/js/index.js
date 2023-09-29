@@ -1,6 +1,5 @@
 const board = document.createElement('div');
 board.className = 'board';
-// const arrNum = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
 document.querySelector('body').prepend(board);
 
@@ -240,13 +239,7 @@ function openNeighborNumber() {
           .classList.contains('visible') &&
         document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
       ) {
-        if (
-          document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)
-          //  &&
-          // arrNum.includes(
-          //   document.querySelector(`[data-id="[${i}, ${j + 1}]"]`).innerHTML
-          // )
-        ) {
+        if (document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
             .classList.add('visible');
@@ -259,15 +252,58 @@ function openNeighborNumber() {
           .classList.contains('visible') &&
         document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
       ) {
-        if (
-          document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)
-          //  &&
-          // arrNum.includes(
-          //   document.querySelector(`[data-id="[${i + 1}, ${j}]"]`).innerHTML
-          // )
-        ) {
+        if (document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)) {
           document
             .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+            .classList.add('visible');
+        }
+      }
+
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)) {
+          document
+            .querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
+            .classList.add('visible');
+        }
+      }
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)) {
+          document
+            .querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
+            .classList.add('visible');
+        }
+      }
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)) {
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
+            .classList.add('visible');
+        }
+      }
+      if (
+        document
+          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .classList.contains('visible') &&
+        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+      ) {
+        if (document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)) {
+          document
+            .querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
             .classList.add('visible');
         }
       }
@@ -284,13 +320,7 @@ function openNeighborNumberReverse() {
           .classList.contains('visible') &&
         document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
       ) {
-        if (
-          document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)
-          //  &&
-          // arrNum.includes(
-          //   document.querySelector(`[data-id="[${i}, ${j - 1}]"]`).innerHTML
-          // )
-        ) {
+        if (document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)) {
           document
             .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
             .classList.add('visible');
@@ -303,13 +333,7 @@ function openNeighborNumberReverse() {
           .classList.contains('visible') &&
         document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
       ) {
-        if (
-          document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)
-          //  &&
-          // arrNum.includes(
-          //   document.querySelector(`[data-id="[${i - 1}, ${j}]"]`).innerHTML
-          // )
-        ) {
+        if (document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)) {
           document
             .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
             .classList.add('visible');
