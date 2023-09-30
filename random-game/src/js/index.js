@@ -3,7 +3,7 @@ board.className = 'board';
 
 document.querySelector('body').prepend(board);
 
-function createMatrix(width = 10, height = 10, bombs = 10) {
+function createMatrix(width = 10, height = 10) {
   const matrix = [];
   matrix.length = height;
   matrix.fill([]);
@@ -15,19 +15,21 @@ function createMatrix(width = 10, height = 10, bombs = 10) {
   return matrix;
 }
 
-const getRandom = (min = 0, max = 9) => {
+function getRandom(min = 0, max = 9) {
   let num = Math.floor(min + Math.random() * (max - min + 1));
   return num;
-};
+}
 
-function createMatrixBombs() {
+function createMatrixBombs(firstClickCell) {
+  console.log(firstClickCell);
   const matrixBombs = [];
   const bombArrTemp = [];
   const create2 = () => {
     const bomb = [getRandom(), getRandom()];
     if (!bombArrTemp.includes(bomb.join(''))) matrixBombs.push(bomb);
+
     bombArrTemp.push(bomb.join(''));
-    if (matrixBombs.length < 10) create2();
+    if (matrixBombs.length < 80) create2();
   };
   create2();
   return matrixBombs;
@@ -48,23 +50,32 @@ function fillBoard() {
     }
   }
   function addBombs() {
-    const matrixBombs = createMatrixBombs();
+    const firstClickCell = event.srcElement.dataset.id;
+    const matrixBombs = createMatrixBombs(firstClickCell);
     for (let i = 0; i < matrixBombs.length; i++) {
       document.querySelector(
         `[data-id="[${matrixBombs[i][0]}, ${matrixBombs[i][1]}]"]`
       ).innerHTML = '<span class="bomb">💩</span>';
     }
+    //
+    fillNeighbor();
+    document.querySelectorAll('.cell').forEach((item) => {
+      item.removeEventListener('click', addBombs);
+    });
+
+    //
   }
-  addBombs();
-  for (let i = 0; i < matrix.length; i++) {
-    for (let j = 0; j < matrix[i].length; j++) {
-      if (
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
-        '<span class="bomb">💩</span>'
-      ) {
-      }
-    }
-  }
+  //
+
+  // for (let i = 0; i < matrix.length; i++) {
+  //   for (let j = 0; j < matrix[i].length; j++) {
+  //     if (
+  //       document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
+  //       '<span class="bomb">💩</span>'
+  //     ) {
+  //     }
+  //   }
+  // }
   function fillNeighbor() {
     for (let i = 0; i < matrix.length; i++) {
       for (let j = 0; j < matrix[i].length; j++) {
@@ -138,7 +149,17 @@ function fillBoard() {
       }
     }
   }
-  fillNeighbor();
+
+  // addBombs();
+
+  // fillNeighbor();
+
+  function addBombsAfterClick() {
+    document.querySelectorAll('.cell').forEach((item) => {
+      item.addEventListener('click', addBombs);
+    });
+  }
+  addBombsAfterClick();
 }
 
 fillBoard();
