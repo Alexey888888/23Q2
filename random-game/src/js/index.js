@@ -21,14 +21,16 @@ function getRandom(min = 0, max = 9) {
 }
 
 function createMatrixBombs(firstClickCell) {
+  console.log(firstClickCell);
   const matrixBombs = [];
   const bombArrTemp = [];
   const create2 = () => {
     const bomb = [getRandom(), getRandom()];
-    if (!bombArrTemp.includes(bomb.join(''))) matrixBombs.push(bomb);
+    if (!bombArrTemp.includes(bomb.join('')) && bomb.join() !== firstClickCell)
+      matrixBombs.push(bomb);
 
     bombArrTemp.push(bomb.join(''));
-    if (matrixBombs.length < 10) create2();
+    if (matrixBombs.length < 99) create2();
   };
   create2();
   return matrixBombs;
