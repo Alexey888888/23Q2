@@ -21,7 +21,6 @@ function getRandom(min = 0, max = 9) {
 }
 
 function createMatrixBombs(firstClickCell) {
-  console.log(firstClickCell);
   const matrixBombs = [];
   const bombArrTemp = [];
   const create2 = () => {
@@ -29,7 +28,7 @@ function createMatrixBombs(firstClickCell) {
     if (!bombArrTemp.includes(bomb.join(''))) matrixBombs.push(bomb);
 
     bombArrTemp.push(bomb.join(''));
-    if (matrixBombs.length < 80) create2();
+    if (matrixBombs.length < 10) create2();
   };
   create2();
   return matrixBombs;
@@ -46,16 +45,15 @@ function fillBoard() {
       border.append(cell);
       board.append(border);
 
-      cell.dataset.id = `[${i}, ${j}]`;
+      cell.dataset.id = [i, j];
     }
   }
   function addBombs() {
     const firstClickCell = event.srcElement.dataset.id;
     const matrixBombs = createMatrixBombs(firstClickCell);
     for (let i = 0; i < matrixBombs.length; i++) {
-      document.querySelector(
-        `[data-id="[${matrixBombs[i][0]}, ${matrixBombs[i][1]}]"]`
-      ).innerHTML = '<span class="bomb">💩</span>';
+      document.querySelector(`[data-id="${matrixBombs[i]}"]`).innerHTML =
+        '<span class="bomb">💩</span>';
     }
     //
     fillNeighbor();
@@ -81,70 +79,68 @@ function fillBoard() {
       for (let j = 0; j < matrix[i].length; j++) {
         let count = 0;
         if (
-          document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
+          document.querySelector(`[data-id="${[i, j]}"]`).innerHTML !==
           '<span class="bomb">💩</span>'
         ) {
-          if (document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)) {
+          if (document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)) {
             if (
-              document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
+              document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)
                 .innerHTML === '<span class="bomb">💩</span>'
             )
               count++;
           }
-          if (document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)) {
+          if (document.querySelector(`[data-id="${[i - 1, j]}"]`)) {
             if (
-              document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+              document.querySelector(`[data-id="${[i - 1, j]}"]`).innerHTML ===
+              '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)) {
+            if (
+              document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)
                 .innerHTML === '<span class="bomb">💩</span>'
             )
               count++;
           }
-          if (document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)) {
+          if (document.querySelector(`[data-id="${[i, j - 1]}"]`)) {
             if (
-              document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
+              document.querySelector(`[data-id="${[i, j - 1]}"]`).innerHTML ===
+              '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="${[i, j + 1]}"]`)) {
+            if (
+              document.querySelector(`[data-id="${[i, j + 1]}"]`).innerHTML ===
+              '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)) {
+            if (
+              document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)
                 .innerHTML === '<span class="bomb">💩</span>'
             )
               count++;
           }
-          if (document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)) {
+          if (document.querySelector(`[data-id="${[i + 1, j]}"]`)) {
             if (
-              document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+              document.querySelector(`[data-id="${[i + 1, j]}"]`).innerHTML ===
+              '<span class="bomb">💩</span>'
+            )
+              count++;
+          }
+          if (document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)) {
+            if (
+              document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)
                 .innerHTML === '<span class="bomb">💩</span>'
             )
               count++;
           }
-          if (document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)) {
-            if (
-              document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
-            )
-              count++;
-          }
-          if (document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)) {
-            if (
-              document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
-            )
-              count++;
-          }
-          if (document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)) {
-            if (
-              document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
-            )
-              count++;
-          }
-          if (document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)) {
-            if (
-              document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
-            )
-              count++;
-          }
-          document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML = count;
-          if (
-            document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === '0'
-          )
-            document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML = '';
+          document.querySelector(`[data-id="${[i, j]}"]`).innerHTML = count;
+          if (document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === '0')
+            document.querySelector(`[data-id="${[i, j]}"]`).innerHTML = '';
         }
       }
     }
@@ -186,44 +182,42 @@ function openNeighbor() {
     for (let j = 0; j < 10; j++) {
       if (
         document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .querySelector(`[data-id="${[i, j]}"]`)
           .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+        document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === ''
       ) {
         if (
-          document.querySelector(`[data-id="[${i}, ${j + 1}]"]`) &&
-          document.querySelector(`[data-id="[${i}, ${j + 1}]"]`).innerHTML ===
+          document.querySelector(`[data-id="${[i, j + 1]}"]`) &&
+          document.querySelector(`[data-id="${[i, j + 1]}"]`).innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="${[i, j + 1]}"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="${[i + 1, j]}"]`) &&
+          document.querySelector(`[data-id="${[i + 1, j]}`).innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="${[i + 1, j]}"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="${[i + 1, j + 1]}"]`) &&
+          document.querySelector(`[data-id="${[i + 1, j + 1]}"]`).innerHTML ===
             ''
         )
           document
-            .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
+            .querySelector(`[data-id="${[i + 1, j + 1]}"]`)
             .classList.add('visible');
 
         if (
-          document.querySelector(`[data-id="[${i + 1}, ${j}]"]`) &&
-          document.querySelector(`[data-id="[${i + 1}, ${j}]"]`).innerHTML ===
+          document.querySelector(`[data-id="${[i - 1, j + 1]}"]`) &&
+          document.querySelector(`[data-id="${[i - 1, j + 1]}"]`).innerHTML ===
             ''
         )
           document
-            .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
-            .classList.add('visible');
-
-        if (
-          document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`) &&
-          document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
-            .innerHTML === ''
-        )
-          document
-            .querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
-            .classList.add('visible');
-
-        if (
-          document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`) &&
-          document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
-            .innerHTML === ''
-        )
-          document
-            .querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
+            .querySelector(`[data-id="${[i - 1, j + 1]}"]`)
             .classList.add('visible');
       }
     }
@@ -236,44 +230,42 @@ function openNeighborReverse() {
     for (let j = 9; j >= 0; j--) {
       if (
         document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .querySelector(`[data-id="${[i, j]}"]`)
           .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+        document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === ''
       ) {
         if (
-          document.querySelector(`[data-id="[${i}, ${j - 1}]"]`) &&
-          document.querySelector(`[data-id="[${i}, ${j - 1}]"]`).innerHTML ===
+          document.querySelector(`[data-id="${[i, j - 1]}"]`) &&
+          document.querySelector(`[data-id="${[i, j - 1]}"]`).innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="${[i, j - 1]}"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="${[i - 1, j]}"]`) &&
+          document.querySelector(`[data-id="${[i - 1, j]}`).innerHTML === ''
+        )
+          document
+            .querySelector(`[data-id="${[i - 1, j]}"]`)
+            .classList.add('visible');
+
+        if (
+          document.querySelector(`[data-id="${[i - 1, j - 1]}"]`) &&
+          document.querySelector(`[data-id="${[i - 1, j - 1]}"]`).innerHTML ===
             ''
         )
           document
-            .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+            .querySelector(`[data-id="${[i - 1, j - 1]}"]`)
             .classList.add('visible');
 
         if (
-          document.querySelector(`[data-id="[${i - 1}, ${j}]"]`) &&
-          document.querySelector(`[data-id="[${i - 1}, ${j}]"]`).innerHTML ===
+          document.querySelector(`[data-id="${[i + 1, j - 1]}"]`) &&
+          document.querySelector(`[data-id="${[i + 1, j - 1]}"]`).innerHTML ===
             ''
         )
           document
-            .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
-            .classList.add('visible');
-
-        if (
-          document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`) &&
-          document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
-            .innerHTML === ''
-        )
-          document
-            .querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
-            .classList.add('visible');
-
-        if (
-          document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`) &&
-          document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
-            .innerHTML === ''
-        )
-          document
-            .querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
+            .querySelector(`[data-id="${[i + 1, j - 1]}"]`)
             .classList.add('visible');
       }
     }
@@ -293,31 +285,31 @@ function openNeighborNumber() {
     for (let j = 0; j < 10; j++) {
       if (
         document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .querySelector(`[data-id="${[i, j]}"]`)
           .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+        document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === ''
       ) {
-        if (document.querySelector(`[data-id="[${i}, ${j + 1}]"]`)) {
+        if (document.querySelector(`[data-id="${[i, j + 1]}"]`)) {
           document
-            .querySelector(`[data-id="[${i}, ${j + 1}]"]`)
+            .querySelector(`[data-id="${[i, j + 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="[${i + 1}, ${j}]"]`)) {
+        if (document.querySelector(`[data-id="${[i + 1, j]}"]`)) {
           document
-            .querySelector(`[data-id="[${i + 1}, ${j}]"]`)
+            .querySelector(`[data-id="${[i + 1, j]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)) {
+        if (document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)) {
           document
-            .querySelector(`[data-id="[${i + 1}, ${j + 1}]"]`)
+            .querySelector(`[data-id="${[i + 1, j + 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)) {
+        if (document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)) {
           document
-            .querySelector(`[data-id="[${i - 1}, ${j + 1}]"]`)
+            .querySelector(`[data-id="${[i - 1, j + 1]}"]`)
             .classList.add('visible');
         }
       }
@@ -330,31 +322,31 @@ function openNeighborNumberReverse() {
     for (let j = 9; j >= 0; j--) {
       if (
         document
-          .querySelector(`[data-id="[${i}, ${j}]"]`)
+          .querySelector(`[data-id="${[i, j]}"]`)
           .classList.contains('visible') &&
-        document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML === ''
+        document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === ''
       ) {
-        if (document.querySelector(`[data-id="[${i}, ${j - 1}]"]`)) {
+        if (document.querySelector(`[data-id="${[i, j - 1]}"]`)) {
           document
-            .querySelector(`[data-id="[${i}, ${j - 1}]"]`)
+            .querySelector(`[data-id="${[i, j - 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="[${i - 1}, ${j}]"]`)) {
+        if (document.querySelector(`[data-id="${[i - 1, j]}"]`)) {
           document
-            .querySelector(`[data-id="[${i - 1}, ${j}]"]`)
+            .querySelector(`[data-id="${[i - 1, j]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)) {
+        if (document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)) {
           document
-            .querySelector(`[data-id="[${i - 1}, ${j - 1}]"]`)
+            .querySelector(`[data-id="${[i - 1, j - 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)) {
+        if (document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)) {
           document
-            .querySelector(`[data-id="[${i + 1}, ${j - 1}]"]`)
+            .querySelector(`[data-id="${[i + 1, j - 1]}"]`)
             .classList.add('visible');
         }
       }
