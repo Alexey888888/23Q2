@@ -84,7 +84,20 @@ function enterHandler() {
 function popUp() {
   const imgs = document.querySelectorAll('.gallery__item');
   for (let i = 0; i < imgs.length; i++) {
-    imgs[i].addEventListener('click', () => {
+    imgs[i].addEventListener('click', openPopUp);
+
+    // document.addEventListener('click', (event) => {
+    //   if (
+    //     event.target.className === 'popUp__close-icon' ||
+    //     event.target.className === 'blackout none'
+    //   ) {
+    //     for (let i = 0; i < imgs.length; i++) {
+    //       imgs[i].removeEventListener('click', openPopUp);
+    //     }
+    //   }
+    // });
+
+    function openPopUp() {
       const popUpImg = document.createElement('img');
       popUpImg.className = 'pop-up__image';
       popUpImg.src = imgs[i].src;
@@ -97,21 +110,40 @@ function popUp() {
       document.querySelector('.pop-up').classList.remove('none');
       document.querySelector('.blackout').classList.remove('none');
       document.querySelector('body').classList.add('scroll-lock');
-      document.querySelector('.btn-left').addEventListener('click', () => {
+
+      document.addEventListener('click', (event) => {
+        if (
+          event.target.className === 'popUp__close-icon' ||
+          event.target.className === 'blackout none'
+        ) {
+          document
+            .querySelector('.btn-left')
+            .removeEventListener('click', moveLeft);
+          document
+            .querySelector('.btn-right')
+            .removeEventListener('click', moveRight);
+        }
+      });
+
+      document.querySelector('.btn-left').addEventListener('click', moveLeft);
+      document.querySelector('.btn-right').addEventListener('click', moveRight);
+
+      function moveLeft() {
         if (i > 0 && i < imgs.length) {
           popUpImg.src = imgs[--i].src;
           if (i === 0) inactiveBtnLeft();
           activeBtnRight();
         }
-      });
-      document.querySelector('.btn-right').addEventListener('click', () => {
+      }
+
+      function moveRight() {
         if (i >= 0 && i < imgs.length - 1) {
           popUpImg.src = imgs[++i].src;
           if (i === imgs.length - 1) inactiveBtnRight();
           activeBtnLeft();
         }
-      });
-    });
+      }
+    }
   }
 }
 

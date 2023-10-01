@@ -22,6 +22,7 @@ body {
 
 .img {
   max-width: 100%;
+  user-select: none;
 }
 
 .wrapper {
@@ -153,6 +154,7 @@ body {
   width: 400px;
   margin: 0 20px;
   transition: all 0.3s;
+  user-select: none;
 }
 
 .gallery__item:hover {
@@ -232,6 +234,7 @@ body {
   width: 100%;
   display: flex;
   justify-content: center;
+  user-select: none;
 }
 
 .pop-up__image {
