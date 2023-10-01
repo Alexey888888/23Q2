@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="icon" href="./assets/icon/favicon.svg" />
+    <title>Image Gallery</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="pop-up none">
+        <div class="popUp__close-icon">&#10006;</div>
+        <div class="pop-up__wrapper">
+          <span class="btn-left active">&#10094;</span>
+
+          <div class="pop-up__img"></div>
+          <span class="btn-right active">&#10095;</span>
+        </div>
+      </div>
+      <div class="blackout none"></div>
+      <header class="header">
+        <div class="container">
+          <div class="header__wrapper">
+            <div class="header__logo">
+              <img
+                class="header__img"
+                src="./assets/icon/favicon.svg"
+                alt="logo"
+              />
+
+              <h1 class="header__title">Unsplash API</h1>
+            </div>
+            <img
+              class="day-night"
+              src="./assets/icon/day_night.png"
+              alt="day_night"
+            />
+            <form class="search">
+              <span class="loupe"></span>
+              <input
+                class="search__input"
+                placeholder="Search images"
+                type="text"
+                autofocus
+                autocomplete="off"
+              />
+              <span class="cross"></span>
+            </form>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <div class="container">
+          <div class="main__wrapper"></div>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="container">
+          <div class="footer__wrapper">
+            <a href="https://github.com/" class="footer__link" target="_blank">
+              <img
+                src="./assets/icon/GitHub-logo.jpg"
+                alt="github"
+                class="github"
+              />
+            </a>
+            <p class="year">2023</p>
+            <a
+              href="https://rs.school/js-stage0/"
+              class="footer__link"
+              target="_blank"
+            >
+              <img
+                class="rss"
+                src="./assets/icon/rs_school_js.svg"
+                alt="rsschool"
+              />
+            </a>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./index.js"></script>
+    <script src="./grade.js"></script>
+  </body>
+</html>
