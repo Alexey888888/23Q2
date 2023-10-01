@@ -1,14 +1,17 @@
 * {
   user-select: none;
+  margin: 0;
+  padding: 0;
 }
 
 .board {
   width: 400px;
   height: 400px;
-  background: #6c5555;
+  background: #635757;
   display: flex;
   flex-wrap: wrap;
-  margin: 11% auto;
+  margin: 0 auto;
+  margin-top: 10%;
 }
 
 .cell {
@@ -21,7 +24,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.5;
+  opacity: 0;
 }
 
 img {
@@ -53,12 +56,4 @@ img {
 
 .flag {
   font-size: 30px;
-}
-
-.none {
-  display: none;
-}
-
-.grey {
-  background: #6c5555;
 }

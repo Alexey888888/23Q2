@@ -21,7 +21,6 @@ function getRandom(min = 0, max = 9) {
 }
 
 function createMatrixBombs(firstClickCell) {
-  console.log(firstClickCell);
   const matrixBombs = [];
   const bombArrTemp = [];
   const create2 = () => {
@@ -30,7 +29,7 @@ function createMatrixBombs(firstClickCell) {
       matrixBombs.push(bomb);
 
     bombArrTemp.push(bomb.join(''));
-    if (matrixBombs.length < 99) create2();
+    if (matrixBombs.length < 10) create2();
   };
   create2();
   return matrixBombs;
@@ -57,25 +56,13 @@ function fillBoard() {
       document.querySelector(`[data-id="${matrixBombs[i]}"]`).innerHTML =
         '<span class="bomb">💩</span>';
     }
-    //
+
     fillNeighbor();
     document.querySelectorAll('.cell').forEach((item) => {
       item.removeEventListener('click', addBombs);
     });
-
-    //
   }
-  //
 
-  // for (let i = 0; i < matrix.length; i++) {
-  //   for (let j = 0; j < matrix[i].length; j++) {
-  //     if (
-  //       document.querySelector(`[data-id="[${i}, ${j}]"]`).innerHTML !==
-  //       '<span class="bomb">💩</span>'
-  //     ) {
-  //     }
-  //   }
-  // }
   function fillNeighbor() {
     for (let i = 0; i < matrix.length; i++) {
       for (let j = 0; j < matrix[i].length; j++) {
