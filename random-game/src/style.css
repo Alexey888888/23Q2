@@ -75,3 +75,50 @@ img {
 .flag {
   font-size: 30px;
 }
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.footer__list {
+  display: flex;
+  justify-content: space-around;
+}
+
+.year {
+  color: #fff;
+  font-size: 36px;
+}
+
+.git__wrapper {
+  border-radius: 10px;
+  width: 90px;
+  overflow: hidden;
+}
+
+.github {
+  width: 90px;
+  display: flex;
+}
+
+.rsschool {
+  width: 90px;
+  display: flex;
+  background: white;
+  border-radius: 10px;
+}
+
+.git__wrapper,
+.rsschool,
+.year {
+  opacity: 0.15;
+  transition: all 0.5s;
+}
+
+.git__wrapper:hover,
+.rsschool:hover {
+  opacity: 0.2;
+}

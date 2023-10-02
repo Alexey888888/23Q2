@@ -5,17 +5,27 @@ background.className = 'background';
 background.src = './src/icons/favicon.png';
 document.body.prepend(header);
 header.prepend(background);
-//
+
 const main = document.createElement('main');
 main.className = 'main';
 const gameBox = document.createElement('div');
 gameBox.className = 'game-box';
 const board = document.createElement('div');
 board.className = 'board';
-
 header.after(main);
 main.prepend(gameBox);
 gameBox.append(board);
+
+const footer = document.createElement('footer');
+footer.className = 'footer';
+const footerList = document.createElement('div');
+footerList.className = 'footer__list';
+footerList.insertAdjacentHTML(
+  'afterbegin',
+  '<div class="git__wrapper"><a class="github" href="https://github.com/Alexey888888" target="_blank"><img src="./src/icons/GitHub-logo.jpg" alt="GitHub"/></a></div><p class="year">2023</p><a class="rsschool" href="https://rs.school/js-stage0/" target="_blank"><img src="./src/icons/rs_school_js.svg" alt="rs_school_js"/></a>'
+);
+main.after(footer);
+footer.append(footerList);
 
 function createMatrix(width = 10, height = 10) {
   const matrix = [];
