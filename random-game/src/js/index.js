@@ -6,11 +6,16 @@ background.src = './src/icons/favicon.png';
 document.body.prepend(header);
 header.prepend(background);
 //
-
+const main = document.createElement('main');
+main.className = 'main';
+const gameBox = document.createElement('div');
+gameBox.className = 'game-box';
 const board = document.createElement('div');
 board.className = 'board';
 
-//document.querySelector('body').append(board);
+header.after(main);
+main.prepend(gameBox);
+gameBox.append(board);
 
 function createMatrix(width = 10, height = 10) {
   const matrix = [];
