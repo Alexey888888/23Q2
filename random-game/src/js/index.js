@@ -1,7 +1,16 @@
+const header = document.createElement('header');
+header.className = 'header';
+const background = document.createElement('img');
+background.className = 'background';
+background.src = './src/icons/favicon.png';
+document.body.prepend(header);
+header.prepend(background);
+//
+
 const board = document.createElement('div');
 board.className = 'board';
 
-document.querySelector('body').prepend(board);
+//document.querySelector('body').append(board);
 
 function createMatrix(width = 10, height = 10) {
   const matrix = [];
