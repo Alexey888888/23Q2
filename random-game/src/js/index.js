@@ -18,6 +18,25 @@ header.after(main);
 main.prepend(gameBox);
 gameBox.append(tools);
 gameBox.append(board);
+tools.insertAdjacentHTML('afterbegin', '');
+//
+const toolsDown = document.createElement('div');
+toolsDown.className = 'tools__down';
+const flagCount = document.createElement('div');
+flagCount.className = 'flag-count';
+const replay = document.createElement('div');
+replay.className = 'replay';
+const time = document.createElement('div');
+time.className = 'time';
+toolsDown.append(flagCount, replay, time);
+tools.append(toolsDown);
+
+flagCount.innerHTML = '<span class="count-flag">10</span>';
+replay.innerHTML =
+  "<img class='replay' src='./src/icons/replay.svg' alt='replay'>";
+time.innerHTML = '<span class="time__count">000</span>';
+
+//
 
 const footer = document.createElement('footer');
 footer.className = 'footer';
@@ -59,8 +78,13 @@ function createMatrixBombs(firstClickCell) {
     if (matrixBombs.length < 10) create2();
   };
   create2();
+
   return matrixBombs;
 }
+
+//
+
+//
 
 function fillBoard() {
   const matrix = createMatrix();
@@ -77,6 +101,7 @@ function fillBoard() {
     }
   }
   function addBombs() {
+    timeCount();
     const firstClickCell = event.srcElement.dataset.id;
     const matrixBombs = createMatrixBombs(firstClickCell);
     for (let i = 0; i < matrixBombs.length; i++) {
@@ -429,6 +454,19 @@ function addFlag() {
 }
 
 addFlag();
+document
+  .querySelector('.board')
+  .addEventListener('contextmenu', startCounterFlag);
+
+function startCounterFlag() {
+  let countFlagInner = 0;
+  document.querySelectorAll('.flag').forEach((item) => {
+    if (item) {
+      countFlagInner++;
+    }
+  });
+  document.querySelector('.count-flag').textContent = 10 - countFlagInner;
+}
 
 function removeFlag() {
   document.querySelectorAll('.flag').forEach((item) => {
@@ -437,4 +475,16 @@ function removeFlag() {
       item.remove();
     });
   });
+}
+
+let sec = 980;
+
+function timeCount() {
+  setInterval(() => {
+    sec++;
+    document.querySelector('.time__count').textContent = String(sec).padStart(
+      3,
+      0
+    );
+  }, 1000);
 }
