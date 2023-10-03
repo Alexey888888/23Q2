@@ -10,10 +10,13 @@ const main = document.createElement('main');
 main.className = 'main';
 const gameBox = document.createElement('div');
 gameBox.className = 'game-box';
+const tools = document.createElement('div');
+tools.className = 'tools';
 const board = document.createElement('div');
 board.className = 'board';
 header.after(main);
 main.prepend(gameBox);
+gameBox.append(tools);
 gameBox.append(board);
 
 const footer = document.createElement('footer');
@@ -179,6 +182,7 @@ function visible() {
   cell.forEach((item) => {
     item.addEventListener('click', () => {
       item.classList.add('visible');
+
       if (item.innerHTML === '<span class="bomb">💩</span>')
         document.body.classList.add('red');
       if (item.innerHTML === '') {

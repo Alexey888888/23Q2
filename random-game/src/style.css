@@ -2,6 +2,7 @@
   user-select: none;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 .background {
@@ -22,6 +23,14 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 84px 0px rgba(0, 0, 0, 0.75);
+}
+
+.tools {
+  width: 100%;
+  height: 100px;
+  background: #aaa;
+  border: 1px solid #000;
 }
 
 .board {
@@ -37,12 +46,15 @@
   height: 40px;
   background: #a8a4a4;
   border: 1px solid #000;
-  box-sizing: border-box;
+
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
   opacity: 0;
+  position: relative;
+  top: -4px;
+  left: -4px;
 }
 
 img {
@@ -53,7 +65,7 @@ img {
   width: 40px;
   height: 40px;
   box-sizing: border-box;
-  border: 1px solid black;
+  border: 4px outset rgb(109, 109, 109);
 }
 
 /* .cell:hover {
@@ -74,6 +86,9 @@ img {
 
 .flag {
   font-size: 30px;
+  position: relative;
+  top: -5px;
+  left: -2px;
 }
 
 .footer {
