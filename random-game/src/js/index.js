@@ -205,7 +205,9 @@ function openNeighbor() {
       ) {
         if (
           document.querySelector(`[data-id="${[i, j + 1]}"]`) &&
-          document.querySelector(`[data-id="${[i, j + 1]}"]`).innerHTML === ''
+          document.querySelector(`[data-id="${[i, j + 1]}"]`).innerHTML ===
+            '' &&
+          !document.querySelector(`[data-id="${[i, j + 1]}"]`).previousSibling
         )
           document
             .querySelector(`[data-id="${[i, j + 1]}"]`)
@@ -213,7 +215,8 @@ function openNeighbor() {
 
         if (
           document.querySelector(`[data-id="${[i + 1, j]}"]`) &&
-          document.querySelector(`[data-id="${[i + 1, j]}`).innerHTML === ''
+          document.querySelector(`[data-id="${[i + 1, j]}`).innerHTML === '' &&
+          !document.querySelector(`[data-id="${[i + 1, j]}"]`).previousSibling
         )
           document
             .querySelector(`[data-id="${[i + 1, j]}"]`)
@@ -222,7 +225,9 @@ function openNeighbor() {
         if (
           document.querySelector(`[data-id="${[i + 1, j + 1]}"]`) &&
           document.querySelector(`[data-id="${[i + 1, j + 1]}"]`).innerHTML ===
-            ''
+            '' &&
+          !document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)
+            .previousSibling
         )
           document
             .querySelector(`[data-id="${[i + 1, j + 1]}"]`)
@@ -231,7 +236,9 @@ function openNeighbor() {
         if (
           document.querySelector(`[data-id="${[i - 1, j + 1]}"]`) &&
           document.querySelector(`[data-id="${[i - 1, j + 1]}"]`).innerHTML ===
-            ''
+            '' &&
+          !document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)
+            .previousSibling
         )
           document
             .querySelector(`[data-id="${[i - 1, j + 1]}"]`)
@@ -253,7 +260,9 @@ function openNeighborReverse() {
       ) {
         if (
           document.querySelector(`[data-id="${[i, j - 1]}"]`) &&
-          document.querySelector(`[data-id="${[i, j - 1]}"]`).innerHTML === ''
+          document.querySelector(`[data-id="${[i, j - 1]}"]`).innerHTML ===
+            '' &&
+          !document.querySelector(`[data-id="${[i, j - 1]}"]`).previousSibling
         )
           document
             .querySelector(`[data-id="${[i, j - 1]}"]`)
@@ -261,7 +270,8 @@ function openNeighborReverse() {
 
         if (
           document.querySelector(`[data-id="${[i - 1, j]}"]`) &&
-          document.querySelector(`[data-id="${[i - 1, j]}`).innerHTML === ''
+          document.querySelector(`[data-id="${[i - 1, j]}`).innerHTML === '' &&
+          !document.querySelector(`[data-id="${[i - 1, j]}"]`).previousSibling
         )
           document
             .querySelector(`[data-id="${[i - 1, j]}"]`)
@@ -270,7 +280,9 @@ function openNeighborReverse() {
         if (
           document.querySelector(`[data-id="${[i - 1, j - 1]}"]`) &&
           document.querySelector(`[data-id="${[i - 1, j - 1]}"]`).innerHTML ===
-            ''
+            '' &&
+          !document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)
+            .previousSibling
         )
           document
             .querySelector(`[data-id="${[i - 1, j - 1]}"]`)
@@ -279,7 +291,9 @@ function openNeighborReverse() {
         if (
           document.querySelector(`[data-id="${[i + 1, j - 1]}"]`) &&
           document.querySelector(`[data-id="${[i + 1, j - 1]}"]`).innerHTML ===
-            ''
+            '' &&
+          !document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)
+            .previousSibling
         )
           document
             .querySelector(`[data-id="${[i + 1, j - 1]}"]`)
@@ -306,25 +320,39 @@ function openNeighborNumber() {
           .classList.contains('visible') &&
         document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === ''
       ) {
-        if (document.querySelector(`[data-id="${[i, j + 1]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i, j + 1]}"]`) &&
+          !document.querySelector(`[data-id="${[i, j + 1]}"]`).previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i, j + 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="${[i + 1, j]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i + 1, j]}"]`) &&
+          !document.querySelector(`[data-id="${[i + 1, j]}"]`).previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i + 1, j]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i + 1, j + 1]}"]`) &&
+          !document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)
+            .previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i + 1, j + 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i - 1, j + 1]}"]`) &&
+          !document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)
+            .previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i - 1, j + 1]}"]`)
             .classList.add('visible');
@@ -343,25 +371,39 @@ function openNeighborNumberReverse() {
           .classList.contains('visible') &&
         document.querySelector(`[data-id="${[i, j]}"]`).innerHTML === ''
       ) {
-        if (document.querySelector(`[data-id="${[i, j - 1]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i, j - 1]}"]`) &&
+          !document.querySelector(`[data-id="${[i, j - 1]}"]`).previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i, j - 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="${[i - 1, j]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i - 1, j]}"]`) &&
+          !document.querySelector(`[data-id="${[i - 1, j]}"]`).previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i - 1, j]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i - 1, j - 1]}"]`) &&
+          !document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)
+            .previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i - 1, j - 1]}"]`)
             .classList.add('visible');
         }
 
-        if (document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)) {
+        if (
+          document.querySelector(`[data-id="${[i + 1, j - 1]}"]`) &&
+          !document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)
+            .previousSibling
+        ) {
           document
             .querySelector(`[data-id="${[i + 1, j - 1]}"]`)
             .classList.add('visible');
