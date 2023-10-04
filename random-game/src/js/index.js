@@ -31,7 +31,10 @@ time.className = 'time';
 toolsDown.append(flagCount, replay, time);
 tools.append(toolsDown);
 
-flagCount.innerHTML = '<span class="count-flag">10</span>';
+const countFlag = document.createElement('div');
+countFlag.className = 'count-flag';
+flagCount.append(countFlag);
+countFlag.textContent = 10;
 replay.innerHTML =
   "<img class='replay' src='./src/icons/replay.svg' alt='replay'>";
 time.innerHTML = '<span class="time__count">000</span>';
@@ -201,7 +204,7 @@ function fillBoard() {
 
 fillBoard();
 
-const cell = document.querySelectorAll('.cell');
+let cell = document.querySelectorAll('.cell');
 
 function visible() {
   cell.forEach((item) => {
@@ -465,7 +468,7 @@ function startCounterFlag() {
       countFlagInner++;
     }
   });
-  document.querySelector('.count-flag').textContent = 10 - countFlagInner;
+  countFlag.textContent = 10 - countFlagInner;
 }
 
 function removeFlag() {
@@ -477,10 +480,11 @@ function removeFlag() {
   });
 }
 
-let sec = 980;
+let sec = 0;
+let timerID;
 
 function timeCount() {
-  setInterval(() => {
+  timerID = setInterval(() => {
     sec++;
     document.querySelector('.time__count').textContent = String(sec).padStart(
       3,
@@ -488,3 +492,18 @@ function timeCount() {
     );
   }, 1000);
 }
+
+replay.addEventListener('click', () => {
+  document.querySelector('.board').innerHTML = '';
+  fillBoard();
+  cell = document.querySelectorAll('.cell');
+  visible();
+  addFlag();
+  countFlag.textContent = 10;
+  sec = 0;
+  document.querySelector('.time__count').textContent = String(sec).padStart(
+    3,
+    0
+  );
+  clearInterval(timerID);
+});

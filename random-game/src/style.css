@@ -166,6 +166,17 @@ img {
   border: 4px outset rgb(109, 109, 109);
   position: relative;
   top: 4px;
+  opacity: 0.9;
+  transition: all 0.3s;
+}
+
+.replay img:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.replay img:active {
+  border: 4px inset rgb(109, 109, 109);
 }
 
 .flag-count,
