@@ -230,6 +230,7 @@ function visible() {
       checkGameStatus();
       if (item.innerHTML === '<span class="bomb">💩</span>') {
         item.classList.add('red');
+        openAllBombs();
         blackout.classList.remove('none');
         resultGame = 'YOU LOSE';
         openModalFinish(resultGame);
@@ -582,4 +583,12 @@ function toggleClose() {
   timerIDforCloseBtn = setInterval(() => {
     document.querySelector('.pop-up-finish__close').classList.toggle('scale');
   }, 500);
+}
+
+function openAllBombs() {
+  cell.forEach((item) => {
+    if (item.innerHTML === '<span class="bomb">💩</span>') {
+      item.classList.add('visible');
+    }
+  });
 }
