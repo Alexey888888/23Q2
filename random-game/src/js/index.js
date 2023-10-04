@@ -210,7 +210,7 @@ function visible() {
   cell.forEach((item) => {
     item.addEventListener('click', () => {
       item.classList.add('visible');
-
+      checkGameStatus();
       if (item.innerHTML === '<span class="bomb">💩</span>')
         document.body.classList.add('red');
       if (item.innerHTML === '') {
@@ -337,6 +337,7 @@ function startOpenNeighbor() {
   }
   openNeighborNumber();
   openNeighborNumberReverse();
+  checkGameStatus();
 }
 
 function openNeighborNumber() {
@@ -451,6 +452,7 @@ function addFlag() {
         flag.innerHTML = '🚩';
         item.parentElement.prepend(flag);
       }
+      checkGameStatus();
       removeFlag();
     });
   });
@@ -493,7 +495,9 @@ function timeCount() {
   }, 1000);
 }
 
-replay.addEventListener('click', () => {
+replay.addEventListener('click', restartGame);
+
+function restartGame() {
   document.querySelector('.board').innerHTML = '';
   fillBoard();
   cell = document.querySelectorAll('.cell');
@@ -506,4 +510,21 @@ replay.addEventListener('click', () => {
     0
   );
   clearInterval(timerID);
-});
+}
+
+function checkGameStatus() {
+  let countVisible = 0;
+  let countFlag = 0;
+  cell.forEach((item) => {
+    if (item.classList.contains('visible')) {
+      countVisible++;
+    }
+    if (item.previousSibling) {
+      countFlag++;
+    }
+  });
+
+  if (countVisible + countFlag === 100) {
+    console.log('You win!');
+  }
+}
