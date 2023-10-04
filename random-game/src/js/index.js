@@ -1,3 +1,6 @@
+let resultGame;
+let timerIDforCloseBtn;
+
 const header = document.createElement('header');
 header.className = 'header';
 const background = document.createElement('img');
@@ -39,7 +42,19 @@ replay.innerHTML =
   "<img class='replay' src='./src/icons/replay.svg' alt='replay'>";
 time.innerHTML = '<span class="time__count">000</span>';
 
-//
+//POP-UP-FINISH START
+const popUpFinish = document.createElement('div');
+popUpFinish.className = 'pop-up-finish';
+gameBox.append(popUpFinish);
+popUpFinish.classList.add('none');
+const popUpInner = document.createElement('div');
+popUpInner.className = 'pop-up-finish__inner';
+popUpFinish.append(popUpInner);
+const blackout = document.createElement('div');
+blackout.className = 'blackout none';
+gameBox.prepend(blackout);
+
+//POP-UP-FINISH END
 
 const footer = document.createElement('footer');
 footer.className = 'footer';
@@ -99,7 +114,6 @@ function fillBoard() {
       cell.className = 'cell';
       border.append(cell);
       board.append(border);
-
       cell.dataset.id = [i, j];
     }
   }
@@ -205,14 +219,22 @@ function fillBoard() {
 fillBoard();
 
 let cell = document.querySelectorAll('.cell');
+let clickCount = 0;
 
 function visible() {
   cell.forEach((item) => {
     item.addEventListener('click', () => {
+      clickCount++;
+
       item.classList.add('visible');
       checkGameStatus();
-      if (item.innerHTML === '<span class="bomb">💩</span>')
+      if (item.innerHTML === '<span class="bomb">💩</span>') {
+        item.classList.add('red');
+        blackout.classList.remove('none');
+        resultGame = 'YOU LOSE';
+        openModalFinish(resultGame);
         document.body.classList.add('red');
+      }
       if (item.innerHTML === '') {
         startOpenNeighbor();
       }
@@ -446,6 +468,8 @@ function addFlag() {
   cell.forEach((item) => {
     item.addEventListener('contextmenu', (event) => {
       event.preventDefault();
+      clickCount++;
+
       if (!item.classList.contains('visible')) {
         const flag = document.createElement('span');
         flag.className = 'flag';
@@ -477,6 +501,8 @@ function removeFlag() {
   document.querySelectorAll('.flag').forEach((item) => {
     item.addEventListener('contextmenu', (event) => {
       event.preventDefault();
+      clickCount++;
+
       item.remove();
     });
   });
@@ -498,6 +524,10 @@ function timeCount() {
 replay.addEventListener('click', restartGame);
 
 function restartGame() {
+  document.body.classList.remove('red');
+  document.body.classList.remove('green');
+  popUpFinish.classList.add('none');
+  blackout.classList.add('none');
   document.querySelector('.board').innerHTML = '';
   fillBoard();
   cell = document.querySelectorAll('.cell');
@@ -505,11 +535,13 @@ function restartGame() {
   addFlag();
   countFlag.textContent = 10;
   sec = 0;
+  clickCount = 0;
   document.querySelector('.time__count').textContent = String(sec).padStart(
     3,
     0
   );
   clearInterval(timerID);
+  clearInterval(timerIDforCloseBtn);
 }
 
 function checkGameStatus() {
@@ -526,5 +558,28 @@ function checkGameStatus() {
 
   if (countVisible + countFlag === 100) {
     console.log('You win!');
+    resultGame = 'YOU WIN!';
+    openModalFinish(resultGame);
+    blackout.classList.remove('none');
+    document.body.classList.add('green');
+    b;
   }
+}
+
+function openModalFinish(resultGame) {
+  clearInterval(timerID);
+  setTimeout(() => {
+    popUpFinish.classList.remove('none');
+  }, 1000);
+  popUpInner.innerHTML = `<p>${resultGame}</p><br><p>Time: ${sec}</p><p>Clicks: ${clickCount}</p><br><br><p class="pop-up-finish__close">NEW GAME<p>`;
+  toggleClose();
+  document
+    .querySelector('.pop-up-finish__close')
+    .addEventListener('click', restartGame);
+}
+
+function toggleClose() {
+  timerIDforCloseBtn = setInterval(() => {
+    document.querySelector('.pop-up-finish__close').classList.toggle('scale');
+  }, 500);
 }
