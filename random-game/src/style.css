@@ -263,13 +263,22 @@ img {
   font-family: 'Tektur', sans-serif;
   color: #67d323;
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .none {
   display: none;
+}
+
+.close-btn {
+  position: absolute;
+  font-family: 'Tektur', sans-serif;
+  color: #67d323;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .pop-up-finish__close {

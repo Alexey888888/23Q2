@@ -86,6 +86,10 @@ boardWrapper.prepend(popUpCommon);
 const popUpCommonInner = document.createElement('div');
 popUpCommonInner.className = 'pop-up-common__inner';
 popUpCommon.append(popUpCommonInner);
+const closeBtn = document.createElement('div');
+closeBtn.className = 'close-btn';
+closeBtn.innerHTML = '<p class="pop-up-finish__close">CLOSE<p>';
+popUpCommon.append(closeBtn);
 
 //POP-UP END
 
@@ -576,7 +580,6 @@ function restartGame() {
     0
   );
   clearInterval(timerID);
-  clearInterval(timerIDforCloseBtn);
 }
 
 function checkGameStatus() {
@@ -606,8 +609,8 @@ function openModalFinish(resultGame) {
     popUpCommon.classList.add('pop-up-common-open');
   }, 500);
 
-  popUpCommonInner.innerHTML = `<p>YOU ${resultGame}!</p><br><p>Time: ${sec} sec</p><p>Clicks: ${clickCount}</p><br><br><p class="pop-up-finish__close">CLOSE<p>`;
-  toggleClose();
+  popUpCommonInner.innerHTML = `<p>YOU ${resultGame}!</p><br><p>Time: ${sec} sec</p><p>Clicks: ${clickCount}</p>`;
+
   document
     .querySelector('.pop-up-finish__close')
     .addEventListener('click', closeCommonPopUp);
@@ -633,6 +636,8 @@ function toggleClose() {
   }, 500);
 }
 
+toggleClose();
+
 function openAllBombs() {
   cell.forEach((item) => {
     if (item.innerHTML === '<span class="bomb">💩</span>') {
@@ -657,5 +662,8 @@ function resultsBtnHandler() {
 resultsBtnHandler();
 
 function showLastResults() {
+  popUpCommonInner.innerHTML = '';
+  popUpCommonInner.innerHTML = `<br><br>`;
+
   popUpCommon.classList.toggle('pop-up-common-open');
 }
