@@ -259,11 +259,11 @@ img {
 .pop-up-common__inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   font-family: 'Tektur', sans-serif;
   color: #67d323;
   position: absolute;
-  top: 30%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -276,7 +276,7 @@ img {
   position: absolute;
   font-family: 'Tektur', sans-serif;
   color: #67d323;
-  bottom: 80px;
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
 }

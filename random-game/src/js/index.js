@@ -611,18 +611,19 @@ function openModalFinish(resultGame) {
 
   popUpCommonInner.innerHTML = `<p>YOU ${resultGame}!</p><br><p>Time: ${sec} sec</p><p>Clicks: ${clickCount}</p>`;
 
-  document
-    .querySelector('.pop-up-finish__close')
-    .addEventListener('click', closeCommonPopUp);
-
   if (!localStorage.getItem('minesweeper888_results')) {
     const arr = [];
     localStorage.setItem('minesweeper888_results', JSON.stringify(arr));
   }
   const currentResultGameItem = new ResultGame(resultGame, sec, clickCount);
   const tempArr = JSON.parse(localStorage.getItem('minesweeper888_results'));
-  tempArr.push(currentResultGameItem);
+  tempArr.unshift(currentResultGameItem);
   localStorage.setItem('minesweeper888_results', JSON.stringify(tempArr));
+  const checkArr = JSON.parse(localStorage.getItem('minesweeper888_results'));
+  if (checkArr.length > 10) {
+    checkArr.pop();
+    localStorage.setItem('minesweeper888_results', JSON.stringify(checkArr));
+  }
 }
 
 function closeCommonPopUp() {
@@ -655,15 +656,26 @@ class ResultGame {
   }
 }
 
-function resultsBtnHandler() {
+function startBtnHandler() {
   resultsIcon.addEventListener('click', showLastResults);
+  document
+    .querySelector('.pop-up-finish__close')
+    .addEventListener('click', closeCommonPopUp);
 }
 
-resultsBtnHandler();
+startBtnHandler();
 
 function showLastResults() {
-  popUpCommonInner.innerHTML = '';
-  popUpCommonInner.innerHTML = `<br><br>`;
-
+  popUpCommonInner.innerHTML = '<p>LAST RESULTS:</p><br>';
+  if (localStorage.getItem('minesweeper888_results')) {
+    const tempArr = JSON.parse(localStorage.getItem('minesweeper888_results'));
+    let i = 0;
+    tempArr.forEach((el) => {
+      i++;
+      const item = document.createElement('p');
+      item.innerHTML = `${i}. ${el.result}, time: ${el.time}, clicks: ${el.clicks}`;
+      popUpCommonInner.append(item);
+    });
+  }
   popUpCommon.classList.toggle('pop-up-common-open');
 }
