@@ -9,19 +9,45 @@ background.src = './src/icons/favicon.png';
 document.body.prepend(header);
 header.prepend(background);
 
+const blackout2 = document.createElement('div');
+blackout2.className = 'blackout2 none';
+
 const main = document.createElement('main');
 main.className = 'main';
 const gameBox = document.createElement('div');
 gameBox.className = 'game-box';
 const tools = document.createElement('div');
+const toolsPro = document.createElement('div');
 tools.className = 'tools';
+toolsPro.className = 'tools tools-pro';
+const boardWrapper = document.createElement('div');
+boardWrapper.className = 'board__wrapper';
 const board = document.createElement('div');
 board.className = 'board';
 header.after(main);
 main.prepend(gameBox);
 gameBox.append(tools);
-gameBox.append(board);
-tools.insertAdjacentHTML('afterbegin', '');
+gameBox.append(boardWrapper);
+boardWrapper.append(board);
+boardWrapper.append(blackout2);
+gameBox.append(toolsPro);
+
+//
+const toolsUp = document.createElement('div');
+toolsUp.className = 'tools__up';
+const settingIcon = document.createElement('div');
+settingIcon.className = 'setting';
+const toggleSound = document.createElement('div');
+toggleSound.className = 'toggleSound';
+const resultsIcon = document.createElement('div');
+resultsIcon.className = 'results';
+toolsUp.append(settingIcon, toggleSound, resultsIcon);
+toolsPro.append(toolsUp);
+
+settingIcon.innerHTML =
+  "<img class='setting-icon' src='./src/icons/settings.png' alt='settings'>";
+resultsIcon.innerHTML =
+  "<img class='results-icon' src='./src/icons/result__list.png' alt='results'>";
 //
 const toolsDown = document.createElement('div');
 toolsDown.className = 'tools__down';
@@ -42,19 +68,26 @@ replay.innerHTML =
   "<img class='replay' src='./src/icons/replay.svg' alt='replay'>";
 time.innerHTML = '<span class="time__count">000</span>';
 
-//POP-UP-FINISH START
-const popUpFinish = document.createElement('div');
-popUpFinish.className = 'pop-up-finish';
-gameBox.append(popUpFinish);
-popUpFinish.classList.add('none');
-const popUpInner = document.createElement('div');
-popUpInner.className = 'pop-up-finish__inner';
-popUpFinish.append(popUpInner);
+//POP-UP START
+// const popUpFinish = document.createElement('div');
+// popUpFinish.className = 'pop-up-finish';
+// popUpFinish.classList.add('none');
+// gameBox.append(popUpFinish);
+// const popUpInner = document.createElement('div');
+// popUpInner.className = 'pop-up-finish__inner';
+// popUpFinish.append(popUpInner);
 const blackout = document.createElement('div');
 blackout.className = 'blackout none';
 gameBox.prepend(blackout);
 
-//POP-UP-FINISH END
+const popUpCommon = document.createElement('div');
+popUpCommon.className = 'pop-up-common';
+boardWrapper.prepend(popUpCommon);
+const popUpCommonInner = document.createElement('div');
+popUpCommonInner.className = 'pop-up-common__inner';
+popUpCommon.append(popUpCommonInner);
+
+//POP-UP END
 
 const footer = document.createElement('footer');
 footer.className = 'footer';
@@ -232,7 +265,7 @@ function visible() {
         item.classList.add('red');
         openAllBombs();
         blackout.classList.remove('none');
-        resultGame = 'YOU LOSE';
+        resultGame = 'LOSE';
         openModalFinish(resultGame);
         document.body.classList.add('red');
       }
@@ -525,10 +558,11 @@ function timeCount() {
 replay.addEventListener('click', restartGame);
 
 function restartGame() {
+  blackout2.classList.add('none');
   document.body.classList.remove('red');
   document.body.classList.remove('green');
-  popUpFinish.classList.add('none');
-  blackout.classList.add('none');
+  // popUpFinish.classList.add('none');
+
   document.querySelector('.board').innerHTML = '';
   fillBoard();
   cell = document.querySelectorAll('.cell');
@@ -558,25 +592,39 @@ function checkGameStatus() {
   });
 
   if (countVisible + countFlag === 100) {
-    console.log('You win!');
-    resultGame = 'YOU WIN!';
+    resultGame = 'WIN';
     openModalFinish(resultGame);
     blackout.classList.remove('none');
     document.body.classList.add('green');
-    b;
   }
 }
 
 function openModalFinish(resultGame) {
+  blackout2.classList.remove('none');
   clearInterval(timerID);
   setTimeout(() => {
-    popUpFinish.classList.remove('none');
-  }, 1000);
-  popUpInner.innerHTML = `<p>${resultGame}</p><br><p>Time: ${sec}</p><p>Clicks: ${clickCount}</p><br><br><p class="pop-up-finish__close">NEW GAME<p>`;
+    popUpCommon.classList.add('pop-up-common-open');
+  }, 500);
+
+  popUpCommonInner.innerHTML = `<p>YOU ${resultGame}!</p><br><p>Time: ${sec} sec</p><p>Clicks: ${clickCount}</p><br><br><p class="pop-up-finish__close">CLOSE<p>`;
   toggleClose();
   document
     .querySelector('.pop-up-finish__close')
-    .addEventListener('click', restartGame);
+    .addEventListener('click', closeCommonPopUp);
+
+  if (!localStorage.getItem('minesweeper888_results')) {
+    const arr = [];
+    localStorage.setItem('minesweeper888_results', JSON.stringify(arr));
+  }
+  const currentResultGameItem = new ResultGame(resultGame, sec, clickCount);
+  const tempArr = JSON.parse(localStorage.getItem('minesweeper888_results'));
+  tempArr.push(currentResultGameItem);
+  localStorage.setItem('minesweeper888_results', JSON.stringify(tempArr));
+}
+
+function closeCommonPopUp() {
+  popUpCommon.classList.remove('pop-up-common-open');
+  blackout.classList.add('none');
 }
 
 function toggleClose() {
@@ -591,4 +639,23 @@ function openAllBombs() {
       item.classList.add('visible');
     }
   });
+}
+
+class ResultGame {
+  constructor(result, time, clicks) {
+    this.result = result;
+    this.time = time;
+    this.clicks = clicks;
+    //this.openBombs = openBombs;
+  }
+}
+
+function resultsBtnHandler() {
+  resultsIcon.addEventListener('click', showLastResults);
+}
+
+resultsBtnHandler();
+
+function showLastResults() {
+  popUpCommon.classList.toggle('pop-up-common-open');
 }
