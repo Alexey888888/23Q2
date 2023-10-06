@@ -640,9 +640,9 @@ function toggleClose() {
 toggleClose();
 
 function openAllBombs() {
-  cell.forEach((item) => {
-    if (item.innerHTML === '<span class="bomb">💩</span>') {
-      item.classList.add('visible');
+  cell.forEach((el) => {
+    if (el.innerHTML === '<span class="bomb">💩</span>') {
+      el.classList.add('visible');
     }
   });
 }
@@ -673,7 +673,8 @@ function showLastResults() {
     tempArr.forEach((el) => {
       i++;
       const item = document.createElement('p');
-      item.innerHTML = `${i}. ${el.result}, time: ${el.time}, clicks: ${el.clicks}`;
+      item.className = 'results__item';
+      item.innerHTML = `${i}. ${el.result}, time: ${el.time} sec, clicks: ${el.clicks}`;
       popUpCommonInner.append(item);
     });
   }

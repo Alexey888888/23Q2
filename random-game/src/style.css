@@ -78,7 +78,7 @@
   justify-content: center;
   align-items: center;
   opacity: 0;
-  position: relative;
+  position: absolute;
   top: -4px;
   left: -4px;
 }
@@ -92,6 +92,7 @@ img {
   height: 40px;
   box-sizing: border-box;
   border: 4px outset rgb(109, 109, 109);
+  position: relative;
 }
 
 /* .cell:hover {
@@ -100,6 +101,7 @@ img {
 
 .bomb {
   font-size: 30px;
+  position: absolute;
 }
 
 .visible {
@@ -119,6 +121,7 @@ img {
   position: relative;
   top: -5px;
   left: -2px;
+  z-index: 1;
 }
 
 .footer {
@@ -258,8 +261,10 @@ img {
 
 .pop-up-common__inner {
   display: flex;
+  width: 250px;
+  /* width: 220px; */
   flex-direction: column;
-  /* align-items: center; */
+  align-items: center;
   font-family: 'Tektur', sans-serif;
   color: #67d323;
   position: absolute;
@@ -311,4 +316,8 @@ img {
   background: #000;
   opacity: 0.1;
   z-index: 20;
+}
+
+.results__item {
+  align-self: start;
 }
