@@ -282,10 +282,11 @@ function visible() {
       clickCount++;
 
       item.classList.add('visible');
-      checkGameStatus();
+
       if (item.innerHTML === '<span class="bomb">💩</span>' && isSound) {
         clickMineSound.play();
       }
+
       if (item.innerHTML === '<span class="bomb">💩</span>') {
         item.classList.add('red');
         openAllBombs();
@@ -294,6 +295,7 @@ function visible() {
         openModalFinish(resultGame);
         document.body.classList.add('red');
       }
+      checkGameStatus();
       if (item.innerHTML === '') {
         startOpenNeighbor();
       }
@@ -617,7 +619,10 @@ function checkGameStatus() {
     }
   });
 
-  if (countVisible + countFlag === 100) {
+  if (
+    countVisible + countFlag === 100 &&
+    !document.body.classList.contains('red')
+  ) {
     resultGame = 'WIN';
     openModalFinish(resultGame);
     blackout.classList.remove('none');
