@@ -53,6 +53,8 @@ toolsPro.append(toolsUp);
 
 settingIcon.innerHTML =
   "<img class='setting-icon' src='./src/icons/settings.png' alt='settings'>";
+toggleSound.innerHTML =
+  "<img class='sound-icon' src='./src/icons/sound-on.png' alt='sound'>";
 resultsIcon.innerHTML =
   "<img class='results-icon' src='./src/icons/result__list.png' alt='results'>";
 //
@@ -246,6 +248,7 @@ function fillBoard() {
         }
       }
     }
+    addColorNumber();
   }
 
   // addBombs();
@@ -270,7 +273,8 @@ function visible() {
     item.addEventListener('click', () => {
       if (
         item.innerHTML !== '<span class="bomb">💩</span>' &&
-        !item.classList.contains('visible')
+        !item.classList.contains('visible') &&
+        isSound
       ) {
         clickSound.play();
       }
@@ -278,8 +282,10 @@ function visible() {
 
       item.classList.add('visible');
       checkGameStatus();
-      if (item.innerHTML === '<span class="bomb">💩</span>') {
+      if (item.innerHTML === '<span class="bomb">💩</span>' && isSound) {
         clickMineSound.play();
+      }
+      if (item.innerHTML === '<span class="bomb">💩</span>') {
         item.classList.add('red');
         openAllBombs();
         blackout.classList.remove('none');
@@ -520,7 +526,7 @@ function addFlag() {
   cell.forEach((item) => {
     item.addEventListener('contextmenu', (event) => {
       event.preventDefault();
-      setFlagSound.play();
+      if (isSound) setFlagSound.play();
       clickCount++;
 
       if (!item.classList.contains('visible')) {
@@ -553,7 +559,7 @@ function startCounterFlag() {
 function removeFlag() {
   document.querySelectorAll('.flag').forEach((item) => {
     item.addEventListener('contextmenu', (event) => {
-      unSetFlagSound.play();
+      if (isSound) unSetFlagSound.play();
       event.preventDefault();
       clickCount++;
 
@@ -623,8 +629,8 @@ function openModalFinish(resultGame) {
   clearInterval(timerID);
   setTimeout(() => {
     if (resultGame === 'WIN') {
-      winSound.play();
-    } else loseSound.play();
+      if (isSound) winSound.play();
+    } else if (isSound) loseSound.play();
     popUpCommon.classList.add('pop-up-common-open');
   }, 500);
 
@@ -698,4 +704,35 @@ function showLastResults() {
     });
   }
   popUpCommon.classList.toggle('pop-up-common-open');
+}
+
+let isSound = 1;
+
+function soundBtnHandler() {
+  toggleSound.addEventListener('click', () => {
+    if (isSound === 1) {
+      toggleSound.innerHTML =
+        '<img class="sound-icon" src="./src/icons/sound-off.png" alt="sound"></img>';
+      isSound = 0;
+    } else {
+      toggleSound.innerHTML =
+        '<img class="sound-icon" src="./src/icons/sound-on.png" alt="sound"></img>';
+      isSound = 1;
+    }
+  });
+}
+
+soundBtnHandler();
+
+function addColorNumber() {
+  cell.forEach((item) => {
+    //console.log(item.innerHTML);
+    if (item.innerHTML === '1') item.classList.add('number-1');
+    if (item.innerHTML === '2') item.classList.add('number-2');
+    if (item.innerHTML === '3') item.classList.add('number-3');
+    if (item.innerHTML === '4') item.classList.add('number-5');
+    if (item.innerHTML === '6') item.classList.add('number-6');
+    if (item.innerHTML === '7') item.classList.add('number-7');
+    if (item.innerHTML === '8') item.classList.add('number-8');
+  });
 }
