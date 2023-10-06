@@ -248,6 +248,7 @@ function fillBoard() {
         }
       }
     }
+    addColorNumber();
   }
 
   // addBombs();
@@ -722,3 +723,16 @@ function soundBtnHandler() {
 }
 
 soundBtnHandler();
+
+function addColorNumber() {
+  cell.forEach((item) => {
+    //console.log(item.innerHTML);
+    if (item.innerHTML === '1') item.classList.add('number-1');
+    if (item.innerHTML === '2') item.classList.add('number-2');
+    if (item.innerHTML === '3') item.classList.add('number-3');
+    if (item.innerHTML === '4') item.classList.add('number-5');
+    if (item.innerHTML === '6') item.classList.add('number-6');
+    if (item.innerHTML === '7') item.classList.add('number-7');
+    if (item.innerHTML === '8') item.classList.add('number-8');
+  });
+}

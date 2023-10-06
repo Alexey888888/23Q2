@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Tektur', sans-serif;
 }
 
 .background {
@@ -80,6 +81,7 @@
   position: absolute;
   top: -4px;
   left: -4px;
+  font-weight: bold;
 }
 
 img {
@@ -323,4 +325,36 @@ img {
 
 .results__item {
   align-self: start;
+}
+
+.number-1 {
+  color: #1515e8;
+}
+
+.number-2 {
+  color: green;
+}
+
+.number-3 {
+  color: #da2c0e;
+}
+
+.number-4 {
+  color: #010176;
+}
+
+.number-5 {
+  color: brown;
+}
+
+.number-6 {
+  color: turquoise;
+}
+
+.number-7 {
+  color: black;
+}
+
+.number-8 {
+  color: white;
 }
