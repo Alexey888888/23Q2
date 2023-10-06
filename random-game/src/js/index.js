@@ -1,3 +1,10 @@
+const clickSound = new Audio('./src/audio/click.mp3');
+const clickMineSound = new Audio('./src/audio/mine.mp3');
+const setFlagSound = new Audio('./src/audio/set-flag.mp3');
+const unSetFlagSound = new Audio('./src/audio/unset-flag.mp3');
+const loseSound = new Audio('./src/audio/lose.mp3');
+const winSound = new Audio('./src/audio/win.mp3');
+
 let resultGame;
 let timerIDforCloseBtn;
 
@@ -261,11 +268,18 @@ let clickCount = 0;
 function visible() {
   cell.forEach((item) => {
     item.addEventListener('click', () => {
+      if (
+        item.innerHTML !== '<span class="bomb">💩</span>' &&
+        !item.classList.contains('visible')
+      ) {
+        clickSound.play();
+      }
       clickCount++;
 
       item.classList.add('visible');
       checkGameStatus();
       if (item.innerHTML === '<span class="bomb">💩</span>') {
+        clickMineSound.play();
         item.classList.add('red');
         openAllBombs();
         blackout.classList.remove('none');
@@ -506,6 +520,7 @@ function addFlag() {
   cell.forEach((item) => {
     item.addEventListener('contextmenu', (event) => {
       event.preventDefault();
+      setFlagSound.play();
       clickCount++;
 
       if (!item.classList.contains('visible')) {
@@ -538,6 +553,7 @@ function startCounterFlag() {
 function removeFlag() {
   document.querySelectorAll('.flag').forEach((item) => {
     item.addEventListener('contextmenu', (event) => {
+      unSetFlagSound.play();
       event.preventDefault();
       clickCount++;
 
@@ -606,6 +622,9 @@ function openModalFinish(resultGame) {
   blackout2.classList.remove('none');
   clearInterval(timerID);
   setTimeout(() => {
+    if (resultGame === 'WIN') {
+      winSound.play();
+    } else loseSound.play();
     popUpCommon.classList.add('pop-up-common-open');
   }, 500);
 
