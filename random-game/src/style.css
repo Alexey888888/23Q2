@@ -197,7 +197,8 @@ img {
 }
 
 .setting-icon,
-.results-icon {
+.results-icon,
+.sound-icon {
   width: 40px;
   opacity: 0.85;
 }
@@ -210,7 +211,8 @@ img {
 }
 
 .setting-icon,
-.results-icon {
+.results-icon,
+.sound-icon {
   margin-top: 3.5px;
   padding: 3px;
   border: 4px outset rgb(109, 109, 109);
@@ -218,7 +220,8 @@ img {
 
 .replay img:hover,
 .setting-icon:hover,
-.results-icon:hover {
+.results-icon:hover,
+.sound-icon:hover {
   cursor: pointer;
 
   opacity: 1;
@@ -226,7 +229,8 @@ img {
 
 .replay img:active,
 .setting-icon:active,
-.results-icon:active {
+.results-icon:active,
+.sound-icon:active {
   border: 4px inset rgb(109, 109, 109);
 }
 
