@@ -435,6 +435,15 @@ label {
     width: 35px;
     height: 35px;
   }
+
+  .pop-up-common {
+    width: 350px;
+    height: 350px;
+  }
+
+  .flag {
+    font-size: 26px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -451,5 +460,26 @@ label {
   .border {
     width: 30px;
     height: 30px;
+  }
+
+  .pop-up-common {
+    width: 300px;
+    height: 300px;
+  }
+
+  .close-btn {
+    bottom: 5%;
+  }
+
+  .pop-up-common__inner {
+    top: 41%;
+  }
+
+  .flag {
+    font-size: 21px;
+  }
+
+  .bomb {
+    font-size: 26px;
   }
 }
