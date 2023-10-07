@@ -200,7 +200,8 @@ img {
 
 .setting-icon,
 .results-icon,
-.sound-icon {
+.sound-icon,
+.help-icon {
   width: 40px;
   opacity: 0.85;
 }
@@ -214,7 +215,8 @@ img {
 
 .setting-icon,
 .results-icon,
-.sound-icon {
+.sound-icon,
+.help-icon {
   margin-top: 3.5px;
   padding: 3px;
   border: 4px outset rgb(109, 109, 109);
@@ -223,7 +225,8 @@ img {
 .replay img:hover,
 .setting-icon:hover,
 .results-icon:hover,
-.sound-icon:hover {
+.sound-icon:hover,
+.help-icon:hover {
   cursor: pointer;
 
   opacity: 1;
@@ -232,7 +235,8 @@ img {
 .replay img:active,
 .setting-icon:active,
 .results-icon:active,
-.sound-icon:active {
+.sound-icon:active,
+.help-icon:active {
   border: 4px inset rgb(109, 109, 109);
 }
 
@@ -414,4 +418,38 @@ label {
 
 .bombs-screen__fieldset {
   margin-bottom: 30px;
+}
+
+@media (max-width: 450px) {
+  .board {
+    width: 370px;
+    height: 350px;
+  }
+
+  .cell {
+    width: 35px;
+    height: 35px;
+  }
+
+  .border {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 380px) {
+  .board {
+    width: 320px;
+    height: 300px;
+  }
+
+  .cell {
+    width: 30px;
+    height: 30px;
+  }
+
+  .border {
+    width: 30px;
+    height: 30px;
+  }
 }

@@ -47,13 +47,22 @@ const toolsUp = document.createElement('div');
 toolsUp.className = 'tools__up';
 const settingIcon = document.createElement('div');
 settingIcon.className = 'setting';
+
+const helpIcon = document.createElement('a');
+helpIcon.href =
+  'https://ru.wikipedia.org/wiki/%D0%A1%D0%B0%D0%BF%D1%91%D1%80_(%D0%B8%D0%B3%D1%80%D0%B0)';
+helpIcon.className = 'help';
+helpIcon.setAttribute('target', '_blank');
+
 const toggleSound = document.createElement('div');
 toggleSound.className = 'toggleSound';
 const resultsIcon = document.createElement('div');
 resultsIcon.className = 'results';
-toolsUp.append(settingIcon, toggleSound, resultsIcon);
+toolsUp.append(settingIcon, helpIcon, toggleSound, resultsIcon);
 toolsPro.append(toolsUp);
 
+helpIcon.innerHTML =
+  "<img class='help-icon' src='./src/icons/help.png' alt='help'>";
 settingIcon.innerHTML =
   "<img class='setting-icon' src='./src/icons/settings.png' alt='settings'>";
 toggleSound.innerHTML =
@@ -703,6 +712,7 @@ function startBtnHandler() {
 startBtnHandler();
 
 function showLastResults() {
+  blackout.classList.remove('none');
   popUpCommonInner.innerHTML = '<p>LAST RESULTS:</p><br>';
   if (localStorage.getItem('minesweeper888_results')) {
     const tempArr = JSON.parse(localStorage.getItem('minesweeper888_results'));
@@ -808,6 +818,7 @@ let bombsIcon = '💣';
 
 function settingsBtnHandler() {
   settingIcon.addEventListener('click', () => {
+    blackout.classList.remove('none');
     popUpCommonInner.innerHTML = '<p>SETTINGS:</p><br><br>';
     popUpCommon.classList.toggle('pop-up-common-open');
     popUpCommonInner.append(bombsScreenFieldset);
