@@ -7,6 +7,7 @@ const winSound = new Audio('./src/audio/win.mp3');
 
 let resultGame;
 let timerIDforCloseBtn;
+let bombNum = 10;
 
 const header = document.createElement('header');
 header.className = 'header';
@@ -72,7 +73,7 @@ tools.append(toolsDown);
 const countFlag = document.createElement('div');
 countFlag.className = 'count-flag';
 flagCount.append(countFlag);
-countFlag.textContent = 10;
+countFlag.textContent = bombNum;
 replay.innerHTML =
   "<img class='replay' src='./src/icons/replay.svg' alt='replay'>";
 time.innerHTML = '<span class="time__count">000</span>';
@@ -139,7 +140,7 @@ function createMatrixBombs(firstClickCell) {
       matrixBombs.push(bomb);
 
     bombArrTemp.push(bomb.join(''));
-    if (matrixBombs.length < 10) create2();
+    if (matrixBombs.length < bombNum) create2();
   };
   create2();
 
@@ -281,10 +282,11 @@ function visible() {
       clickCount++;
 
       item.classList.add('visible');
-      checkGameStatus();
+
       if (item.innerHTML === '<span class="bomb">💩</span>' && isSound) {
         clickMineSound.play();
       }
+
       if (item.innerHTML === '<span class="bomb">💩</span>') {
         item.classList.add('red');
         openAllBombs();
@@ -293,6 +295,7 @@ function visible() {
         openModalFinish(resultGame);
         document.body.classList.add('red');
       }
+      checkGameStatus();
       if (item.innerHTML === '') {
         startOpenNeighbor();
       }
@@ -553,7 +556,7 @@ function startCounterFlag() {
       countFlagInner++;
     }
   });
-  countFlag.textContent = 10 - countFlagInner;
+  countFlag.textContent = bombNum - countFlagInner;
 }
 
 function removeFlag() {
@@ -594,7 +597,7 @@ function restartGame() {
   cell = document.querySelectorAll('.cell');
   visible();
   addFlag();
-  countFlag.textContent = 10;
+  countFlag.textContent = bombNum;
   sec = 0;
   clickCount = 0;
   document.querySelector('.time__count').textContent = String(sec).padStart(
@@ -616,7 +619,10 @@ function checkGameStatus() {
     }
   });
 
-  if (countVisible + countFlag === 100) {
+  if (
+    countVisible + countFlag === 100 &&
+    !document.body.classList.contains('red')
+  ) {
     resultGame = 'WIN';
     openModalFinish(resultGame);
     blackout.classList.remove('none');
@@ -736,3 +742,34 @@ function addColorNumber() {
     if (item.innerHTML === '8') item.classList.add('number-8');
   });
 }
+
+//---------------------------------------------------------------
+
+const bombRange = document.createElement('input');
+bombRange.className = 'bomb-range';
+bombRange.type = 'range';
+bombRange.min = '1';
+bombRange.max = '99';
+bombRange.value = '10';
+
+const bombScreen = document.createElement('p');
+bombScreen.className = 'bomb-screen';
+bombScreen.innerHTML = `<span>Bombs: </span>${bombRange.value}`;
+
+function settingsBtnHandler() {
+  settingIcon.addEventListener('click', () => {
+    popUpCommonInner.innerHTML = '<p>SETTINGS:</p><br>';
+    popUpCommon.classList.toggle('pop-up-common-open');
+    popUpCommonInner.append(bombRange);
+    popUpCommonInner.append(bombScreen);
+
+    setInterval(() => {
+      bombScreen.innerHTML = `<br><span>Bombs: </span>${bombRange.value}`;
+      bombNum = bombRange.value;
+    }, 100);
+  });
+
+  bombRange.addEventListener('change', restartGame);
+}
+
+settingsBtnHandler();
