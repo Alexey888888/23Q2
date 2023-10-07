@@ -4,6 +4,8 @@ const setFlagSound = new Audio('./src/audio/set-flag.mp3');
 const unSetFlagSound = new Audio('./src/audio/unset-flag.mp3');
 const loseSound = new Audio('./src/audio/lose.mp3');
 const winSound = new Audio('./src/audio/win.mp3');
+const clickMineSoundNorm = new Audio('./src/audio/mine-norm.mp3');
+let bang = clickMineSoundNorm;
 
 let resultGame;
 let timerIDforCloseBtn;
@@ -169,8 +171,9 @@ function fillBoard() {
     const firstClickCell = event.srcElement.dataset.id;
     const matrixBombs = createMatrixBombs(firstClickCell);
     for (let i = 0; i < matrixBombs.length; i++) {
-      document.querySelector(`[data-id="${matrixBombs[i]}"]`).innerHTML =
-        '<span class="bomb">💩</span>';
+      document.querySelector(
+        `[data-id="${matrixBombs[i]}"]`
+      ).innerHTML = `<span class="bomb">${bombsIcon}</span>`;
     }
 
     fillNeighbor();
@@ -185,61 +188,61 @@ function fillBoard() {
         let count = 0;
         if (
           document.querySelector(`[data-id="${[i, j]}"]`).innerHTML !==
-          '<span class="bomb">💩</span>'
+          `<span class="bomb">${bombsIcon}</span>`
         ) {
           if (document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i - 1, j - 1]}"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
+                .innerHTML === `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i - 1, j]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i - 1, j]}"]`).innerHTML ===
-              '<span class="bomb">💩</span>'
+              `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i - 1, j + 1]}"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
+                .innerHTML === `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i, j - 1]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i, j - 1]}"]`).innerHTML ===
-              '<span class="bomb">💩</span>'
+              `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i, j + 1]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i, j + 1]}"]`).innerHTML ===
-              '<span class="bomb">💩</span>'
+              `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i + 1, j - 1]}"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
+                .innerHTML === `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i + 1, j]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i + 1, j]}"]`).innerHTML ===
-              '<span class="bomb">💩</span>'
+              `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
           if (document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)) {
             if (
               document.querySelector(`[data-id="${[i + 1, j + 1]}"]`)
-                .innerHTML === '<span class="bomb">💩</span>'
+                .innerHTML === `<span class="bomb">${bombsIcon}</span>`
             )
               count++;
           }
@@ -273,7 +276,7 @@ function visible() {
   cell.forEach((item) => {
     item.addEventListener('click', () => {
       if (
-        item.innerHTML !== '<span class="bomb">💩</span>' &&
+        item.innerHTML !== `<span class="bomb">${bombsIcon}</span>` &&
         !item.classList.contains('visible') &&
         isSound
       ) {
@@ -283,11 +286,14 @@ function visible() {
 
       item.classList.add('visible');
 
-      if (item.innerHTML === '<span class="bomb">💩</span>' && isSound) {
-        clickMineSound.play();
+      if (
+        item.innerHTML === `<span class="bomb">${bombsIcon}</span>` &&
+        isSound
+      ) {
+        bang.play();
       }
 
-      if (item.innerHTML === '<span class="bomb">💩</span>') {
+      if (item.innerHTML === `<span class="bomb">${bombsIcon}</span>`) {
         item.classList.add('red');
         openAllBombs();
         blackout.classList.remove('none');
@@ -415,7 +421,7 @@ function openNeighborReverse() {
 }
 
 function startOpenNeighbor() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 4; i++) {
     openNeighbor();
   }
   openNeighborNumber();
@@ -672,7 +678,7 @@ toggleClose();
 
 function openAllBombs() {
   cell.forEach((el) => {
-    if (el.innerHTML === '<span class="bomb">💩</span>') {
+    if (el.innerHTML === `<span class="bomb">${bombsIcon}</span>`) {
       el.classList.add('visible');
     }
   });
@@ -732,7 +738,6 @@ soundBtnHandler();
 
 function addColorNumber() {
   cell.forEach((item) => {
-    //console.log(item.innerHTML);
     if (item.innerHTML === '1') item.classList.add('number-1');
     if (item.innerHTML === '2') item.classList.add('number-2');
     if (item.innerHTML === '3') item.classList.add('number-3');
@@ -752,19 +757,78 @@ bombRange.min = '1';
 bombRange.max = '99';
 bombRange.value = '10';
 
-const bombScreen = document.createElement('p');
+const bombsScreenFieldset = document.createElement('fieldset');
+bombsScreenFieldset.className = 'bombs-screen__fieldset';
+const bombScreen = document.createElement('legend');
 bombScreen.className = 'bomb-screen';
 bombScreen.innerHTML = `<span>Bombs: </span>${bombRange.value}`;
 
+//
+const bombsSelectList = document.createElement('fieldset');
+const bombsSelectLegend = document.createElement('legend');
+
+const bombsSelectItemBomb = document.createElement('div');
+const bombsSelectItemHankey = document.createElement('div');
+bombsSelectLegend.textContent = 'Select bomb icon';
+
+const bombsSelectInputBomb = document.createElement('input');
+bombsSelectInputBomb.name = 'mines';
+bombsSelectInputBomb.type = 'radio';
+bombsSelectInputBomb.setAttribute('checked', bombsSelectInputBomb.id);
+bombsSelectInputBomb.value = '💣';
+bombsSelectInputBomb.id = 'bomb';
+const bombsSelectLabelBomb = document.createElement('label');
+bombsSelectLabelBomb.className = 'bombs__label';
+bombsSelectLabelBomb.classList.add('selected');
+bombsSelectLabelBomb.setAttribute('for', bombsSelectInputBomb.id);
+bombsSelectLabelBomb.innerHTML = '💣';
+
+const bombsSelectInputHankey = document.createElement('input');
+bombsSelectInputHankey.name = 'mines';
+bombsSelectInputHankey.type = 'radio';
+bombsSelectInputHankey.value = '💩';
+bombsSelectInputHankey.id = 'hankey';
+const bombsSelectLabelHankey = document.createElement('label');
+bombsSelectLabelHankey.className = 'bombs__label';
+bombsSelectLabelHankey.setAttribute('for', bombsSelectInputHankey.id);
+bombsSelectLabelHankey.innerHTML = '💩';
+
+bombsSelectList.prepend(bombsSelectLegend);
+bombsSelectList.append(bombsSelectItemBomb);
+bombsSelectItemBomb.append(bombsSelectLabelBomb);
+bombsSelectLabelBomb.append(bombsSelectInputBomb);
+
+bombsSelectList.append(bombsSelectItemHankey);
+bombsSelectItemHankey.append(bombsSelectLabelHankey);
+bombsSelectLabelHankey.append(bombsSelectInputHankey);
+
+let bombsIcon = '💣';
+
+//
+
 function settingsBtnHandler() {
   settingIcon.addEventListener('click', () => {
-    popUpCommonInner.innerHTML = '<p>SETTINGS:</p><br>';
+    popUpCommonInner.innerHTML = '<p>SETTINGS:</p><br><br>';
     popUpCommon.classList.toggle('pop-up-common-open');
-    popUpCommonInner.append(bombRange);
-    popUpCommonInner.append(bombScreen);
+    popUpCommonInner.append(bombsScreenFieldset);
+    bombsScreenFieldset.append(bombScreen);
+    bombsScreenFieldset.append(bombRange);
+
+    //
+    popUpCommonInner.append(bombsSelectList);
+    document.querySelectorAll('.bombs__label').forEach((item) => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.bombs__label').forEach((el) => {
+          el.classList.remove('selected');
+          item.classList.add('selected');
+        });
+        changeBombIcon();
+      });
+    });
+    //
 
     setInterval(() => {
-      bombScreen.innerHTML = `<br><span>Bombs: </span>${bombRange.value}`;
+      bombScreen.innerHTML = `Bombs: ${bombRange.value}`;
       bombNum = bombRange.value;
     }, 100);
   });
@@ -773,3 +837,15 @@ function settingsBtnHandler() {
 }
 
 settingsBtnHandler();
+
+function changeBombIcon() {
+  if (bombsSelectLabelHankey.classList.contains('selected')) {
+    bombsIcon = '💩';
+    bang = clickMineSound;
+  }
+  if (bombsSelectLabelBomb.classList.contains('selected')) {
+    bombsIcon = '💣';
+    bang = clickMineSoundNorm;
+  }
+  restartGame();
+}
