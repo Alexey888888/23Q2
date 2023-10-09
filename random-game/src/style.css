@@ -201,7 +201,8 @@ img {
 .setting-icon,
 .results-icon,
 .sound-icon,
-.help-icon {
+.help-icon,
+.theme-icon {
   width: 40px;
   opacity: 0.85;
 }
@@ -216,7 +217,8 @@ img {
 .setting-icon,
 .results-icon,
 .sound-icon,
-.help-icon {
+.help-icon,
+.theme-icon {
   margin-top: 3.5px;
   padding: 3px;
   border: 4px outset rgb(109, 109, 109);
@@ -226,7 +228,8 @@ img {
 .setting-icon:hover,
 .results-icon:hover,
 .sound-icon:hover,
-.help-icon:hover {
+.help-icon:hover,
+.theme-icon:hover {
   cursor: pointer;
 
   opacity: 1;
@@ -236,7 +239,8 @@ img {
 .setting-icon:active,
 .results-icon:active,
 .sound-icon:active,
-.help-icon:active {
+.help-icon:active,
+.theme-icon:active {
   border: 4px inset rgb(109, 109, 109);
 }
 
@@ -482,4 +486,16 @@ label {
   .bomb {
     font-size: 26px;
   }
+}
+
+.theme-hidden {
+  background: none;
+}
+
+.theme-invert {
+  filter: invert(50%);
+}
+
+.theme-dark {
+  background: #2b2424;
 }
