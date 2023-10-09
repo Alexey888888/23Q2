@@ -11,6 +11,8 @@ let resultGame;
 let timerIDforCloseBtn;
 let bombNum = 10;
 
+let isDark = 0;
+
 const header = document.createElement('header');
 header.className = 'header';
 const background = document.createElement('img');
@@ -56,9 +58,13 @@ helpIcon.setAttribute('target', '_blank');
 
 const toggleSound = document.createElement('div');
 toggleSound.className = 'toggleSound';
+
+const toggleTheme = document.createElement('div');
+toggleTheme.className = 'toggleTheme';
+
 const resultsIcon = document.createElement('div');
 resultsIcon.className = 'results';
-toolsUp.append(settingIcon, helpIcon, toggleSound, resultsIcon);
+toolsUp.append(settingIcon, helpIcon, toggleSound, toggleTheme, resultsIcon);
 toolsPro.append(toolsUp);
 
 helpIcon.innerHTML =
@@ -67,6 +73,8 @@ settingIcon.innerHTML =
   "<img class='setting-icon' src='./src/icons/settings.png' alt='settings'>";
 toggleSound.innerHTML =
   "<img class='sound-icon' src='./src/icons/sound-on.png' alt='sound'>";
+toggleTheme.innerHTML =
+  "<img class='theme-icon' src='./src/icons/theme.png' alt='sound'>";
 resultsIcon.innerHTML =
   "<img class='results-icon' src='./src/icons/result__list.png' alt='results'>";
 //
@@ -170,6 +178,7 @@ function fillBoard() {
       border.className = 'border';
       const cell = document.createElement('div');
       cell.className = 'cell';
+      if (isDark) cell.classList.add('theme-dark');
       border.append(cell);
       board.append(border);
       cell.dataset.id = [i, j];
@@ -636,7 +645,8 @@ function checkGameStatus() {
 
   if (
     countVisible + countFlag === 100 &&
-    !document.body.classList.contains('red')
+    !document.body.classList.contains('red') &&
+    countFlag === +bombNum
   ) {
     resultGame = 'WIN';
     openModalFinish(resultGame);
@@ -860,3 +870,32 @@ function changeBombIcon() {
   }
   restartGame();
 }
+
+function themeBtnHandler() {
+  toggleTheme.addEventListener('click', () => {
+    board.classList.toggle('theme-hidden');
+    tools.classList.toggle('theme-hidden');
+    toolsPro.classList.toggle('theme-hidden');
+    toolsUp.classList.toggle('theme-hidden');
+    settingIcon.classList.toggle('theme-invert');
+    helpIcon.classList.toggle('theme-invert');
+    toggleSound.classList.toggle('theme-invert');
+    toggleTheme.classList.toggle('theme-invert');
+    resultsIcon.classList.toggle('theme-invert');
+    replay.classList.toggle('theme-invert');
+
+    if (isDark === 0) {
+      cell.forEach((item) => {
+        item.classList.toggle('theme-dark');
+      });
+      isDark = 1;
+    } else {
+      cell.forEach((item) => {
+        item.classList.toggle('theme-dark');
+      });
+      isDark = 0;
+    }
+  });
+}
+
+themeBtnHandler();
