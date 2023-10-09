@@ -636,7 +636,8 @@ function checkGameStatus() {
 
   if (
     countVisible + countFlag === 100 &&
-    !document.body.classList.contains('red')
+    !document.body.classList.contains('red') &&
+    countFlag === +bombNum
   ) {
     resultGame = 'WIN';
     openModalFinish(resultGame);
