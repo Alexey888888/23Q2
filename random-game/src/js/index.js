@@ -98,13 +98,7 @@ replay.innerHTML =
 time.innerHTML = '<span class="time__count">000</span>';
 
 //POP-UP START
-// const popUpFinish = document.createElement('div');
-// popUpFinish.className = 'pop-up-finish';
-// popUpFinish.classList.add('none');
-// gameBox.append(popUpFinish);
-// const popUpInner = document.createElement('div');
-// popUpInner.className = 'pop-up-finish__inner';
-// popUpFinish.append(popUpInner);
+
 const blackout = document.createElement('div');
 blackout.className = 'blackout none';
 gameBox.prepend(blackout);
@@ -165,10 +159,6 @@ function createMatrixBombs(firstClickCell) {
 
   return matrixBombs;
 }
-
-//
-
-//
 
 function fillBoard() {
   const matrix = createMatrix();
@@ -273,10 +263,6 @@ function fillBoard() {
     addColorNumber();
   }
 
-  // addBombs();
-
-  // fillNeighbor();
-
   function addBombsAfterClick() {
     document.querySelectorAll('.cell').forEach((item) => {
       item.addEventListener('click', addBombs);
@@ -312,7 +298,8 @@ function visible() {
       }
 
       if (item.innerHTML === `<span class="bomb">${bombsIcon}</span>`) {
-        item.classList.add('red');
+        item.classList.add('red-2');
+
         openAllBombs();
         blackout.classList.remove('none');
         resultGame = 'LOSE';
@@ -614,8 +601,6 @@ function restartGame() {
   blackout2.classList.add('none');
   document.body.classList.remove('red');
   document.body.classList.remove('green');
-  // popUpFinish.classList.add('none');
-
   document.querySelector('.board').innerHTML = '';
   fillBoard();
   cell = document.querySelectorAll('.cell');
@@ -708,7 +693,6 @@ class ResultGame {
     this.result = result;
     this.time = time;
     this.clicks = clicks;
-    //this.openBombs = openBombs;
   }
 }
 
@@ -768,8 +752,6 @@ function addColorNumber() {
   });
 }
 
-//---------------------------------------------------------------
-
 const bombRange = document.createElement('input');
 bombRange.className = 'bomb-range';
 bombRange.type = 'range';
@@ -824,8 +806,6 @@ bombsSelectLabelHankey.append(bombsSelectInputHankey);
 
 let bombsIcon = '💣';
 
-//
-
 function settingsBtnHandler() {
   settingIcon.addEventListener('click', () => {
     blackout.classList.remove('none');
@@ -835,7 +815,6 @@ function settingsBtnHandler() {
     bombsScreenFieldset.append(bombScreen);
     bombsScreenFieldset.append(bombRange);
 
-    //
     popUpCommonInner.append(bombsSelectList);
     document.querySelectorAll('.bombs__label').forEach((item) => {
       item.addEventListener('click', () => {
@@ -846,7 +825,6 @@ function settingsBtnHandler() {
         changeBombIcon();
       });
     });
-    //
 
     setInterval(() => {
       bombScreen.innerHTML = `Bombs: ${bombRange.value}`;
@@ -882,7 +860,7 @@ function themeBtnHandler() {
     toggleSound.classList.toggle('theme-invert');
     toggleTheme.classList.toggle('theme-invert');
     resultsIcon.classList.toggle('theme-invert');
-    replay.classList.toggle('theme-invert');
+    replay.classList.toggle('theme-invert-2');
 
     if (isDark === 0) {
       cell.forEach((item) => {
