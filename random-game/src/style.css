@@ -493,9 +493,19 @@ label {
 }
 
 .theme-invert {
-  filter: invert(50%);
+  filter: invert(0.3);
+}
+
+.theme-invert-2 {
+  filter: invert(0.4);
 }
 
 .theme-dark {
   background: #2b2424;
+}
+
+.red-2 {
+  position: relative;
+  background: #dc0f0f;
+  z-index: 19;
 }
